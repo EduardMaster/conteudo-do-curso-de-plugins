@@ -16,10 +16,13 @@ public class ComandoDeleteWarp implements CommandExecutor {
 		} else {
 
 			String nome = args[0];
+			if (WarpAPI.hasWarp(nome)) {
 
-			WarpAPI.removeWarp(nome);
-			sender.sendMessage("§aA warp " + nome + " foi deletada!");
-
+				WarpAPI.removeWarp(nome);
+				sender.sendMessage("§aA warp " + nome + " foi deletada!");
+			} else {
+				sender.sendMessage("§cEste warp nao foi setado!");
+			}
 		}
 
 		return true;

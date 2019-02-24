@@ -25,6 +25,7 @@ import net.eduard.curso.tempo.ComandoTimer;
 import net.eduard.curso.warp.ComandoDeleteWarp;
 import net.eduard.curso.warp.ComandoSetWarp;
 import net.eduard.curso.warp.ComandoWarps;
+import net.eduard.curso.warp.MenuWarps;
 
 public class CursoEduard extends JavaPlugin {
 	private static CursoEduard instance;
@@ -42,8 +43,12 @@ public class CursoEduard extends JavaPlugin {
 		spawn();
 		tempo();
 		economia();
+		eventos();
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Plugin ativado do curso");
+	}
+	public void eventos() {
+		Bukkit.getPluginManager().registerEvents(new MenuWarps() , this);
 	}
 
 	public void rankup() {

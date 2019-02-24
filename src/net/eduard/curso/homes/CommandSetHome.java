@@ -5,9 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.CursoEduard;
-
-public class CommandCreateHome implements CommandExecutor {
+public class CommandSetHome implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -17,8 +15,9 @@ public class CommandCreateHome implements CommandExecutor {
 				p.sendMessage("Utilize /sethome <nome>.");
 			} else {
 				String nomedahome = args[0];
-				CursoEduard.getConfigs().set("home." + p.getName() + "." + nomedahome, p.getLocation());
-				CursoEduard.getConfigs().saveConfig();
+//				CursoEduard.getConfigs().set("home." + p.getName() + "." + nomedahome, p.getLocation());
+//				CursoEduard.getConfigs().saveConfig();
+				HomesAPI.setHome(p, nomedahome);
 				p.sendMessage("§a§lHOME §aHome setada com sucesso!");
 			}
 		}

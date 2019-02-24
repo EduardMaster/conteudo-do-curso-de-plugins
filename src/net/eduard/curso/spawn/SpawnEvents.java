@@ -18,7 +18,7 @@ public class SpawnEvents extends EventsManager {
 	}
 	@EventHandler
 	public void reiniciarTeleportaProSpawn(PlayerRespawnEvent e) {
-		Player p = e.getPlayer();
+//		Player p = e.getPlayer();
 		if (CursoEduard.getConfigs().contains("spawn"))
 			e.setRespawnLocation(CursoEduard.getConfigs().getLocation("spawn"));
 	}
