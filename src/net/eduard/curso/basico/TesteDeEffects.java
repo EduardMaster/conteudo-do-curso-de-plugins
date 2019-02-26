@@ -1,4 +1,4 @@
-package net.eduard.curso.eventos;
+package net.eduard.curso.basico;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;

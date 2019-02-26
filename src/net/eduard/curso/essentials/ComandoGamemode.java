@@ -1,4 +1,4 @@
-package net.eduard.curso.inicio;
+package net.eduard.curso.essentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
