@@ -8,6 +8,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.help.HelpTopic;
 
+import net.eduard.curso.Assunto;
+/**
+ * Alterar mensagem do quando executa um comando Errado
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel=5)
 public class ComandoErrado implements Listener {
 	@EventHandler
 	public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {

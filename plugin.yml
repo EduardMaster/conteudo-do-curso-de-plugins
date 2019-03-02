@@ -45,7 +45,13 @@ commands:
     usage: /<command> <warp>
   delay:
   timer:
-  cooldown:
+    description: Inicia um Timer ou seja um repetidor
+  timer2:
+    description: Igual comando timer, a diferenca que o timer esta em classe separada
+  cooldown1:
+    description: Ao fizer este comando ficara em cooldown nao podendo digitar novamente
+  cooldown2:
+    description: Igual comando cooldown1, a diferenca mostra o tempo restante para sair do cooldown  
   money:
     aliases: [dinheiro]
   

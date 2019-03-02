@@ -3,30 +3,14 @@ package net.eduard.curso;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.BukkitConfig;
-import net.eduard.curso.caixas.CaixaAPI;
-import net.eduard.curso.economia.CoinsEventos;
-import net.eduard.curso.economia.CoinsSQL;
-import net.eduard.curso.economia.ComandoEconomia;
-import net.eduard.curso.eventos.Eventos;
-import net.eduard.curso.login.ComandoLogin;
-import net.eduard.curso.login.ComandoRegister;
-import net.eduard.curso.rankup.ComandoRankup;
-import net.eduard.curso.rankup.RankAPI;
-import net.eduard.curso.scoreboard.ScoreboardComDisplayboard;
-import net.eduard.curso.spawn.ComandoSetSpawn;
-import net.eduard.curso.spawn.ComandoSpawn;
-import net.eduard.curso.spawn.SpawnEvents;
-import net.eduard.curso.tempo.ComandoCooldown;
-import net.eduard.curso.tempo.ComandoDelay;
-import net.eduard.curso.tempo.ComandoTimer;
-import net.eduard.curso.tempo.TimerBasico;
-import net.eduard.curso.warp.ComandoDeleteWarp;
-import net.eduard.curso.warp.ComandoSetWarp;
-import net.eduard.curso.warp.ComandoWarps;
-import net.eduard.curso.warp.MenuWarps;
+import net.eduard.curso.eventos.PegarDropsAutomaticoDeMineracao;
+import net.eduard.curso.tempo.CooldownBasico;
+import net.eduard.curso.tempo.CooldownIntermediario;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -68,38 +52,49 @@ public class CursoEduard extends JavaPlugin {
 		// iniciando a variavel config com uma nova config chamada 'config.yml' e
 		// salvada na pasta deste plugin
 		config = new BukkitConfig("config.yml", this);
-		new TimerBasico().ligar(this);
-
+//		new TimerBasico().ligar(this);
 		
-		getCommand("login").setExecutor(new ComandoLogin());
-		getCommand("register").setExecutor(new ComandoRegister());
-		getCommand("delay").setExecutor(new ComandoDelay());
-		getCommand("cooldown").setExecutor(new ComandoCooldown());
-		getCommand("timer").setExecutor(new ComandoTimer());
-		getCommand("delwarp").setExecutor(new ComandoDeleteWarp());
-		getCommand("setwarp").setExecutor(new ComandoSetWarp());
-		getCommand("warp").setExecutor(new ComandoDeleteWarp());
-		getCommand("warps").setExecutor(new ComandoWarps());
-		Bukkit.getPluginManager().registerEvents(new MenuWarps(), this);
-		ScoreboardComDisplayboard.ligar(this);
-		CaixaAPI.reload();
-		getCommand("money").setExecutor(new ComandoEconomia());
-		CoinsSQL.abrirConexao();
-		CoinsSQL.criarTabelaContas();
-		Bukkit.getPluginManager().registerEvents(new CoinsEventos(), this);
-		getCommand("setspawn").setExecutor(new ComandoSetSpawn());
-		getCommand("spawn").setExecutor(new ComandoSpawn());
-		getCommand("rank").setExecutor(new ComandoRankup());
-		RankAPI.reload();
-		new SpawnEvents().register(this);
-		ScoreboardComDisplayboard.ligar(this);
-		Bukkit.getPluginManager().registerEvents(new Eventos(), this);
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Plugin ativado do curso");
+		getCommand("cooldown1").setExecutor(new CooldownBasico());
+		getCommand("cooldown2").setExecutor(new CooldownIntermediario());
+		Bukkit.getPluginManager().registerEvents(new PegarDropsAutomaticoDeMineracao(), this);
+//
+//		
+//		getCommand("login").setExecutor(new ComandoLogin());
+//		getCommand("register").setExecutor(new ComandoRegister());
+//		getCommand("delay").setExecutor(new ComandoDelay());
+//		getCommand("cooldown").setExecutor(new ComandoCooldown());
+//		getCommand("timer").setExecutor(new ComandoTimer());
+//		getCommand("delwarp").setExecutor(new ComandoDeleteWarp());
+//		getCommand("setwarp").setExecutor(new ComandoSetWarp());
+//		getCommand("warp").setExecutor(new ComandoDeleteWarp());
+//		getCommand("warps").setExecutor(new ComandoWarps());
+//		Bukkit.getPluginManager().registerEvents(new MenuWarps(), this);
+//		ScoreboardComDisplayboard.ligar(this);
+//		CaixaAPI.reload();
+//		getCommand("money").setExecutor(new ComandoEconomia());
+//		CoinsSQL.abrirConexao();
+//		CoinsSQL.criarTabelaContas();
+//		Bukkit.getPluginManager().registerEvents(new CoinsEventos(), this);
+//		getCommand("setspawn").setExecutor(new ComandoSetSpawn());
+//		getCommand("spawn").setExecutor(new ComandoSpawn());
+//		getCommand("rank").setExecutor(new ComandoRankup());
+//		RankAPI.reload();
+//		new SpawnEvents().register(this);
+//		ScoreboardComDisplayboard.ligar(this);
+//		Bukkit.getPluginManager().registerEvents(new Eventos(), this);
+//		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Plugin ativado do curso");
+	}
+	/**
+	 * Registra uma classe com Eventos
+	 * @param classeComEventos Classe com Eventos
+	 */
+	public void registrarEventos(Listener classeComEventos) {
+		Bukkit.getPluginManager().registerEvents(classeComEventos, this);
 	}
 
 	public void onDisable() {
-		CaixaAPI.save();
-		RankAPI.save();
+//		CaixaAPI.save();
+//		RankAPI.save();
 		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Plugin desativado do curso");
 	}
 
@@ -111,5 +106,61 @@ public class CursoEduard extends JavaPlugin {
 	public static CursoEduard getInstance() {
 		return instance;
 	}
+	
+	public void configuracaoPadrao() {
+		FileConfiguration config = getConfig();
+		// teste do plugin: Sistema de nomeclatura de mensagem/op§§o
+		// Teste do Plugin: Sistema de nomeclatura de mensagem/secao
+		// teste-do-plugin: Sistema de nomeclatura de mensagem/op§§o
+		// Teste-do-Plugin: Sistema de nomeclatura de mensagem/secao
+		// TesteDoPlugin: Sistema de nomeclatura de classe
+		// testeDoPlugin: Sistema de nomeclatura de variavel/pacote
+		// teste_do_plugin: Sistema de nomeclatura de variavel/pacote
+		// Teste_do_Plugin: Sistema de nomeclatura de variavel
+		config.set("ALGO_NA_CONFIG", 1);
+		config.set("algo_na_config", 1);
+		config.set("AlgoNaConfig", 1);
+		config.set("algoNaConfig", 1);
+		config.set("algo-na-config", 1);
+		config.set("algo na config", 1);
+		config.set("Algo na Config", 1);
+		config.set("Algo-na-Config", 1);
+		config.set("$player", 1);
+		config.set("$player$", 1);
+		config.set("<player>", 1);
+		config.set("%player%", 1);
+		config.set("%player", 1);
+		config.set("@player@", 1);
+		config.set("@player", 1);
+		config.set("{player}", 1);
+		config.set("[player]", 1);
+		config.set("(player)", 1);
+	}
 
+
+	public void mensagensColoridas() {
+		Bukkit.broadcastMessage("§6Tudo bem amo §evoces");
+		Bukkit.broadcastMessage("§eTudo bem amo §6voces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§2Tudo bem amo §avoces");
+		Bukkit.broadcastMessage("§aTudo bem amo §2voces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§dTudo bem amo §5voces");
+		Bukkit.broadcastMessage("§5Tudo bem amo §dvoces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§bTudo bem amo §3voces");
+		Bukkit.broadcastMessage("§3Tudo bem amo §bvoces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§8Tudo bem amo §7voces");
+		Bukkit.broadcastMessage("§7Tudo bem amo §8voces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§cTudo bem amo §4voces");
+		Bukkit.broadcastMessage("§4Tudo bem amo §cvoces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§1Tudo bem amo §9voces");
+		Bukkit.broadcastMessage("§9Tudo bem amo §1voces");
+		Bukkit.broadcastMessage(" ");
+		Bukkit.broadcastMessage("§0Tudo bem amo §Fvoces");
+		Bukkit.broadcastMessage("§FTudo bem amo §0voces");
+	}
 }

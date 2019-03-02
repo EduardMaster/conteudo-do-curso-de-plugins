@@ -11,7 +11,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 
-public class JuntarEncantamento implements Listener{
+import net.eduard.curso.Assunto;
+
+@Assunto(subnivel = 6)
+public class JuntarEncantamento implements Listener {
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void enchantItem(InventoryClickEvent e) {
@@ -22,16 +25,11 @@ public class JuntarEncantamento implements Listener{
 						return;
 					if (e.getCurrentItem().getType() == Material.AIR)
 						return;
-					if (e.getCurrentItem()
-							.getType() == Material.ENCHANTED_BOOK) {
-						EnchantmentStorageMeta a = (EnchantmentStorageMeta) e
-								.getCursor().getItemMeta();
-						EnchantmentStorageMeta b = (EnchantmentStorageMeta) e
-								.getCurrentItem().getItemMeta();
-						for (Entry<Enchantment, Integer> enchant : a
-								.getStoredEnchants().entrySet()) {
-							b.addStoredEnchant(enchant.getKey(),
-									enchant.getValue(), true);
+					if (e.getCurrentItem().getType() == Material.ENCHANTED_BOOK) {
+						EnchantmentStorageMeta a = (EnchantmentStorageMeta) e.getCursor().getItemMeta();
+						EnchantmentStorageMeta b = (EnchantmentStorageMeta) e.getCurrentItem().getItemMeta();
+						for (Entry<Enchantment, Integer> enchant : a.getStoredEnchants().entrySet()) {
+							b.addStoredEnchant(enchant.getKey(), enchant.getValue(), true);
 						}
 
 						ItemStack clone = e.getCurrentItem();
@@ -40,8 +38,7 @@ public class JuntarEncantamento implements Listener{
 						e.setCursor(null);
 						e.setCancelled(true);
 					} else {
-						EnchantmentStorageMeta a = (EnchantmentStorageMeta) e
-								.getCursor().getItemMeta();
+						EnchantmentStorageMeta a = (EnchantmentStorageMeta) e.getCursor().getItemMeta();
 						ItemStack clone = e.getCurrentItem();
 						clone.addUnsafeEnchantments(a.getStoredEnchants());
 						e.setCurrentItem(clone);

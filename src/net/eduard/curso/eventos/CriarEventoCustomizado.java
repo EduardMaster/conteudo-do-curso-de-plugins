@@ -9,6 +9,13 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.eduard.curso.Assunto;
+/**
+ * Classe de um Evento Customizado que pode ser chamado
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel=9)
 public class CriarEventoCustomizado extends Event implements Listener,Cancellable{
 	@EventHandler
 	public void onPlayerJoinEvent(PlayerJoinEvent e) {

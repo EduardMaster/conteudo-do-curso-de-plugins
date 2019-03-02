@@ -49,7 +49,7 @@ public class CaixaBasicaMisteriosa implements Listener {
 	@EventHandler
 	public void bloquearPegarItemNoMenu(InventoryClickEvent e) {
 		if (e.getWhoClicked() instanceof Player) {
-			Player p = (Player) e.getWhoClicked();
+//			Player p = (Player) e.getWhoClicked();
 			if (e.getInventory().getName().equals("Caixa básico")) {
 				e.setCancelled(true);
 				

@@ -1,25 +1,29 @@
 package net.eduard.curso.eventos;
 
 import java.util.Arrays;
+
 import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -28,9 +32,24 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.eduard.api.lib.Mine;
 import net.eduard.api.lib.modules.EnchantGlow;
 import net.eduard.api.lib.modules.VaultAPI;
+import net.eduard.curso.Assunto;
 
+/**
+ * Esta classe contem eventos alterados de varios tipos e comentados
+ * 
+ * @author Eduard
+ *
+ */
+
+@Assunto(subnivel = 3, cronograma = 3)
 public class Eventos implements Listener {
 
+	/**
+	 * Remover a chuva
+	 * 
+	 * @author Eduard
+	 *
+	 */
 	@EventHandler
 	public void removerChuva(WeatherChangeEvent e) {
 		// verificar se vai chover
@@ -41,6 +60,43 @@ public class Eventos implements Listener {
 		}
 	}
 
+	/**
+	 * Fazer a bedrock ser quebravel
+	 * 
+	 * @author Eduard
+	 *
+	 */
+	@EventHandler
+	public void event(BlockDamageEvent e) {
+		if (e.getBlock().getType() == Material.BEDROCK) {
+			Player p = e.getPlayer();
+			if (p.getItemInHand() != null) {
+				if (p.getItemInHand().getType().name().contains("PICKAXE")) {
+					if (p.getItemInHand().containsEnchantment(Enchantment.SILK_TOUCH)) {
+						e.setInstaBreak(true);
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Ao fazer um comando qualquer será feito um som expecifico
+	 * 
+	 * @author Eduard
+	 *
+	 */
+	@EventHandler
+	public void aplicarSomQuandoQualquerComandoForFeitoPeloJogador(PlayerCommandPreprocessEvent e) {
+		e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BURP, 5.0F, 5.0F);
+	}
+
+/**
+ * Remover a fome e restaurar ela pra o Inicio
+ * @author Eduard
+ *
+ */
+public class RemoverFome implements Listener {
 	@EventHandler
 	public void removerFome(FoodLevelChangeEvent e) {
 		if (e.getEntity() instanceof Player) {
@@ -50,6 +106,22 @@ public class Eventos implements Listener {
 			p.setExhaustion(0);
 		}
 	}
+}
+
+	/**
+	 * MOTD significa Mensagem de entrada do servidor quando atulizamos a lista de servidores aparece uma mensagem de 2 linhas
+	 * @author Eduard
+	 *
+	 */
+	@Assunto(subnivel=4)
+	public class EditarMotd implements Listener{
+		
+		@EventHandler
+		public void aoVerMOTD(ServerListPingEvent e) {
+			e.setMotd("§6Parabens Por Jogar Primeira linha\n§bAQUI Segunda Linha");
+		}
+	}
+
 
 	// ganhar um item ao entrar
 	@EventHandler
@@ -63,13 +135,13 @@ public class Eventos implements Listener {
 		item.setItemMeta(meta);
 		EnchantGlow.addGlow(item);
 		p.getInventory().addItem(item);
-		// criar uma cabe§a de um jogador
+		// criar uma cabeça de um jogador
 		p.getInventory().addItem(Mine.newHead("Display", "EduardKIllerPro", 1, Arrays.asList("linha1")));
 	}
 
 	// fazer efeitos por um item
 	@EventHandler
-	public void event(PlayerInteractEvent e) {
+	public void efeitosEmGeral(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
 		@SuppressWarnings("deprecation")
 		ItemStack item = new ItemStack(19);

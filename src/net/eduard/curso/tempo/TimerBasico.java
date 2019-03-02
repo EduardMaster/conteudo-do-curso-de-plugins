@@ -1,31 +1,36 @@
 package net.eduard.curso.tempo;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.AssuntoDoCurso;
+import net.eduard.api.server.EduardPlugin;
+
 /**
  * Sistema de Temporizador básico usando classe {@link BukkitRunnable}
  * 
  * @author Eduard
  *
  */
-public class TimerBasico extends BukkitRunnable implements AssuntoDoCurso<TimerBasico>{
+public class TimerBasico extends BukkitRunnable {
+
+	public TimerBasico(EduardPlugin plugin) {
+		// ligando timer a cada 20 ticks (1 segundo)
+		runTaskTimerAsynchronously(plugin, 20, 20);
+	}
+
 	/**
 	 * Estado do timer se esta ligado ou não
 	 */
-	
+
 	private boolean estado = true;
 	/**
-	 * Contagem atual do Timer 
+	 * Contagem atual do Timer
 	 */
 	private int contagem = 10;
 
-
 	/**
 	 * Método run() sobeescrito da interface {@link Runnable}<br>
-	 * Aqui fica oque irá acontecer quando passar 1 segundo 
+	 * Aqui fica oque irá acontecer quando passar 1 segundo
 	 */
 	public void run() {
 
@@ -50,14 +55,6 @@ public class TimerBasico extends BukkitRunnable implements AssuntoDoCurso<TimerB
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
-	}
-
-	@Override
-	public TimerBasico aoLigar(JavaPlugin plugin) {
-		TimerBasico timer = new TimerBasico();
-		timer.runTaskTimerAsynchronously(plugin, 20, 20);
-		return timer;
-		
 	}
 
 }

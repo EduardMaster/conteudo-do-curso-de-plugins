@@ -1,16 +1,13 @@
 package net.eduard.curso.tempo;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.AssuntoDoCurso;
 import net.eduard.curso.CursoEduard;
 
-public class ComandoDelay implements CommandExecutor, AssuntoDoCurso<BukkitRunnable> {
+public class ComandoDelay implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String lb, String[] args) {
@@ -29,15 +26,6 @@ public class ComandoDelay implements CommandExecutor, AssuntoDoCurso<BukkitRunna
 		return true;
 	}
 
-	@Override
-	public BukkitRunnable aoLigar(JavaPlugin plugin) {
-		plugin.getCommand("delay").setExecutor(this);
-		return new BukkitRunnable() {
 
-			public void run() {
-				Bukkit.getConsoleSender().sendMessage("§aAconteceu um atraso nesta mensagem");
-			}
-		};
-	}
 
 }

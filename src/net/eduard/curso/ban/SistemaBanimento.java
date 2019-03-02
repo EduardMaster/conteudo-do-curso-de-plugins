@@ -1,6 +1,7 @@
 package net.eduard.curso.ban;
 
 import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -15,6 +16,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerKickEvent;
 
+import net.eduard.curso.Assunto;
+import net.eduard.curso.AssuntoNivel;
+
+/**
+ * Sistema de banimento completo
+ * @author Eduard
+ *
+ */
+@Assunto(nivel=AssuntoNivel.INTERMEDIARIO,subnivel=15)
 public class SistemaBanimento implements CommandExecutor, Listener {
 
 	public static Map<String, Banimento> banimentos = new HashMap<>();

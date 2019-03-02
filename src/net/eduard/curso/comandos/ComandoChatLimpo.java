@@ -5,6 +5,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import net.eduard.curso.Assunto;
+/**
+ * Comando de limpar o chat de todos os jogadores
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel=1)
 public class ComandoChatLimpo implements CommandExecutor{
 
 	@Override

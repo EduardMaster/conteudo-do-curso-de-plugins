@@ -7,6 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import net.eduard.curso.Assunto;
+
+/**
+ * Comando de chat staff que envia a mensagem pra quem tem permissão para ver a mensagem
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel=7)
 public class ComandoStaffChat1 implements CommandExecutor{
 
 	@Override

@@ -8,6 +8,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+import net.eduard.curso.Assunto;
+
+/**
+ * Bloquear comandos expecificos do servidor (/plugins)
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel=6)
 public class BloquearVerPlugins implements Listener {
 	private static List<String> comandosBloqueados = Arrays.asList("/pl",
 			"/plugins", "/bukkit:?"

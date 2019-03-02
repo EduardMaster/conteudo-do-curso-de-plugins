@@ -7,6 +7,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import net.eduard.curso.Assunto;
+
+
+/**
+ * Sistema de ao clicar na sopa ira tomar ela duma vez, em vez de comer como é o tradicional
+ * @author Eduard
+ *
+ */
+@Assunto(subnivel = 5)
 public class TomarSopa implements Listener {
 
 	@EventHandler

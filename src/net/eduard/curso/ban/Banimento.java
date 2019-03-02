@@ -3,6 +3,14 @@ package net.eduard.curso.ban;
 import java.util.Date;
 import java.util.UUID;
 
+import net.eduard.curso.Assunto;
+import net.eduard.curso.AssuntoNivel;
+/**
+ * Banimento feito no jogador salvando quem fez, o dia, entre outras informações
+ * @author Eduard
+ *
+ */
+@Assunto(nivel=AssuntoNivel.INTERMEDIARIO,subnivel=10)
 public class Banimento {
 
 	private String alvo;
