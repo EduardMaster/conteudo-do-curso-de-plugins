@@ -2,11 +2,11 @@ package net.eduard.curso.rankup;
 
 import net.eduard.api.lib.BukkitConfig;
 import net.eduard.api.lib.storage.StorageAPI;
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class RankAPI {
 
-	private static BukkitConfig config = new BukkitConfig("rankup.yml", CursoEduard.getInstance());
+	private static BukkitConfig config = new BukkitConfig("rankup.yml", Main.getInstance());
 	private static RankManager manager;
 
 	public static BukkitConfig getConfig() {

@@ -7,24 +7,19 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import org.bukkit.inventory.ItemStack;
-
-import net.eduard.api.lib.Mine;
 
 public class TutorialSteams {
 
 	public static void main(String[] args) {
-		HashMap<String, Double> mapa = new HashMap<>();
-		mapa.put("Edu", 10D);
-		mapa.put("Eduardo", 10D);
-		mapa.put("Vitor", 10D);
-		String concatenando = mapa.keySet().stream().reduce((s1,s2)->s1+", "+s2).get();
-		System.out.println("Nomes "+ concatenando);
+		HashMap<String, Double> banco = new HashMap<>();
+		banco.put("Edu", 10D);
+		banco.put("Eduardo", 10D);
+		banco.put("Vitor", 10D);
+		String concatenando = banco.keySet().stream().reduce((donoDaConta1,donoDaConta2)->donoDaConta1+", "+donoDaConta2).get();
+		System.out.println("Nomes dos donos das Contas "+ concatenando);
 		
-		Entry<String, Double> entradaSomada = mapa.entrySet().stream().reduce(new BinaryOperator<Map.Entry<String,Double>>() {
+		Entry<String, Double> entradaSomada = banco.entrySet().stream().reduce(new BinaryOperator<Map.Entry<String,Double>>() {
 
 			@Override
 			public Entry<String, Double> apply(Entry<String, Double> t, Entry<String, Double> u) {
@@ -32,14 +27,14 @@ public class TutorialSteams {
 				return t;
 			}
 		}).get();
-		System.out.println("Soma bolada " + entradaSomada);
-		Double resultadoFinal= mapa.entrySet().stream().reduce(Double.valueOf(0), new BiFunction<Double, Entry<String, Double>, Double>() {
+		System.out.println("Soma das contas " + entradaSomada);
+		Double resultadoFinal= banco.entrySet().stream().reduce(Double.valueOf(0), new BiFunction<Double, Entry<String, Double>, Double>() {
 
 			@Override
-			public Double apply(Double t, Entry<String, Double> u) {
-				System.out.println("Valor do t "+t);
+			public Double apply(Double saldoSendoSomado, Entry<String, Double> conta) {
+				System.out.println("Saldo do "+conta.getKey()+" : "+conta.getValue());
 				
-				return t+50;
+				return saldoSendoSomado+50;
 			}
 
 			
@@ -53,19 +48,21 @@ public class TutorialSteams {
 
 			
 		});
-		System.out.println("Resultado final "+resultadoFinal);
+		System.out.println("Resultado da soma: "+resultadoFinal);
 		
-		
-	 double resultado = mapa.values().stream().reduce(0D, new BinaryOperator<Double>() {
+		double saldoInicial = 10;
+		System.out.println("Somando dados da conta porem com um valor inicial "+saldoInicial);
+	 double somandoValoresDaContaComSaldoInicial = banco.values().stream().reduce(saldoInicial, new BinaryOperator<Double>() {
 
 			@Override
 			public Double apply(Double t, Double u) {
 				return t+u;
 			}
 		});
-	 System.out.println("Resultado1 "+resultado);
+	 System.out.println("Resultado: "+somandoValoresDaContaComSaldoInicial);
 		
-	 Optional<Double> resultado2 = mapa.values().stream().reduce( new BinaryOperator<Double>() {
+	 System.out.println("Somando todos os dados do hashmap");
+	 Optional<Double> somandoValoresDasContas = banco.values().stream().reduce( new BinaryOperator<Double>() {
 
 			@Override
 			public Double apply(Double t, Double u) {
@@ -73,13 +70,13 @@ public class TutorialSteams {
 			}
 		});
 	 
+	 System.out.println("Soma das contas: "+somandoValoresDasContas.get());
 	 
 	 
+	 System.out.println("Usando reduce com biFunction");
+	
 	 
-	 
-	 System.out.println("Resultado 2 "+resultado2.get());
-	 
-		Object resultado3 = mapa.values().stream().reduce(0D,new BiFunction<Double, Double, Double>() {
+		 Double usadoBiFunction = banco.values().stream().reduce(0D,new BiFunction<Double, Double, Double>() {
 
 		@Override
 		public Double apply(Double t, Double u) {
@@ -96,12 +93,12 @@ public class TutorialSteams {
 			return t +u;
 		}
 	});
+		 System.out.println("Resultado: "  +usadoBiFunction );
 	 
 	 
 	 
-	 
-	 
-	 System.out.println("Resultado 3 "  +resultado3 );
+		 System.out.println("Usando reduce com binaryOperator");
+	
 	 
 		ArrayList<String> nomes = new ArrayList<>();
 		nomes.add("Eduard");
@@ -109,7 +106,7 @@ public class TutorialSteams {
 		nomes.add("Mestre");
 		Stream<String> stream = nomes.stream();
 		
-		String reduce = stream.reduce("        ", new BinaryOperator<String>() {
+		String concatenandoOsNomesDasContas = stream.reduce("        ", new BinaryOperator<String>() {
 	
 			@Override
 			public String apply(String t, String u) {
@@ -117,7 +114,7 @@ public class TutorialSteams {
 				return t+" "+u;
 			}
 		});
-		System.out.println(reduce);
+		System.out.println("Resultado: "+concatenandoOsNomesDasContas);
 		
 	}
 }

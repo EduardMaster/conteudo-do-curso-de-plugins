@@ -12,12 +12,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.Mine;
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class Caixa implements Storable {
 
 	private String nome;
-	private ItemStack iconeLoja;
+
 	private ItemStack caixa;
 	private ArrayList<ItemStack> premios = new ArrayList<>();
 
@@ -56,7 +56,7 @@ public class Caixa implements Storable {
 					player.closeInventory();
 				}
 			}
-		}.runTaskTimerAsynchronously(CursoEduard.getInstance(), 7, 7);
+		}.runTaskTimerAsynchronously(Main.getInstance(), 7, 7);
 
 	}
 
@@ -78,14 +78,6 @@ public class Caixa implements Storable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public ItemStack getIconeLoja() {
-		return iconeLoja;
-	}
-
-	public void setIconeLoja(ItemStack iconeLoja) {
-		this.iconeLoja = iconeLoja;
 	}
 
 	public ItemStack getCaixa() {

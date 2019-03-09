@@ -16,13 +16,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.Mine;
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
-public class CaixaBasicaMisteriosa implements Listener {
+public class CaixaMisteriosaBasica implements Listener {
 
 	private static ItemStack caixaBasica = Mine.newItem(Material.CHEST, "§aCaixa básica");
 
-	public CaixaBasicaMisteriosa() {
+	public CaixaMisteriosaBasica() {
 
 	}
 
@@ -100,7 +100,7 @@ public class CaixaBasicaMisteriosa implements Listener {
 					player.closeInventory();
 				}
 			}
-		}.runTaskTimerAsynchronously(CursoEduard.getInstance(), 7, 7);
+		}.runTaskTimerAsynchronously(Main.getInstance(), 7, 7);
 	}
 
 }

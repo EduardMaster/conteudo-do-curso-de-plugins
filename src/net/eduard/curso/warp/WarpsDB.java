@@ -8,9 +8,9 @@ import org.bukkit.World;
 
 import net.eduard.api.lib.manager.DBManager;
 
-public class WarpsComDBManager extends DBManager {
+public class WarpsDB extends DBManager {
  
-	public WarpsComDBManager(String user, String pass, String host,
+	public WarpsDB(String user, String pass, String host,
 			String database) {
 		super(user, pass, host, database);
 		update("create table if not exists warps(name varchar(11) not null unique,"

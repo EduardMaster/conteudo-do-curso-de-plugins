@@ -6,20 +6,20 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 import net.eduard.api.lib.manager.EventsManager;
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class SpawnEvents extends EventsManager {
 
 	@EventHandler
 	public void entrarIrSpawn(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
-		if (CursoEduard.getConfigs().contains("spawn"))
-			p.teleport(CursoEduard.getConfigs().getLocation("spawn"));
+		if (Main.getConfigs().contains("spawn"))
+			p.teleport(Main.getConfigs().getLocation("spawn"));
 	}
 	@EventHandler
 	public void reiniciarTeleportaProSpawn(PlayerRespawnEvent e) {
 //		Player p = e.getPlayer();
-		if (CursoEduard.getConfigs().contains("spawn"))
-			e.setRespawnLocation(CursoEduard.getConfigs().getLocation("spawn"));
+		if (Main.getConfigs().contains("spawn"))
+			e.setRespawnLocation(Main.getConfigs().getLocation("spawn"));
 	}
 }

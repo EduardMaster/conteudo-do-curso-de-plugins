@@ -149,9 +149,10 @@ public class CashSqlite {
 //		streamLimitada.sorted(Collections.reverseOrder());
 		return streamLimitada.collect(Collectors.toList());
 	}
+
 	public static void mostrarTopSQL(Player player) {
 //		String query = "SELECT * FROM banco odery by quantia desc;";
-		
+
 	}
 
 	public static void mostrarTop(Player player) {
@@ -163,7 +164,7 @@ public class CashSqlite {
 			Double valor = entrada.getValue();
 			player.sendMessage("§a" + posicao + "§ " + chave + " R$ §2" + formatador.format(valor));
 			posicao++;
-			if (posicao>=10) {
+			if (posicao >= 10) {
 				break;
 			}
 		}

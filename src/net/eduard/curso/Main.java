@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.BukkitConfig;
+import net.eduard.curso.eventos.EditarDefesa;
 import net.eduard.curso.eventos.PegarDropsAutomaticoDeMineracao;
 import net.eduard.curso.tempo.CooldownBasico;
 import net.eduard.curso.tempo.CooldownIntermediario;
@@ -21,11 +22,11 @@ import net.eduard.curso.tempo.CooldownIntermediario;
  * @author Eduard
  *
  */
-public class CursoEduard extends JavaPlugin {
+public class Main extends JavaPlugin {
 	/**
 	 * Instancia do Plugin (Básicamente guarda o plugin em uma variavel)
 	 */
-	private static CursoEduard instance;
+	private static Main instance;
 	/**
 	 * Config principal do Plugin feita usando api {@link BukkitConfig}
 	 */
@@ -53,7 +54,7 @@ public class CursoEduard extends JavaPlugin {
 		// salvada na pasta deste plugin
 		config = new BukkitConfig("config.yml", this);
 //		new TimerBasico().ligar(this);
-		
+		Bukkit.getPluginManager().registerEvents(new EditarDefesa(), this);
 		getCommand("cooldown1").setExecutor(new CooldownBasico());
 		getCommand("cooldown2").setExecutor(new CooldownIntermediario());
 		Bukkit.getPluginManager().registerEvents(new PegarDropsAutomaticoDeMineracao(), this);
@@ -103,7 +104,7 @@ public class CursoEduard extends JavaPlugin {
 	 * 
 	 * @return o Plugin
 	 */
-	public static CursoEduard getInstance() {
+	public static Main getInstance() {
 		return instance;
 	}
 	

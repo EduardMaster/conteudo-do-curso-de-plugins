@@ -1,6 +1,6 @@
 package net.eduard.curso.java;
 
-public class DinheiroSincronizado {
+public class TutorialThreadSyncronized {
 
 	private static int dinheiro = 1000;
 
@@ -13,7 +13,7 @@ public class DinheiroSincronizado {
 			dinheiro -= quantidade;
 			System.out.println(t + "Novo valor " + dinheiro + " | saldo retirado " + quantidade);
 		} else {
-			System.out.println(t + "N§o tem saldo para poder retirar " + quantidade);
+			System.out.println(t + "Nao tem saldo para poder retirar " + quantidade);
 		}
 
 	}
@@ -26,13 +26,13 @@ public class DinheiroSincronizado {
 			public void run() {
 //				for (int i = 0; i < 1000; i++) {
 				retirar(1000, "T1 ");
-//					try {
-//						Thread.sleep(100);
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
 			}
 		});
 		Thread t2 = new Thread(new Runnable() {
@@ -62,6 +62,7 @@ public class DinheiroSincronizado {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 	}
 

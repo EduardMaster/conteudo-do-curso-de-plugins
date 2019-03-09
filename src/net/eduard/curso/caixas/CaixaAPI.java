@@ -6,11 +6,11 @@ import org.bukkit.inventory.ItemStack;
 import net.eduard.api.lib.BukkitConfig;
 import net.eduard.api.lib.Mine;
 import net.eduard.api.lib.storage.StorageAPI;
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class CaixaAPI {
 	private static CaixaManager manager;
-	private static BukkitConfig config = new BukkitConfig("caixas.yml", CursoEduard.getInstance());
+	private static BukkitConfig config = new BukkitConfig("caixas.yml", Main.getInstance());
 	static {
 		StorageAPI.register(Caixa.class);
 		StorageAPI.register(CaixaManager.class);
@@ -33,8 +33,8 @@ public class CaixaAPI {
 			manager = new CaixaManager();
 			Caixa caixaExemplo = new Caixa();
 			caixaExemplo.setNome("Basica");
-			caixaExemplo.setIconeLoja(Mine.newItem(Material.ENDER_CHEST, "§aCaixa B§sica por 30 pila"));
-			caixaExemplo.setCaixa(Mine.newItem(Material.CHEST, "§6Caixa B§sica"));
+		
+			caixaExemplo.setCaixa(Mine.newItem(Material.CHEST, "§6Caixa Básica"));
 
 			caixaExemplo.getPremios().add(new ItemStack(Material.DIAMOND, 64));
 			caixaExemplo.getPremios().add(new ItemStack(Material.IRON_INGOT, 64));

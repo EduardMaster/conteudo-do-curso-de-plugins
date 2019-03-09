@@ -14,7 +14,7 @@ import org.bukkit.Bukkit;
  */
 public class TestClassLoading {
 	
-	    @SuppressWarnings("deprecation")
+	 
 		public TestClassLoading() {
 	        ClassLoader pClassLoader = CustomClassLoader.class.getClassLoader();
 
@@ -70,4 +70,5 @@ public class TestClassLoading {
 	            return null;
 	        }
 	    }
+	    
 }

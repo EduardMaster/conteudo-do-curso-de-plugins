@@ -4,33 +4,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-
-import org.bukkit.entity.Player;
-
-import net.md_5.bungee.api.ChatColor;
-
 /**
- * @sub_Autor ZBeta
+ * Explicando como o HashMap funciona<br>
+ * Hashmap basicamnete armaze quantas informações você quiser em uma só variavel
+ *
  * @author Eduard
  *
  */
 public class TutorialHashMap {
-	public static List<Entry<String, Integer>> valores;
 
-	public static HashMap<String, Integer> kills_dos_jogadores = new HashMap<>();
+	public static HashMap<String, String> sobrenomeDosJogadores = new HashMap<>();
+	public static HashMap<String, Integer> placarDosJogadores = new HashMap<>();
 
-	public static void atualizador() {
+	public static void main(String[] args) {
 
-		valores = kills_dos_jogadores.entrySet().stream().sorted((x, y) -> y.getValue().compareTo(x.getValue()))
-				.collect(Collectors.toList());
+		sobrenomeDosJogadores.put("Tiago", "Ramos");
+		placarDosJogadores.put("edu", 25);
+		placarDosJogadores.put("beta", 30);
+		placarDosJogadores.put("eduard", 50);
+		placarDosJogadores.put("zbeta", 1);
+		placarDosJogadores.put("tiagorx", 10);
+		String sobrenomeDoTiago = sobrenomeDosJogadores.get("Tiago");
+		System.out.println("Sobrenome do tiago: " + sobrenomeDoTiago);
+		mostrarTopPlacares();
 
 	}
 
-	public static void loadTop(Player player) {
+	public static void mostrarTopPlacares() {
+
+		List<Entry<String, Integer>> placarSorteadoDoMaiorParaOMenor =
+				placarDosJogadores.entrySet().stream()
+				.sorted((entrada1, entrada2) -> {
+					return entrada2.getValue().compareTo(entrada1.getValue());
+				}).collect(Collectors.toList());
+		
 		int id = 1;
-		player.sendMessage("");
-		player.sendMessage(ChatColor.GRAY + "Aqui estão os top " + ChatColor.RED + "10 " + ChatColor.GRAY + "KILLERS.");
-		player.sendMessage("");
+		for (Entry<String, Integer> placarDoJogador : placarSorteadoDoMaiorParaOMenor) {
+			String jogadorNome = placarDoJogador.getKey();
+			Integer placar = placarDoJogador.getValue();
+			System.out.println(" "+id+"º "+jogadorNome+ ": "+ placar);
+			id++;
+			 
+		}
+		
+		
+		
 
 	}
 

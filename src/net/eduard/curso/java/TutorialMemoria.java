@@ -5,7 +5,9 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class CalculandoMemoriaGasta {
+public class TutorialMemoria {
+	public static ArrayList<String> dados = new ArrayList<>();
+	public static int contagematual = 0;
 //	private static final long MEGABYTE_FACTOR = 1024L * 1024L;
 	private static final DecimalFormat ROUNDED_DOUBLE_DECIMALFORMAT;
 	private static final String MIB = "MiB";
@@ -68,7 +70,7 @@ public class CalculandoMemoriaGasta {
 
 	private static ArrayList<String> listinha = new ArrayList<>();
 
-	public static void main(String[] args) {
+	public static void main3(String[] args) {
 
 		DecimalFormat df = new DecimalFormat("#,###");
 		while (true) {
@@ -89,5 +91,31 @@ public class CalculandoMemoriaGasta {
 			}
 		}
 
+	}
+	public static void main(String[] args) {
+		DecimalFormat dec = new DecimalFormat("#,###.0");
+		Runtime r = Runtime.getRuntime();
+		while (true) {
+
+			long freeMemory = r.freeMemory();
+			long totalMemory = r.totalMemory();
+			long maxMemory = r.maxMemory();
+
+			for (int i = 0; i < 1_000_000; i++) {
+				dados.add(" numero " + contagematual);
+				contagematual++;
+			}
+			System.out.println("Free " + dec.format(freeMemory));
+			System.out.println("Total " + dec.format(totalMemory));
+			System.out.println("Max " + dec.format(maxMemory));
+			try {
+
+				System.out.println(" ");
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }

@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class ComandoSetSpawn implements CommandExecutor {
 
@@ -16,8 +16,8 @@ public class ComandoSetSpawn implements CommandExecutor {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
 
-			CursoEduard.getConfigs().set("spawn", p.getLocation());
-			CursoEduard.getConfigs().saveConfig();
+			Main.getConfigs().set("spawn", p.getLocation());
+			Main.getConfigs().saveConfig();
 			p.sendMessage(ChatColor.GREEN + "O spawn foi setado");
 
 		}

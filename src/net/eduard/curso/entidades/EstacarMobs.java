@@ -16,11 +16,11 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import net.eduard.curso.CursoEduard;
+import net.eduard.curso.Main;
 
 public class EstacarMobs implements Listener {
 	public static void setStack(Entity entity, int amount) {
-		entity.setMetadata("mob-stack", new FixedMetadataValue(CursoEduard.getInstance(), amount));
+		entity.setMetadata("mob-stack", new FixedMetadataValue(Main.getInstance(), amount));
 	}
 
 	public static int getStack(Entity entity) {
