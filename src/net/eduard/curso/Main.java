@@ -1,17 +1,27 @@
 
 package net.eduard.curso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.Mine;
+import net.eduard.curso.caixas.TutorialCraftSimples;
 import net.eduard.curso.eventos.EditarDefesa;
 import net.eduard.curso.eventos.PegarDropsAutomaticoDeMineracao;
 import net.eduard.curso.tempo.CooldownBasico;
 import net.eduard.curso.tempo.CooldownIntermediario;
+import net.eduard.curso.util.TutorialBukkitSearialization;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -49,6 +59,10 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		// iniciando a variavel instance
 		instance = this;
+		
+		TutorialCraftSimples.craftEspadaLonga();
+		TutorialCraftSimples.craftEspadaCurta();
+		usandoBukkitSerialization();
 
 		// iniciando a variavel config com uma nova config chamada 'config.yml' e
 		// salvada na pasta deste plugin
@@ -85,6 +99,33 @@ public class Main extends JavaPlugin {
 //		Bukkit.getPluginManager().registerEvents(new Eventos(), this);
 //		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Plugin ativado do curso");
 	}
+	public void usandoBukkitSerialization() {
+		File arquivo = new File(getDataFolder(),"items.db");
+		ItemStack itemEncantado = Mine.newItem(Material.DIAMOND_SWORD, "§aEspada longa",1,0,"Lorezita");
+		itemEncantado.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+		
+		try {
+			TutorialBukkitSearialization.salvarItems(arquivo,  itemEncantado);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ItemStack[] dadosLidos = TutorialBukkitSearialization.restaurarItems(arquivo);
+			System.out.println("Item retornado "+dadosLidos[0]);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 	/**
 	 * Registra uma classe com Eventos
 	 * @param classeComEventos Classe com Eventos

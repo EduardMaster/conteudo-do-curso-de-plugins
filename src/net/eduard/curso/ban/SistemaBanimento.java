@@ -49,15 +49,6 @@ public class SistemaBanimento implements CommandExecutor, Listener {
 		banimentos.remove(name);
 	}
 
-	@EventHandler
-	public void evento(PlayerKickEvent e) {
-		Player p = e.getPlayer();
-		if (estaBanido(p.getName())) {
-			Banimento ban = banimentos.get(p.getName());
-			e.setLeaveMessage("§cVoce foi banido por " + ban.getAlvo());
-
-		}
-	}
 
 	@SuppressWarnings("deprecation")
 	@Override

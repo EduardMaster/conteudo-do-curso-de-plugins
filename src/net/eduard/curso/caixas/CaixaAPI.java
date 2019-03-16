@@ -11,6 +11,7 @@ import net.eduard.curso.Main;
 public class CaixaAPI {
 	private static CaixaManager manager;
 	private static BukkitConfig config = new BukkitConfig("caixas.yml", Main.getInstance());
+	
 	static {
 		StorageAPI.register(Caixa.class);
 		StorageAPI.register(CaixaManager.class);

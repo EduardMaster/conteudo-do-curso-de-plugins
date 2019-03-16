@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * @author Eduard
  *
  */
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@Target({ ElementType.TYPE, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Assunto {
 	

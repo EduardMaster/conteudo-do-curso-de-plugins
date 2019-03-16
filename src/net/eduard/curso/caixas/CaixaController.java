@@ -19,7 +19,7 @@ public class CaixaController implements Listener {
 				Mine.remove(p.getInventory(), caixa.getCaixa(), 1);
 			}
 		}
-	}
+	} 
 
 	@EventHandler
 	public void event(InventoryClickEvent e) {

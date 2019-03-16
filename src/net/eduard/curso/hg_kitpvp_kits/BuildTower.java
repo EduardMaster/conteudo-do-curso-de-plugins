@@ -33,7 +33,7 @@ public class BuildTower extends KitAbility {
 						Mine.teleport(player, loc);
 					}
 				}
-			}
+			} 
 		}));
 		setTime(30);
 	}

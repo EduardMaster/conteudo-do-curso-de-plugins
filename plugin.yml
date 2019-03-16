@@ -1,6 +1,6 @@
 name: EduardCurso
 description: Sistemas feitos no Curso do Eduard
-main: net.eduard.curso.CursoEduard
+main: net.eduard.curso.Main
 version: 1.0
 authors: [Eduard]
 depend: [EduardAPI]

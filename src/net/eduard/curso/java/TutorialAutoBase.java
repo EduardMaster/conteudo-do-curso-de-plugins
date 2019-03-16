@@ -28,7 +28,7 @@ public class TutorialAutoBase {
 	}
 
 	@Info(name = "tabela")
-	public static class AutoBaseExemplo implements AutoBase<AutoBaseExemplo> {
+	public static class AutoBaseExemplo implements AutoBase {
 
 		@Info(primary = true)
 		int id;

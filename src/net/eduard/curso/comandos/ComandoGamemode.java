@@ -24,32 +24,32 @@ public class ComandoGamemode implements CommandExecutor {
 			if (args.length == 0) {
 				if (p.getGameMode().equals(GameMode.CREATIVE)) {
 					p.setGameMode(GameMode.SURVIVAL);
-					p.sendMessage("§eSeu modo de jogo foi mudado sobreviv§ncia. Enjoy");
+					p.sendMessage("§eSeu modo de jogo foi mudado sobrevivencia");
 				} else {
 					p.setGameMode(GameMode.CREATIVE);
-					p.sendMessage("§eSeu modo de jogo foi mudado criativo. Enjoy");
+					p.sendMessage("§eSeu modo de jogo foi mudado criativo");
 				}
 			} else if (args.length == 1) {
 				String a = args[0];
 				if (a.equalsIgnoreCase("0")) {
 					p.setGameMode(GameMode.SURVIVAL);
-					p.sendMessage("§eSeu modo de jogo foi mudado Sobreviv§ncia. Enjoy");
+					p.sendMessage("§eSeu modo de jogo foi mudado Sobrevivencia");
 				} else if (a.equalsIgnoreCase("1")) {
 					p.setGameMode(GameMode.CREATIVE);
-					p.sendMessage("§eSeu modo de jogo foi mudado Criativo. Enjoy");
+					p.sendMessage("§eSeu modo de jogo foi mudado Criativo");
 				} else if (a.equalsIgnoreCase("2")) {
 					p.setGameMode(GameMode.ADVENTURE);
-					p.sendMessage("§eSeu modo de jogo foi mudado Aventura. Enjoy");
+					p.sendMessage("§eSeu modo de jogo foi mudado Aventura");
 				}
 			} else {
 				Player b = Bukkit.getPlayer(args[1]);
 				if (b != null) {
 					if (args[0].equalsIgnoreCase("0")) {
 						b.setGameMode(GameMode.SURVIVAL);
-						snd.sendMessage("§eO modo de jogo de " + b.getName() + "foi mudado para sobreviv§ncia");
+						snd.sendMessage("§eO modo de jogo de " + b.getName() + "foi mudado para sobrevivencia");
 					} else if (args[0].equalsIgnoreCase("1")) {
 						b.setGameMode(GameMode.CREATIVE);
-						snd.sendMessage("§eO modo de jogo de " + b.getName() + "foi mudado para sobreviv§ncia");
+						snd.sendMessage("§eO modo de jogo de " + b.getName() + "foi mudado para sobrevivencia");
 					}
 				} else {
 					snd.sendMessage("§cEste jogador nao esta online, ou nao existe.");

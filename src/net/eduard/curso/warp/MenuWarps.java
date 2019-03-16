@@ -27,7 +27,7 @@ public class MenuWarps implements Listener{
 		 ItemStack item = new ItemStack(Material.COMPASS);
 		
 		 
-		 // String == texto 
+		 // String == texto  
 		 
 		  ItemMeta meta = item.getItemMeta();
 		  meta.setDisplayName("§aItem usado para abrir o menu");

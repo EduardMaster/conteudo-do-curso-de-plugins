@@ -18,7 +18,7 @@ public class ComandoCash implements CommandExecutor {
 		// /cash remover
 		// /cash dar
 		// /cash
-
+ 
 		if (args.length == 0) {
 			if (sender instanceof Player) {
 				Player p = (Player) sender;

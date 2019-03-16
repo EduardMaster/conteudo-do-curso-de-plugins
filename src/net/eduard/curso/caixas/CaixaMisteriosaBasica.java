@@ -25,7 +25,7 @@ public class CaixaMisteriosaBasica implements Listener {
 	public CaixaMisteriosaBasica() {
 
 	}
-
+ 
 	@EventHandler
 	public void entrarDarACaixa(PlayerJoinEvent e) {
 		Player p = e.getPlayer();

@@ -1,4 +1,4 @@
-package net.eduard.curso.chat.api;
+package net.eduard.curso.chat.simples_api;
 
 import java.util.ArrayList;
 import java.util.List;

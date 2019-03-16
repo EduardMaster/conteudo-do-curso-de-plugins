@@ -19,7 +19,7 @@ public class DarkMage extends KitAbility {
 		getPotions().add(new PotionEffect(PotionEffectType.BLINDNESS, 0, 20 * 5));
 	}
 
-	@Override
+	@Override 
 	@EventHandler
 	public void event(EntityDamageByEntityEvent e) {
 		if (e.getDamager() instanceof Player) {

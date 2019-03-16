@@ -1,68 +1,105 @@
 package net.eduard.curso.java;
 
+import java.util.ArrayList;
+
 public class TutorialThreadSyncronized {
 
-	private static int dinheiro = 1000;
+	public static class ContaPlayer {
+		String nome;
+		double saldo;
 
-	public synchronized static void retirar(int quantidade, String t) {
-		System.out.println(t + "Dinheiro anterior " + dinheiro);
-		System.out.println(t + "Dinheiro que vai retirar " + quantidade);
+	}
 
-		if (dinheiro >= quantidade) {
-			System.out.println(t + "Conta tem saldo para poder retirar");
-			dinheiro -= quantidade;
-			System.out.println(t + "Novo valor " + dinheiro + " | saldo retirado " + quantidade);
-		} else {
-			System.out.println(t + "Nao tem saldo para poder retirar " + quantidade);
+	public static ArrayList<ContaPlayer> contasDosJogadores = new ArrayList<>();
+
+
+	public static void adicionarSaldo(String nome, double adicional) {
+		for (ContaPlayer conta : contasDosJogadores) {
+			if (conta.nome == nome) {
+				
+					conta.saldo = conta.saldo + adicional;
+			
+
+			}
 		}
 
 	}
 
+	public static double getSaldo(String nome) {
+		for (ContaPlayer conta : contasDosJogadores) {
+			if (conta.nome == nome) {
+				return conta.saldo;
+			}
+		}
+
+		return -1;
+
+	}
+
+	private static double dinheiro = 0;
+
+	public synchronized static void adicionar(double amount) {
+		dinheiro = getSaldo() + amount;
+	}
+
+	public synchronized static void remover(double amount) {
+		dinheiro = getSaldo() - amount;
+	}
+
+	public synchronized static double getSaldo() {
+		return dinheiro;
+	}
+
+	static Thread t1;
+	static Thread t2;
+
 	public static void main(String[] args) {
-
-		Thread t1 = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-//				for (int i = 0; i < 1000; i++) {
-				retirar(1000, "T1 ");
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				
-			}
-		});
-		Thread t2 = new Thread(new Runnable() {
+		ContaPlayer conta1 = new ContaPlayer();
+		conta1.nome = "Eduard";
+		conta1.saldo = 0;
+		contasDosJogadores.add(conta1);
+		t1 = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-//				for (int i = 0; i < 1000; i++) {
-				retirar(1000, "T2 ");
-//					try {
-//						Thread.sleep(100);
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
+
+				for (int i = 0; i < 100; i++) {
+
+					adicionarSaldo("Eduard", 100);
+					System.out.println("T1 Saldo: " + getSaldo("Eduard"));
+
+				}
 			}
 		});
+		t2 = new Thread(new Runnable() {
 
+			@Override
+			public void run() {
+				for (int i = 0; i < 100; i++) {
+					adicionarSaldo("Eduard", 100);
+//					remover(100);
+//					System.out.println("T2 Saldo: " + dinheiro);
+
+				}
+			}
+		});
+		long inicio = System.currentTimeMillis();
 		t1.start();
 		t2.start();
 
 		try {
 			t1.join();
 			t2.join();
-			System.out.println(dinheiro);
+			long fim = System.currentTimeMillis();
+
+			long dif = fim - inicio;
+
+			System.out.println("Diferenca " + dif);
+			System.out.println("Saldo: " + dinheiro);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
 	}
 

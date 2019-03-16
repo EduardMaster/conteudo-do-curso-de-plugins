@@ -27,7 +27,7 @@ public class Caixa implements Storable {
 		player.openInventory(menu);
 		new BukkitRunnable() {
 			int contador = 50;
-
+ 
 			@Override
 			public void run() {
 				contador--;
