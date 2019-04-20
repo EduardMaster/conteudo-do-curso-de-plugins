@@ -1,7 +1,7 @@
 package net.eduard.curso.eventos;
 
 import java.util.Arrays;
-
+import java.util.HashMap;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -89,7 +89,11 @@ public class Eventos implements Listener {
 	@EventHandler
 	public void aplicarSomQuandoQualquerComandoForFeitoPeloJogador(PlayerCommandPreprocessEvent e) {
 		e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BURP, 5.0F, 5.0F);
+		
+		
 	}
+
+	
 
 /**
  * Remover a fome e restaurar ela pra o Inicio

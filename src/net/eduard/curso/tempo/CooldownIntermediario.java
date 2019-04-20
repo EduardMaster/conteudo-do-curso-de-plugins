@@ -6,16 +6,26 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.modules.Extra;
+import net.eduard.curso.Main;
 
 public class CooldownIntermediario implements CommandExecutor {
 	
 
 	public static HashMap<Player, Long> jogadoresEmCooldown = new HashMap<>();
 
-	public static void colocarEmCooldown(Player p) {
+	public static void colocarEmCooldown(Player p,int segundos) {
 		jogadoresEmCooldown.put(p, System.currentTimeMillis());
+		new BukkitRunnable() {
+			
+			@Override
+			public void run() {
+
+			p.sendMessage("§aVocê saiu do tempo de espera.");	
+			}
+		}.runTaskLater(Main.getInstance(), 20 * segundos);
 	}
 
 	public static boolean estaEmCooldown(Player player, int segundos) {
@@ -37,6 +47,15 @@ public class CooldownIntermediario implements CommandExecutor {
 			// segundosEmMiliSegundos = 30000
 
 			boolean naoEstaMaisEmCooldown = tempoAtual > tempoArmazenado + segundoEmMilis;
+			
+			if (!player.getAllowFlight()) {
+				
+			}
+			if (!player.isSneaking()) {
+				
+			}
+			
+			
 			return !naoEstaMaisEmCooldown;
 
 		}
@@ -64,6 +83,7 @@ public class CooldownIntermediario implements CommandExecutor {
 			// segundosEmMiliSegundos = 30000
 
 			long tempoRestante = tempoArmazenado + segundoEmMilis - tempoAtual;
+			
 			return tempoRestante;
 
 		}
@@ -82,7 +102,7 @@ public class CooldownIntermediario implements CommandExecutor {
 				sender.sendMessage("§cVoce esta em cooldown e precisa esperar " + tempoFormatado);
 			} else {
 
-				colocarEmCooldown(p);
+				colocarEmCooldown(p,15);
 				sender.sendMessage("§aVoce executou o comando e agora esta em cooldown.");
 
 			}

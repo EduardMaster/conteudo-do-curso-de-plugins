@@ -102,22 +102,22 @@ public class ScoreboardComDisplayboard extends BukkitRunnable implements Listene
 
 	/**
 	 * Atualizar a scoreboard de um Jogador
+	 * 
 	 * @param p Jogador
 	 */
 	public static void atualizar(Player p) {
-		//puxa a scoreboard atual do jogador
+		// puxa a scoreboard atual do jogador
 		DisplayBoard scoreboard = scoreboards.get(p);
 		// checa se a scoreboard é nula e se for return para parar o codigo
 		if (scoreboard == null)
 			return;
-		//seta  o titulo da scoreboard
+		// seta o titulo da scoreboard
 		scoreboard.setDisplay("§a§l" + p.getName());
-		
-		//seta um linha expecifica do jeito que quiser
-		scoreboard.set(15, "§2§lSua vida§f "+(int)p.getHealth()+"/"+(int)+p.getMaxHealth());
-		//deixa uma linha em branca (vazia)
+
+		// seta um linha expecifica do jeito que quiser
+		scoreboard.set(15, "§2§lSua vida§f " + (int) p.getHealth() + "/" + (int) p.getMaxHealth());
+		// deixa uma linha em branca (vazia)
 		scoreboard.empty(14);
-		
 
 	}
 

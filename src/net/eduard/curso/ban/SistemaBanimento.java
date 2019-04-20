@@ -1,7 +1,6 @@
 package net.eduard.curso.ban;
 
 import java.util.Calendar;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -11,10 +10,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerKickEvent;
 
 import net.eduard.curso.Assunto;
 import net.eduard.curso.AssuntoNivel;

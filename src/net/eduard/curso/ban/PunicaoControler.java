@@ -12,7 +12,7 @@ public class PunicaoControler implements Listener{
 //		if (estaBanido(p.getName())) {
 //			Banimento ban = banimentos.get(p.getName());
 //			e.setLeaveMessage("§cVoce foi banido por " + ban.getAlvo());
-//
+// 
 //		}
 	}
 

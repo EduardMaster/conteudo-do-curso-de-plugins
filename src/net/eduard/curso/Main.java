@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.BukkitConfig;
 import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.licence.Licence;
 import net.eduard.curso.caixas.TutorialCraftSimples;
 import net.eduard.curso.eventos.EditarDefesa;
 import net.eduard.curso.eventos.PegarDropsAutomaticoDeMineracao;
@@ -72,6 +73,11 @@ public class Main extends JavaPlugin {
 		getCommand("cooldown1").setExecutor(new CooldownBasico());
 		getCommand("cooldown2").setExecutor(new CooldownIntermediario());
 		Bukkit.getPluginManager().registerEvents(new PegarDropsAutomaticoDeMineracao(), this);
+		Licence.BukkitTester.test(this, () -> {
+			
+			Bukkit.broadcastMessage("Ativou");
+			
+		});
 //
 //		
 //		getCommand("login").setExecutor(new ComandoLogin());

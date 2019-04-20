@@ -19,14 +19,31 @@ public class TutorialHashMap {
 	public static void main(String[] args) {
 
 		sobrenomeDosJogadores.put("Tiago", "Ramos");
+		sobrenomeDosJogadores.put("Gustavo", "Campos");
 		placarDosJogadores.put("edu", 25);
 		placarDosJogadores.put("beta", 30);
 		placarDosJogadores.put("eduard", 50);
+		placarDosJogadores.put("Gustavo", 100);
 		placarDosJogadores.put("zbeta", 1);
 		placarDosJogadores.put("tiagorx", 10);
-		String sobrenomeDoTiago = sobrenomeDosJogadores.get("Tiago");
-		System.out.println("Sobrenome do tiago: " + sobrenomeDoTiago);
-		mostrarTopPlacares();
+		
+		if (placarDosJogadores.containsValue(50)) {
+			System.out.println("Alguem tem 50 pontos");
+		}
+		if (placarDosJogadores.containsKey("eduard")) {
+			System.out.println("o Eduard tem pontos");
+			Integer pontosDoEdu = placarDosJogadores.get("eduard");
+			
+			System.out.println("Pontos do edu: "+pontosDoEdu);
+			
+		}
+		
+		if (sobrenomeDosJogadores.containsKey("Tiago")) {
+			System.out.println("O tiago tem sobrenome");
+			String sobrenomeDoTiago = sobrenomeDosJogadores.get("Tiago");
+			System.out.println("Sobrenome do tiago: " + sobrenomeDoTiago);
+		}
+//		mostrarTopPlacares();
 
 	}
 
