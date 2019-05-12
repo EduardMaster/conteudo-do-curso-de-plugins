@@ -88,7 +88,7 @@ public class Eventos implements Listener {
 	 */
 	@EventHandler
 	public void aplicarSomQuandoQualquerComandoForFeitoPeloJogador(PlayerCommandPreprocessEvent e) {
-		e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BURP, 5.0F, 5.0F);
+		e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.NOTE_PLING, 5.0F, 5.0F);
 		
 		
 	}

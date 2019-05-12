@@ -1,8 +1,8 @@
 package net.eduard.curso.comandos;
 
 import org.bukkit.Bukkit;
-
 import org.bukkit.GameMode;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -18,7 +18,7 @@ import net.eduard.curso.Assunto;
 public class ComandoGamemode implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender snd, org.bukkit.command.Command cmd, String arg, String[] args) {
+	public boolean onCommand(CommandSender snd, Command cmd, String arg, String[] args) {
 		if (snd instanceof Player) {
 			Player p = (Player) snd;
 			if (args.length == 0) {
