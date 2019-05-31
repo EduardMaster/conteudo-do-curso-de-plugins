@@ -1,24 +1,26 @@
 package net.eduard.curso.eventos;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
-import org.bukkit.enchantments.Enchantment;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -43,6 +45,31 @@ import net.eduard.curso.Assunto;
 
 @Assunto(subnivel = 3, cronograma = 3)
 public class Eventos implements Listener {
+
+	@EventHandler
+	public void event(ServerListPingEvent e) {
+		e.setMotd("Linha 1\n linha2");
+	}
+
+	@EventHandler
+	public void event(BlockPlaceEvent e) {
+		Player p = e.getPlayer();
+		if (!p.hasPermission("permissao.de.colocar")) {
+			e.setCancelled(true);
+		}
+
+	}
+
+	@EventHandler
+	public void event(BlockBreakEvent e) {
+
+		Player p = e.getPlayer();
+		e.setCancelled(true);
+		if (p.getGameMode() == GameMode.CREATIVE && p.hasPermission("permissao.de.quebrar")) {
+			e.setCancelled(false);
+		}
+		e.setExpToDrop(3);
+	}
 
 	/**
 	 * Remover a chuva
@@ -89,43 +116,42 @@ public class Eventos implements Listener {
 	@EventHandler
 	public void aplicarSomQuandoQualquerComandoForFeitoPeloJogador(PlayerCommandPreprocessEvent e) {
 		e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.NOTE_PLING, 5.0F, 5.0F);
-		
-		
-	}
 
-	
-
-/**
- * Remover a fome e restaurar ela pra o Inicio
- * @author Eduard
- *
- */
-public class RemoverFome implements Listener {
-	@EventHandler
-	public void removerFome(FoodLevelChangeEvent e) {
-		if (e.getEntity() instanceof Player) {
-			Player p = (Player) e.getEntity();
-			e.setFoodLevel(20);
-			p.setSaturation(20);
-			p.setExhaustion(0);
-		}
 	}
-}
 
 	/**
-	 * MOTD significa Mensagem de entrada do servidor quando atulizamos a lista de servidores aparece uma mensagem de 2 linhas
+	 * Remover a fome e restaurar ela pra o Inicio
+	 * 
 	 * @author Eduard
 	 *
 	 */
-	@Assunto(subnivel=4)
-	public class EditarMotd implements Listener{
-		
+	public class RemoverFome implements Listener {
+		@EventHandler
+		public void removerFome(FoodLevelChangeEvent e) {
+			if (e.getEntity() instanceof Player) {
+				Player p = (Player) e.getEntity();
+				e.setFoodLevel(20);
+				p.setSaturation(20);
+				p.setExhaustion(0);
+			}
+		}
+	}
+
+	/**
+	 * MOTD significa Mensagem de entrada do servidor quando atulizamos a lista de
+	 * servidores aparece uma mensagem de 2 linhas
+	 * 
+	 * @author Eduard
+	 *
+	 */
+	@Assunto(subnivel = 4)
+	public class EditarMotd implements Listener {
+
 		@EventHandler
 		public void aoVerMOTD(ServerListPingEvent e) {
 			e.setMotd("§6Parabens Por Jogar Primeira linha\n§bAQUI Segunda Linha");
 		}
 	}
-
 
 	// ganhar um item ao entrar
 	@EventHandler

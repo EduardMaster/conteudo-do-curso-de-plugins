@@ -42,7 +42,13 @@ public class TutorialArquivos {
 		escrever2.close();
 	}
 	
-
+/**
+ * Metodo que serve para ler um String aparatir de uma Stream
+ * @param stream Stream
+ * @param charset Conjunto de caracteres
+ * @return A string lida
+ * @throws IOException
+ */
 	public static String readSTR(InputStream stream, Charset charset) throws IOException {
 		byte[] bytes = new byte[stream.available()];
 		stream.read(bytes);

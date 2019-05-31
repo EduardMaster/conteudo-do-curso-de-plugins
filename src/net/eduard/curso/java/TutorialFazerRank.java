@@ -11,9 +11,38 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-public class TutorialRanqueamento {
-	public static void main3(String[] args) {
+import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Extra;
+import net.eduard.api.lib.modules.Extra.KeyType;
 
+public class TutorialFazerRank {
+	
+	static class Usuario {
+		private String nome;
+		private int dinheiro;
+		
+		public int getDinheiro() {
+			return dinheiro;
+		}
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+	}
+	public static void main(String[] args) {
+
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+				Usuario c = new Usuario();
+				c.dinheiro = Mine.randomInt(1, 1000);
+				c.nome = Extra.newKey(KeyType.ALPHANUMERIC, 8);
+				usuarios.add(c);
+		}
+		
 		Map<String, Integer> contas = new HashMap<>();
 
 		contas.put("Eduard", 1000);
@@ -21,18 +50,22 @@ public class TutorialRanqueamento {
 		contas.put("Gabriel", 500);
 		contas.put("Pedro", 200);
 		contas.put("Caue", 100);
+		contas.entrySet().stream().sorted(Comparator.comparing(Entry::getValue)).forEach(System.out::println);
+		List<Usuario> retorno = usuarios.stream().sorted(Comparator.comparing(Usuario::getDinheiro).reversed()).collect(Collectors.toList());
+		for ( Usuario clan : retorno) {
+			System.out.println("Clan "+clan.getNome()+" dinheiro: "+clan.dinheiro);
+			
+		}
+		
 		contas.entrySet().stream().sorted((x, y) -> y.getValue().compareTo(x.getValue())).forEach(System.out::println);
-
-	}
-	public static void main2(String[] args) {
 		Map<String, Integer> dinheiros = new HashMap<>();
 		dinheiros.put("Edu", 10000);
 		dinheiros.put("Caue", 2500);
 		dinheiros.put("Gabriel", 5000);
 
-		Set<Entry<String, Integer>> contas = dinheiros.entrySet();
+		Set<Entry<String, Integer>> contas2 = dinheiros.entrySet();
 		// contas.removeIf(x -> x.getValue()<5001);
-		List<Entry<String, Integer>> novascontas = contas.stream().
+		List<Entry<String, Integer>> novascontas = contas2.stream().
 		sorted((x, y) -> x.getValue().compareTo(y.getValue()))
 		.collect(Collectors.toList());
 		Collections.reverse(novascontas);
@@ -46,8 +79,7 @@ public class TutorialRanqueamento {
 		// nums.sort((x,y)-> x + y);
 		// Collections.reverse(nums);
 		// System.out.println(nums);
-	}
-	public static void main(String[] args) {
+		
 
 		HashMap<String, Double> map = new HashMap<>();
 		map.put("Eduard", 2000D);
@@ -78,6 +110,7 @@ public class TutorialRanqueamento {
 			
 			System.out.println(entry.getKey()+": "+entry.getValue());
 		}
-
 	}
+	
+
 }

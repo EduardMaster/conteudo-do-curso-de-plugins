@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
-public class TutorialSteams {
+public class TutorialStreams {
 
 	public static void main(String[] args) {
 		HashMap<String, Double> banco = new HashMap<>();
@@ -17,6 +17,7 @@ public class TutorialSteams {
 		banco.put("Vitor", 10D);
 		
 		Double somandoDados = banco.values().stream().reduce(0D, (d1,d2)->d1+d2);
+		
 		System.out.println("Dados somados com Lambda: "+somandoDados);
 		
 		String concatenando = banco.keySet().stream()

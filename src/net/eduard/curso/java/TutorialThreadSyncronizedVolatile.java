@@ -2,7 +2,17 @@ package net.eduard.curso.java;
 
 import java.util.ArrayList;
 
-public class TutorialThreadSyncronized {
+public class TutorialThreadSyncronizedVolatile {
+	/**
+	 * Quando tem o volatile a variavel fica sincronizada com todas as threads, se
+	 * vc alterar o valor dela usando uma thread, na outra muda o valor na hora
+	 */
+	public static volatile boolean variavel1 = true;
+	/**
+	 * Caso nao tiver o 'volatile' a variavel pode acontecer de ter dois valores ao
+	 * mesmo tempo
+	 */
+	public static boolean variavel2 = true;
 
 	public static class ContaPlayer {
 		String nome;
@@ -12,13 +22,11 @@ public class TutorialThreadSyncronized {
 
 	public static ArrayList<ContaPlayer> contasDosJogadores = new ArrayList<>();
 
-
 	public static void adicionarSaldo(String nome, double adicional) {
 		for (ContaPlayer conta : contasDosJogadores) {
 			if (conta.nome == nome) {
-				
-					conta.saldo = conta.saldo + adicional;
-			
+
+				conta.saldo = conta.saldo + adicional;
 
 			}
 		}
@@ -36,22 +44,8 @@ public class TutorialThreadSyncronized {
 
 	}
 
-	private static double dinheiro = 0;
-
-	public synchronized static void adicionar(double amount) {
-		dinheiro = getSaldo() + amount;
-	}
-
-	public synchronized static void remover(double amount) {
-		dinheiro = getSaldo() - amount;
-	}
-
-	public synchronized static double getSaldo() {
-		return dinheiro;
-	}
-
-	static Thread t1;
-	static Thread t2;
+	public static Thread t1;
+	public static Thread t2;
 
 	public static void main(String[] args) {
 		ContaPlayer conta1 = new ContaPlayer();
@@ -95,7 +89,7 @@ public class TutorialThreadSyncronized {
 			long dif = fim - inicio;
 
 			System.out.println("Diferenca " + dif);
-			System.out.println("Saldo: " + dinheiro);
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

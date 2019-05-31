@@ -18,6 +18,44 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class TutorialComunicacoesWeb {
+
+	public static void main(String[] args) {
+//		link = ""
+		
+	}
+	public static String sendPost(String link, String parametros) throws Exception {
+		return sendRequest(link, parametros, "POST");
+	}
+
+	public static String sendGet(String link, String parametros) throws Exception {
+		return sendRequest(link, parametros, "GET");
+	}
+
+	public static String sendRequest(String link, String parametros, String tipo) throws Exception {
+		URL url = new URL(link);
+
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		con.setReadTimeout(5000);
+		con.setRequestProperty("Content-Type", "application/json; charset=UTF-8;");
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		con.setRequestMethod(tipo);
+
+		// String json = "teste={'teste':2}";
+		OutputStream os = con.getOutputStream();
+		os.write(parametros.getBytes("UTF-8"));
+		os.close();
+
+		InputStream is = con.getInputStream();
+		DataInputStream dis = new DataInputStream(is);
+
+		byte[] bytesLidos = new byte[dis.available()];
+		dis.readFully(bytesLidos);
+		String retorno = new String(bytesLidos, "UTF-8");
+
+		return retorno;
+	}
+
 	public static void main2(String[] args) {
 
 		System.out.println("Abrindo console");
@@ -51,7 +89,7 @@ public class TutorialComunicacoesWeb {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main5(String[] args) {
 		try {
 			URL link = new URL("http://localhost/pegarPermissoes?token=123");
 			try {
@@ -61,8 +99,6 @@ public class TutorialComunicacoesWeb {
 				System.out.println("Deu certo");
 				DataInputStream lendo = new DataInputStream(entrada);
 				System.out.println(lendo.available());
-
-		
 
 				byte[] todosBytesLidos = new byte[lendo.available()];
 				lendo.readFully(todosBytesLidos);

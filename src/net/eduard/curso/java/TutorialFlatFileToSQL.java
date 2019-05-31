@@ -12,14 +12,14 @@ import java.util.List;
 import net.eduard.api.lib.manager.DBManager;
 import net.eduard.api.lib.modules.Extra;
 
-public class ConvertendoIconomyToMySQL {
+public class TutorialFlatFileToSQL {
 
 	public static void main(String[] args) throws URISyntaxException, IOException {
 		DBManager db = new DBManager();
 		DBManager.setDebug(false);
 		db.openConnection();
 		db.createTable("contas", "name varchar(16), coins double");
-		URL file = ConvertendoIconomyToMySQL.class.getResource("accounts.mini");
+		URL file = TutorialFlatFileToSQL.class.getResource("accounts.mini");
 		Path path = Paths.get(file.toURI());
 		List<String> lines = java.nio.file.Files.readAllLines(path);
 		long inicio = System.currentTimeMillis();
