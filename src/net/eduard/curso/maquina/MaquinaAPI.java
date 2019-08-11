@@ -21,7 +21,7 @@ public class MaquinaAPI {
 			StorageAPI.updateReferences();
 		} else {
 			manager = new MaquinaManager();
-			Maquina maquinaDeSatoche = new Maquina();
+			Maquina maquinaDeSatoche = new Maquina(); 
 			maquinaDeSatoche.setNome("Satoche");
 			maquinaDeSatoche.setIcon(Mine.newItem(Material.IRON_BLOCK, "§aMaquina de Satoche"));
 			maquinaDeSatoche.setDrop(Mine.newItem(Material.DOUBLE_PLANT, "§eSatoche"));

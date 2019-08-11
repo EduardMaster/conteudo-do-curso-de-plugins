@@ -59,7 +59,7 @@ public class DeshFire extends KitAbility {
 				}
 			}
 		}));
-	}
+	} 
 	@EventHandler
 	public void event(PlayerMoveEvent e) {
 		Player p = e.getPlayer();

@@ -28,6 +28,6 @@ public class TutorialCraftSimples {
 		craftExpecifico.setIngredient('S', Material.STICK);
 		
 		Bukkit.addRecipe(craftExpecifico);
-	}
-
+	} 
+ 
 }

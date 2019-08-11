@@ -19,7 +19,7 @@ public class Archer extends KitAbility {
 				Enchantment.ARROW_DAMAGE, 1));
 		add(new ItemStack(Material.ARROW, 10));
 
-	}
+	} 
 
 	@Override
 	@EventHandler
