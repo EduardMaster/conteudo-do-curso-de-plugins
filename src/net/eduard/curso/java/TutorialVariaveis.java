@@ -46,12 +46,5 @@ public class TutorialVariaveis {
 
 	}
 
-	public static void numerosBugados() {
-		for (int x = 0; x < 10; x++) {
-			for (int y = 0; y < 5; y++) {
-				System.out.printf("		%s << %s = %s", x, y, x << y);
-				System.out.printf("	%s >> %s = %s", x, y, x >> y);
-			}
-		}
-	}
+	
 }
