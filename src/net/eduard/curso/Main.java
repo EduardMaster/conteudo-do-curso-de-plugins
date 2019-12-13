@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import net.eduard.curso.entidades.MobsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -16,12 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.BukkitConfig;
 import net.eduard.api.lib.Mine;
-import net.eduard.api.lib.licence.Licence;
-import net.eduard.curso.caixas.TutorialCraftSimples;
-import net.eduard.curso.eventos.EditarDefesa;
-import net.eduard.curso.eventos.PegarDropsAutomaticoDeMineracao;
-import net.eduard.curso.tempo.CooldownBasico;
-import net.eduard.curso.tempo.CooldownIntermediario;
 import net.eduard.curso.util.TutorialBukkitSearialization;
 
 /**
@@ -60,24 +55,20 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		// iniciando a variavel instance
 		instance = this;
-		
-		TutorialCraftSimples.craftEspadaLonga();
-		TutorialCraftSimples.craftEspadaCurta();
-		usandoBukkitSerialization();
+		MobsAPI.loadMobs();
+//		TutorialCraftSimples.craftEspadaLonga();
+//		TutorialCraftSimples.craftEspadaCurta();
+//		usandoBukkitSerialization();
+//
+//		// iniciando a variavel config com uma nova config chamada 'config.yml' e
+//		// salvada na pasta deste plugin
+//		config = new BukkitConfig("config.yml", this);
+////		new TimerBasico().ligar(this);
+//		Bukkit.getPluginManager().registerEvents(new EditarDefesa(), this);
+//		getCommand("cooldown1").setExecutor(new CooldownBasico());
+//		getCommand("cooldown2").setExecutor(new CooldownIntermediario());
+//		Bukkit.getPluginManager().registerEvents(new PegarDropsAutomaticoDeMineracao(), this);
 
-		// iniciando a variavel config com uma nova config chamada 'config.yml' e
-		// salvada na pasta deste plugin
-		config = new BukkitConfig("config.yml", this);
-//		new TimerBasico().ligar(this);
-		Bukkit.getPluginManager().registerEvents(new EditarDefesa(), this);
-		getCommand("cooldown1").setExecutor(new CooldownBasico());
-		getCommand("cooldown2").setExecutor(new CooldownIntermediario());
-		Bukkit.getPluginManager().registerEvents(new PegarDropsAutomaticoDeMineracao(), this);
-		Licence.BukkitTester.test(this, () -> {
-			
-			Bukkit.broadcastMessage("Ativou");
-			
-		});
 //
 //		
 //		getCommand("login").setExecutor(new ComandoLogin());
@@ -158,9 +149,9 @@ public class Main extends JavaPlugin {
 	public void configuracaoPadrao() {
 		FileConfiguration config = getConfig();
 		// teste do plugin: Sistema de nomeclatura de mensagem/op§§o
-		// Teste do Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.api.Teste do Plugin: Sistema de nomeclatura de mensagem/secao
 		// teste-do-plugin: Sistema de nomeclatura de mensagem/op§§o
-		// Teste-do-Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.api.Teste-do-Plugin: Sistema de nomeclatura de mensagem/secao
 		// TesteDoPlugin: Sistema de nomeclatura de classe
 		// testeDoPlugin: Sistema de nomeclatura de variavel/pacote
 		// teste_do_plugin: Sistema de nomeclatura de variavel/pacote

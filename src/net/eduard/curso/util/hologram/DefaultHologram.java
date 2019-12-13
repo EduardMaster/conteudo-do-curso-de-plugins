@@ -174,14 +174,14 @@ public class DefaultHologram extends CraftHologram {
 	@Override
 	public void addTouchHandler(TouchHandler handler) {
 		this.validateTouchEnabled();
-		if (!this.isTouchable()) { throw new IllegalStateException("Hologram is not touchable"); }
+		if (!this.isTouchable()) { throw new IllegalStateException("Hologram1_7 is not touchable"); }
 		this.touchHandlers.add(handler);
 	}
 
 	@Override
 	public void removeTouchHandler(TouchHandler handler) {
 		this.validateTouchEnabled();
-		if (!this.isTouchable()) { throw new IllegalStateException("Hologram is not touchable"); }
+		if (!this.isTouchable()) { throw new IllegalStateException("Hologram1_7 is not touchable"); }
 		this.touchHandlers.remove(handler);
 	}
 

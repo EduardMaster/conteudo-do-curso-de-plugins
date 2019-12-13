@@ -2,6 +2,7 @@ package net.eduard.curso.scoreboard;
 
 import java.util.HashMap;
 
+import net.eduard.api.lib.Mine;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -63,7 +64,7 @@ public class ScoreboardComDisplayboard extends BukkitRunnable implements Listene
 	public static void setScore(Player p) {
 		// ligando uma Displayboard nova
 		// Colocando o titulo e depois as linhas em seguida separadas por Virgula
-		DisplayBoard scoreboard = new DisplayBoard("§6§lMEU SERVER", "§aLINHA1", "§aLinha2", "", "§aLinha4");
+		DisplayBoard scoreboard = new DisplayBoard("§6§lMEU SERVER", "§aLINHA1", "§aLinha2 $player_health", "", "§aLinha4");
 		// aplica a scoreboard para o Jogador
 		scoreboard.apply(p);
 
@@ -72,6 +73,8 @@ public class ScoreboardComDisplayboard extends BukkitRunnable implements Listene
 
 		// limpa a lista de linhas da Scoreboard
 		scoreboard.getLines().clear();
+
+
 
 		// coloca a nova Displayboard do player criada no HashMap
 		scoreboards.put(p, scoreboard);

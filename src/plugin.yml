@@ -1,0 +1,58 @@
+name: EduardCurso
+description: Sistemas feitos no Curso do Eduard
+main: net.eduard.curso.Main
+version: 1.0
+authors: [Eduard]
+depend: [EduardAPI]
+website: https://www.youtube.com/user/EduTutoriaisHD
+commands:
+  caixa:
+  rank:
+    description: Subir de Rank
+    usage: /<command>
+    aliases: [rankup]
+  setspawn:
+    description: Setar o Spawn
+    usage: /<command>
+  spawn:
+    description: Ir ao Spawn
+    usage: /<command>
+  cash:
+    description: net.eduard.api.Teste
+    usage: Digite /cash
+  login:
+    description: net.eduard.api.Teste
+    usage: Digite /cash
+  register:
+    aliases: [registrar]
+    description: Registrar sua Conta
+    usage: /<command> <senha> <senhaconfirma>
+  setwarp:
+    aliases: [createwarp]
+    description: Setar uma Warp
+    usage: /<command> <warp>
+  deletewarp:
+    aliases: [delwarp]
+    description: Deletar uma Warp
+    usage: /<command> <warp>
+  warps:
+    aliases: [warplist]
+    description: Listar as Warps
+    usage: /<command>
+  warp:
+    description: Teleportar ate uma Warp
+    aliases: [local]
+    usage: /<command> <warp>
+  delay:
+  timer:
+    description: Inicia um Timer ou seja um repetidor
+  timer2:
+    description: Igual comando timer, a diferenca que o timer esta em classe separada
+  cooldown1:
+    description: Ao fizer este comando ficara em cooldown nao podendo digitar novamente
+  cooldown2:
+    description: Igual comando cooldown1, a diferenca mostra o tempo restante para sair do cooldown  
+  money:
+    aliases: [dinheiro]
+  
+
