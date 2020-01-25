@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 import net.eduard.api.lib.Mine;
 import net.eduard.api.lib.modules.Extra;
-import net.eduard.api.lib.modules.Extra.KeyType;
+
 
 public class TutorialFazerRank {
 	
@@ -39,7 +39,7 @@ public class TutorialFazerRank {
 		for (int i = 0; i < 10; i++) {
 				Usuario c = new Usuario();
 				c.dinheiro = Mine.randomInt(1, 1000);
-				c.nome = Extra.newKey(KeyType.ALPHANUMERIC, 8);
+				c.nome = Extra.newKey(Extra.KeyType.ALPHANUMERIC, 8);
 				usuarios.add(c);
 		}
 		

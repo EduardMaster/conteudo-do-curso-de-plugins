@@ -2,6 +2,7 @@ package net.eduard.curso.menu;
 
 import java.util.ArrayList;
 
+import net.eduard.api.lib.modules.Game;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,8 +15,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.eduard.api.lib.Mine;
-import net.eduard.api.lib.modules.EnchantGlow;
 
 public class MenuBasico implements Listener {
 
@@ -31,7 +30,7 @@ public class MenuBasico implements Listener {
 		lista.add("§dSegunda linha");
 		meta.setLore(lista);
 		item.setItemMeta(meta);
-		EnchantGlow.addGlow(item);
+
 		p.getInventory().addItem(item);
 
 	}
@@ -57,7 +56,7 @@ public class MenuBasico implements Listener {
 		lista.add("§dSegunda linha");
 		meta.setLore(lista);
 		item.setItemMeta(meta);
-		EnchantGlow.addGlow(item);
+
 		
 		if (e.getItem() == null)
 			return;
@@ -75,7 +74,7 @@ public class MenuBasico implements Listener {
 			if (e.getInventory().getTitle().equals("§6Warps")) {
 				e.setCancelled(true);
 
-				if (e.getRawSlot() == Mine.getPosition(1, 5)) {
+				if (e.getRawSlot() == Game.getPosition(1, 5)) {
 					p.chat("/warp vip");
 				}
 
@@ -92,7 +91,7 @@ public class MenuBasico implements Listener {
 		warpVipMeta.setDisplayName("§bWarp VIP");
 		warpVip.setItemMeta(warpVipMeta);
 
-		menu.setItem(Mine.getPosition(1, 5), warpVip);
+		menu.setItem(Game.getPosition(1, 5), warpVip);
 
 		p.openInventory(menu);
 	}

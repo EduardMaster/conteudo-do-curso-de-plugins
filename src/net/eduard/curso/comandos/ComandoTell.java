@@ -1,6 +1,7 @@
 
 package net.eduard.curso.comandos;
 
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,7 +27,7 @@ public class ComandoTell implements CommandExecutor {
 				p.sendMessage("/" + label + " <player>");
 			} else {
 				Player target = Bukkit.getPlayer(args[0]);
-				String message = Mine.getText(1, args);
+				String message = Extra.getText(1, args);
 				if (target == null) {
 					sender.sendMessage("§cEste jogador esta offline");
 				} else {

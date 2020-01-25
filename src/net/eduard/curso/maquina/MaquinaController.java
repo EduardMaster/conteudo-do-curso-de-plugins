@@ -1,5 +1,6 @@
 package net.eduard.curso.maquina;
 
+import net.eduard.api.lib.Mine;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,7 +9,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import net.eduard.api.lib.Mine;
 
 public class MaquinaController implements Listener {
 	@EventHandler
