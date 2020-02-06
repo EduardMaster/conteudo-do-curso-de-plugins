@@ -2,7 +2,6 @@ package net.eduard.curso.scoreboard;
 
 import java.util.HashMap;
 
-import net.eduard.api.lib.Mine;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

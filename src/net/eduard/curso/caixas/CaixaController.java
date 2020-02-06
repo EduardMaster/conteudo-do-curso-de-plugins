@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 
 public class CaixaController implements Listener {
 

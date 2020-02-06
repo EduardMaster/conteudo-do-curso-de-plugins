@@ -1,5 +1,6 @@
 package net.eduard.curso.maquina;
 
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 
 public class ComandoMaquinaGive implements CommandExecutor{
 
@@ -32,7 +33,7 @@ public class ComandoMaquinaGive implements CommandExecutor{
 				}else {
 					
 					ItemStack maquinaitem = maquina.getIcon().clone();
-					maquinaitem.setAmount(Mine.toInt(quantidade));
+					maquinaitem.setAmount(Extra.toInt(quantidade));
 					jogador.getInventory().addItem(maquinaitem);
 				}
 				

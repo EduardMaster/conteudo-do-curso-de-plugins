@@ -2,7 +2,7 @@ package net.eduard.curso.menu;
 
 import java.util.ArrayList;
 
-import net.eduard.api.lib.modules.Game;
+import net.eduard.api.lib.modules.Mine;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -74,7 +74,7 @@ public class MenuBasico implements Listener {
 			if (e.getInventory().getTitle().equals("§6Warps")) {
 				e.setCancelled(true);
 
-				if (e.getRawSlot() == Game.getPosition(1, 5)) {
+				if (e.getRawSlot() == Mine.getPosition(1, 5)) {
 					p.chat("/warp vip");
 				}
 
@@ -91,7 +91,7 @@ public class MenuBasico implements Listener {
 		warpVipMeta.setDisplayName("§bWarp VIP");
 		warpVip.setItemMeta(warpVipMeta);
 
-		menu.setItem(Game.getPosition(1, 5), warpVip);
+		menu.setItem(Mine.getPosition(1, 5), warpVip);
 
 		p.openInventory(menu);
 	}

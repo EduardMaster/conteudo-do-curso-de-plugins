@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 
 public class TutorialCraftSimples {
 	

@@ -1,13 +1,13 @@
 package net.eduard.curso.economia;
 
-import net.eduard.curso.economia.CashSqlite;
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 
 public class ComandoCash implements CommandExecutor {
 
@@ -49,7 +49,7 @@ public class ComandoCash implements CommandExecutor {
 						sender.sendMessage("§cJogador nao existe.");
 					}else {
 						
-						double quantidade = Mine.toDouble(args[2]);
+						double quantidade = Extra.toDouble(args[2]);
 						
 						CashSqlite.setCash(jogador, quantidade);
 						sender.sendMessage("§aVoce alterou o cash do "+
