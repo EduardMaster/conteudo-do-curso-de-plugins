@@ -6,9 +6,9 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.UUID;
 
-import net.eduard.api.lib.manager.DBManager;
-import net.eduard.api.lib.modules.AutoBase;
-import net.eduard.api.lib.modules.AutoBase.Info;
+import net.eduard.api.lib.database.DBManager;
+import net.eduard.api.lib.database.AutoBase;
+import net.eduard.api.lib.database.AutoBase.Info;
 
 public class TutorialAutoBase {
 	public static void main(String[] args) {

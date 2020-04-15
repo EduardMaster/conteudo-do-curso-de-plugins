@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import net.eduard.api.lib.manager.DBManager;
+import net.eduard.api.lib.database.DBManager;
 import net.eduard.api.lib.modules.Extra;
 
 public class TutorialFlatFileToSQL {

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 
 public class HomesAPI {
 

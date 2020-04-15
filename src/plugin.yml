@@ -18,10 +18,10 @@ commands:
     description: Ir ao Spawn
     usage: /<command>
   cash:
-    description: net.eduard.api.Teste
+    description: net.eduard.curso.mongodb.MongoDBTeste
     usage: Digite /cash
   login:
-    description: net.eduard.api.Teste
+    description: net.eduard.curso.mongodb.MongoDBTeste
     usage: Digite /cash
   register:
     aliases: [registrar]

@@ -3,7 +3,7 @@ package net.eduard.curso.caixas;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.storage.StorageAPI;
 import net.eduard.curso.Main;

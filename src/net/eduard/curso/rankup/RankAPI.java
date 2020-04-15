@@ -1,6 +1,6 @@
 package net.eduard.curso.rankup;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.storage.StorageAPI;
 import net.eduard.curso.Main;
 

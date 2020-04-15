@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 
 public class CashSqlite {
 	private static Connection con;
@@ -28,7 +28,7 @@ public class CashSqlite {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			con = DriverManager.getConnection("jdbc:sqlite:F:/Tudo/net.eduard.api.Teste/cash.db");
+			con = DriverManager.getConnection("jdbc:sqlite:F:/Tudo/net.eduard.curso.mongodb.MongoDBTeste/cash.db");
 
 			Statement stmt = con.createStatement();
 			stmt.execute("CREATE TABLE IF NOT EXISTS cash (nickname TEXT, amount INTEGER);");

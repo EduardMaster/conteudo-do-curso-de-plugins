@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.manager.EventsManager;
-import net.eduard.api.lib.modules.Animation;
+import net.eduard.api.lib.game.Animation;
 
 public class AnimacaoArmostand extends EventsManager {
 

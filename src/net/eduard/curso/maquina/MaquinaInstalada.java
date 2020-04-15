@@ -3,7 +3,7 @@ package net.eduard.curso.maquina;
 import org.bukkit.Location;
 
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 
 public class MaquinaInstalada implements Storable {
 

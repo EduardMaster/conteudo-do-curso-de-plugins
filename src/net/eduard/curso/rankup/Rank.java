@@ -1,7 +1,7 @@
 package net.eduard.curso.rankup;
 
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 @StorageAttributes(indentificate=true)
 public class Rank implements Storable {
 

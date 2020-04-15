@@ -21,7 +21,7 @@ public class TutorialThreadCME {
                 if (!lista.isEmpty()) {
                     TutorialThreadCME.lista.remove(0);
                 }
-            } else TutorialThreadCME.lista.add("Teste");
+            } else TutorialThreadCME.lista.add("MongoDBTeste");
         }
     }
 
@@ -31,7 +31,7 @@ public class TutorialThreadCME {
             if (!lista.isEmpty()) {
                 TutorialThreadCME.lista.remove(0);
             }
-        } else TutorialThreadCME.lista.add("Teste");
+        } else TutorialThreadCME.lista.add("MongoDBTeste");
 
     }
 

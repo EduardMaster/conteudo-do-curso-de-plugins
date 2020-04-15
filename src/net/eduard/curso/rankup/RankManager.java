@@ -8,7 +8,7 @@ import java.util.UUID;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 
 public class RankManager implements Storable {
 

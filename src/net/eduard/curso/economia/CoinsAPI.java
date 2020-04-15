@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.curso.Main;
 
 public class CoinsAPI {

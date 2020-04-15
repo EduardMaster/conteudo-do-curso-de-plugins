@@ -1,6 +1,6 @@
 package net.eduard.curso.rankup;
 
-import net.eduard.api.lib.manager.DBManager;
+import net.eduard.api.lib.database.DBManager;
 
 public class RankSQL extends DBManager {
 

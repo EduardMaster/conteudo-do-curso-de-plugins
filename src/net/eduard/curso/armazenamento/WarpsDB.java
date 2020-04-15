@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
-import net.eduard.api.lib.manager.DBManager;
+import net.eduard.api.lib.database.DBManager;
 
 public class WarpsDB extends DBManager {
  

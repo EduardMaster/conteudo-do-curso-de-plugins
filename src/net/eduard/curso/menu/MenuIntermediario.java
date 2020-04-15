@@ -6,7 +6,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.Plugin;
 
 import net.eduard.api.lib.menu.Menu;
-import net.eduard.api.lib.modules.ClickEffect;
+import net.eduard.api.lib.inventory.ClickEffect;
 
 public class MenuIntermediario {
 

@@ -15,7 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.curso.util.TutorialBukkitSearialization;
 
@@ -149,9 +149,9 @@ public class Main extends JavaPlugin {
 	public void configuracaoPadrao() {
 		FileConfiguration config = getConfig();
 		// teste do plugin: Sistema de nomeclatura de mensagem/op§§o
-		// net.eduard.api.Teste do Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.curso.mongodb.MongoDBTeste do Plugin: Sistema de nomeclatura de mensagem/secao
 		// teste-do-plugin: Sistema de nomeclatura de mensagem/op§§o
-		// net.eduard.api.Teste-do-Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.curso.mongodb.MongoDBTeste-do-Plugin: Sistema de nomeclatura de mensagem/secao
 		// TesteDoPlugin: Sistema de nomeclatura de classe
 		// testeDoPlugin: Sistema de nomeclatura de variavel/pacote
 		// teste_do_plugin: Sistema de nomeclatura de variavel/pacote

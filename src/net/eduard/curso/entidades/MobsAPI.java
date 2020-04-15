@@ -1,14 +1,12 @@
 package net.eduard.curso.entidades;
 
-import net.eduard.api.lib.modules.Configs;
+import net.eduard.api.lib.config.Configs;
 import net.eduard.curso.Main;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Set;

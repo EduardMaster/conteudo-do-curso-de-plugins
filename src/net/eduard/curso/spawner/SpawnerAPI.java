@@ -2,7 +2,7 @@ package net.eduard.curso.spawner;
 
 import org.bukkit.entity.EntityType;
 
-import net.eduard.api.lib.BukkitConfig;
+import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.curso.Main;
 
 public class SpawnerAPI {

@@ -13,8 +13,8 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
-import net.eduard.api.lib.game.DisplayBoard;
-import net.eduard.api.lib.modules.Scoreboards;
+import net.eduard.api.lib.player.DisplayBoard;
+import net.eduard.api.lib.player.Scoreboards;
 
 /**
  * Scoreboard simples sem uso de API
