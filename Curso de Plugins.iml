@@ -20,14 +20,6 @@
     <orderEntry type="module" module-name="EduardAPI" scope="PROVIDED" />
     <orderEntry type="library" scope="PROVIDED" name="Plugins APIs" level="application" />
     <orderEntry type="jdk" jdkName="java11" jdkType="JavaSDK" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../Servidor Teste/lib/mongo-java-driver-3.12.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Java APIs" level="application" />
   </component>
 </module>
