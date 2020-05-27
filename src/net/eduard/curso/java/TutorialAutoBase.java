@@ -7,8 +7,8 @@ import java.util.Calendar;
 import java.util.UUID;
 
 import net.eduard.api.lib.database.DBManager;
-import net.eduard.api.lib.database.AutoBase;
-import net.eduard.api.lib.database.AutoBase.Info;
+import net.eduard.api.lib.database.autobase.AutoBase;
+import net.eduard.api.lib.database.autobase.AutoBase.Info;
 
 public class TutorialAutoBase {
 	public static void main(String[] args) {
