@@ -12,13 +12,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.Assunto;
+
 /**
  * Comando de prender o jogador em um jaula de Bedrock
  * @author Eduard
  *
  */
-@Assunto(subnivel=8)
+
 public class ComandoPrender implements CommandExecutor {
 	private List<Player> players = new ArrayList<>();
 	@Override

@@ -7,13 +7,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.Assunto;
+
 /**
  * Comando de setar o mesmos items de você para o restante de jogadores
  * @author Eduard
  *
  */
-@Assunto(subnivel=7)
+
 public class ComandoSkit implements CommandExecutor {
 
 	@Override

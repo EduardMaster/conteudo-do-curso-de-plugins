@@ -3,6 +3,7 @@ package net.eduard.curso.caixas;
 import java.util.ArrayList;
 import java.util.Map;
 
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,10 +12,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.api.lib.storage.Storable;
 import net.eduard.curso.Main;
 
-public class Caixa implements Storable {
+public class Caixa {
 
 	private String nome;
 
@@ -41,14 +41,14 @@ public class Caixa implements Storable {
 				for (int i = 18 - 2; i < menu.getSize(); i++) {
 					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Mine.getRandomInt(1, 15)));
 				}
-				ItemStack prize = Mine.getRandom(getPremios());
+				ItemStack prize = Extra.getRandom(getPremios());
 				menu.setItem(Mine.getPosition(2, 8), prize);
 
 				if (contador == 0) {
 					cancel();
 					String itemname = Mine.getName(prize);
 					if (itemname.isEmpty()) {
-						itemname = Mine.toTitle(prize.getType().name(), " ");
+						itemname = Extra.toTitle(prize.getType().name(), " ");
 					}
 					player.sendMessage("§aVoce recebeu o premio da caixa " + getNome());
 					player.getInventory().addItem(prize);
@@ -60,17 +60,6 @@ public class Caixa implements Storable {
 
 	}
 
-	@Override
-	public Object restore(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void store(Map<String, Object> map, Object object) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public String getNome() {
 		return nome;

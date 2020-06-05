@@ -6,13 +6,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import net.eduard.curso.Assunto;
+
 /**
  * 
  * @author Eduard
  *
  */
-@Assunto(subnivel=4)
+
 public class GravidadeNosBlocos implements Listener{
 	
 	@SuppressWarnings("deprecation")

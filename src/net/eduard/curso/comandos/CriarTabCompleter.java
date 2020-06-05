@@ -9,13 +9,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.Assunto;
+
 /**
  * TabComplete criado para um Comando simples
  * @author Eduard
  *
  */
-@Assunto(subnivel=4)
+
 public class CriarTabCompleter implements TabCompleter{
 
 	@Override

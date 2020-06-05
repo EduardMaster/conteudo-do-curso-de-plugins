@@ -2,6 +2,7 @@ package net.eduard.curso.caixas;
 
 import java.util.ArrayList;
 
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -85,14 +86,14 @@ public class CaixaMisteriosaBasica implements Listener {
 				for (int i = 18 - 2; i < menu.getSize(); i++) {
 					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Mine.getRandomInt(1, 15)));
 				}
-				ItemStack prize = Mine.getRandom(premios);
+				ItemStack prize = Extra.getRandom(premios);
 				menu.setItem(Mine.getPosition(2, 8), prize);
 
 				if (contador == 0) {
 					cancel();
 					String itemname = Mine.getName(prize);
 					if (itemname.isEmpty()) {
-						itemname = Mine.toTitle(prize.getType().name(), " ");
+						itemname = Extra.toTitle(prize.getType().name(), " ");
 					}
 					player.sendMessage("§aVoce recebeu o premio da caixa Básica");
 					player.getInventory().addItem(prize);

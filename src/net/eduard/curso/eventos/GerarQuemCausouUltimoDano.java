@@ -8,9 +8,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-import net.eduard.curso.Assunto;
 
-@Assunto(subnivel=9)
+
+
 public class GerarQuemCausouUltimoDano implements Listener{
 	
 	public static HashMap<Player, Entity> damager = new HashMap<>();

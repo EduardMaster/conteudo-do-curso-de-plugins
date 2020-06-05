@@ -40,8 +40,7 @@ import org.bukkit.event.entity.SheepDyeWoolEvent;
 import org.bukkit.event.entity.SheepRegrowWoolEvent;
 import org.bukkit.event.entity.SlimeSplitEvent;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=3,cronograma=3)
+
 public class ListaDeEventosEntidade implements  Listener {
 
 	@EventHandler

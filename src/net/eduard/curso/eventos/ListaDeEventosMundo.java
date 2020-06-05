@@ -19,8 +19,7 @@ import org.bukkit.event.world.WorldInitEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=3,cronograma=3)
+
 public class ListaDeEventosMundo implements Listener {
 
 	@EventHandler

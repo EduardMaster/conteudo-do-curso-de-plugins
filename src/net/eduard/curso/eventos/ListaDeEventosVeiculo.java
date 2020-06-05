@@ -12,8 +12,7 @@ import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.event.vehicle.VehicleMoveEvent;
 import org.bukkit.event.vehicle.VehicleUpdateEvent;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=3,cronograma=3)
+
 public class ListaDeEventosVeiculo implements  Listener {
 
 	@EventHandler

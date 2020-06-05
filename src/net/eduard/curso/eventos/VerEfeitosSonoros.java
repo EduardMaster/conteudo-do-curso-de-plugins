@@ -10,13 +10,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Assunto;
 /**
  * Sistema simples para você poder ver todos efeitos sonoros existentes e também os efeitos
  * @author Eduard
  *
  */
-@Assunto(subnivel=8)
 public class VerEfeitosSonoros implements Listener{
 	@EventHandler
 	public void event(PlayerJoinEvent e) {

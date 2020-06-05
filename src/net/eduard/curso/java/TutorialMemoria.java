@@ -8,7 +8,6 @@ import java.util.Locale;
 public class TutorialMemoria {
 	public static ArrayList<String> dados = new ArrayList<>();
 	public static int contagematual = 0;
-//	private static final long MEGABYTE_FACTOR = 1024L * 1024L;
 	private static final DecimalFormat ROUNDED_DOUBLE_DECIMALFORMAT;
 	private static final String MIB = "MiB";
 

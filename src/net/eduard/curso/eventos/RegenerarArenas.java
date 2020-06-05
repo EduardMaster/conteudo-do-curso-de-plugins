@@ -17,9 +17,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.Assunto;
 
-@Assunto(subnivel=12)
+
 public class RegenerarArenas implements Listener {
 
 	public static final ArrayList<BlockState> BLOCKS = new ArrayList<>();

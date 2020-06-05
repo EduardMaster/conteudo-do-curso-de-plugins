@@ -14,13 +14,11 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.eduard.curso.Assunto;
 /**
  * Comando de ativar e desativar a possiblidade de construir no servidor
  * @author Eduard
  *
  */
-@Assunto(subnivel=10)
 public class ComandoBuild implements CommandExecutor, Listener {
 
 	public static List<Player> listasDosJogadoresQueEstamUsandoBuild = new ArrayList<>();

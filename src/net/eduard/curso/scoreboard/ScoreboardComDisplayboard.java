@@ -2,6 +2,7 @@ package net.eduard.curso.scoreboard;
 
 import java.util.HashMap;
 
+import net.eduard.api.lib.game.DisplayBoard;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,15 +12,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.api.lib.player.DisplayBoard;
-import net.eduard.api.lib.player.Scoreboards;
-
 /**
  * Criando uma Scoreboard simples usando a api {@link DisplayBoard}
  * 
  * @author Eduard
  * @see DisplayBoard
- * @see Scoreboards
  */
 public class ScoreboardComDisplayboard extends BukkitRunnable implements Listener {
 	/**

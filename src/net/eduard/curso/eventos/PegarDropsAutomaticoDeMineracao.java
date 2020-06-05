@@ -10,8 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=4)
+
 public class PegarDropsAutomaticoDeMineracao implements Listener {
 
 	@EventHandler

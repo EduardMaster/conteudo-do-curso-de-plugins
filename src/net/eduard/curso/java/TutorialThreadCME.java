@@ -48,52 +48,53 @@ public class TutorialThreadCME {
         t2.start();
     }
 
-}
+    static class Thread2 extends Thread {
+        @Override
+        public void run() {
+            while (true) {
 
-class Thread2 extends Thread {
-    @Override
-    public void run() {
-        while (true) {
+                System.out.println("Remove primeiro texto");
+                TutorialThreadCME.mudar2(true);
 
-            System.out.println("Remove primeiro texto");
-            TutorialThreadCME.mudar2(true);
-
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         }
     }
-}
 
-class Thread1 extends Thread {
+   static class Thread1 extends Thread {
 
-    @Override
-    public void run() {
-        while (true) {
+        @Override
+        public void run() {
+            while (true) {
 
-            TutorialThreadCME.mudar2(false);
-            System.out.println("Lendo lista");
+                TutorialThreadCME.mudar2(false);
+                System.out.println("Lendo lista");
 //			for (String linha : new ArrayList<>(CurrentModificationDebug.getInstancia().lista)) {
 ////				System.out.println("Linha " + id++ + " " + linha);
 //
 //			}
-            System.out.println("Mostrando linhas " + TutorialThreadCME.lista.size());
+                System.out.println("Mostrando linhas " + TutorialThreadCME.lista.size());
 
 //			for (String linha :CurrentModificationDebug.getInstancia().lista) {
 //				System.out.println("Linha " + id++ + " " + linha);
 
 //			}
 
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 
+            }
         }
     }
+
 }
+

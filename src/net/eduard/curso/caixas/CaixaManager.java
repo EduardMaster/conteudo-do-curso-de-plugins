@@ -5,7 +5,7 @@ import java.util.Map;
 
 import net.eduard.api.lib.storage.Storable;
 
-public class CaixaManager implements Storable {
+public class CaixaManager  {
 
 	private ArrayList<Caixa> caixas = new ArrayList<>();
 
@@ -16,18 +16,6 @@ public class CaixaManager implements Storable {
 			}
 		}
 		return null;
-	}
-
-	@Override
-	public Object restore(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void store(Map<String, Object> map, Object object) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public ArrayList<Caixa> getCaixas() {

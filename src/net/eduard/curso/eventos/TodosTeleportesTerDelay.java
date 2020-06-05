@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Assunto;
+
 
 /**
  * Sistema de Delay ao fazer qualquer teleport
@@ -18,7 +18,6 @@ import net.eduard.curso.Assunto;
  * @author Eduard
  *
  */
-@Assunto(subnivel = 11)
 public class TodosTeleportesTerDelay implements Listener {
 
 	public int delaySeconds = 3;

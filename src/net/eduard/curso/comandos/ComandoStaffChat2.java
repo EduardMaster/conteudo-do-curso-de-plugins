@@ -10,13 +10,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import net.eduard.curso.Assunto;
+
 /**
  * Comando chat de staff adicionando o cara para lista de jogadores usando o chat staff
  * @author Eduard
  *
  */
-@Assunto(subnivel=10)
+
 public class ComandoStaffChat2 implements Listener,CommandExecutor{
 	public static ArrayList<Player> players = new ArrayList<>();
 	

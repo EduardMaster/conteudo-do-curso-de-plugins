@@ -27,7 +27,7 @@ import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.FurnaceBurnEvent;
 import org.bukkit.event.inventory.FurnaceSmeltEvent;
 
-import net.eduard.curso.Assunto;
+
 
 public class ListaDeEventosBloco implements Listener {
 

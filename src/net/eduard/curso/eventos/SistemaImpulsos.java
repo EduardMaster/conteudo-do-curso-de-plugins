@@ -11,9 +11,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
-import net.eduard.curso.Assunto;
 
-@Assunto(subnivel=10)
+
 public class SistemaImpulsos implements Listener{
 	@EventHandler
 	public void BlocoPulador(EntityDamageEvent e) {

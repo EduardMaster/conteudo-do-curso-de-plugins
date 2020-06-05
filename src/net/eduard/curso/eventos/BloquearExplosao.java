@@ -6,13 +6,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityExplodeEvent;
 
-import net.eduard.curso.Assunto;
 /**
  * Não deixar creeper explodir
  * @author Eduard
  *
  */
-@Assunto(subnivel=3)
 public class BloquearExplosao implements Listener{
 	
 	

@@ -8,9 +8,9 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-import net.eduard.curso.Assunto;
 
-@Assunto(subnivel = 6)
+
+
 public class JuntarPosts implements Listener {
 
 	@EventHandler

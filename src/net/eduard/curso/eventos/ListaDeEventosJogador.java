@@ -46,8 +46,7 @@ import org.bukkit.event.player.PlayerUnleashEntityEvent;
 import org.bukkit.event.player.PlayerUnregisterChannelEvent;
 import org.bukkit.event.player.PlayerVelocityEvent;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=3,cronograma=3)
+
 public class ListaDeEventosJogador implements  Listener  {
 
 	@EventHandler

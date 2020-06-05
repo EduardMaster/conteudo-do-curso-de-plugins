@@ -1,12 +1,12 @@
 package net.eduard.curso.menu;
 
+import net.eduard.api.lib.game.ClickEffect;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.Plugin;
 
 import net.eduard.api.lib.menu.Menu;
-import net.eduard.api.lib.inventory.ClickEffect;
 
 public class MenuIntermediario {
 

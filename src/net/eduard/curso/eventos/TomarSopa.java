@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import net.eduard.curso.Assunto;
+
 
 
 /**
@@ -15,7 +15,6 @@ import net.eduard.curso.Assunto;
  * @author Eduard
  *
  */
-@Assunto(subnivel = 5)
 public class TomarSopa implements Listener {
 
 	@EventHandler

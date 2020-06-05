@@ -8,12 +8,10 @@ import java.util.UUID;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.modules.StorageAttributes;
 
 public class RankManager implements Storable {
 
 	public RankManager() {
-		// TODO Auto-generated constructor stub
 	}
 
 	private ArrayList<Rank> ranks = new ArrayList<>();

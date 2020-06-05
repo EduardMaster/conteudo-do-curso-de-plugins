@@ -20,7 +20,7 @@ import com.google.gson.JsonParser;
 public class TutorialComunicacoesWeb {
 
 	public static void main(String[] args) {
-//		link = ""
+
 		
 	}
 	public static String sendPost(String link, String parametros) throws Exception {

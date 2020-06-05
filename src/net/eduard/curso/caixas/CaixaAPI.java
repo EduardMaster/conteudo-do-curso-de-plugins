@@ -13,8 +13,6 @@ public class CaixaAPI {
 	private static BukkitConfig config = new BukkitConfig("caixas.yml", Main.getInstance());
 	
 	static {
-		StorageAPI.register(Caixa.class);
-		StorageAPI.register(CaixaManager.class);
 	}
 
 	public static BukkitConfig getConfig() {

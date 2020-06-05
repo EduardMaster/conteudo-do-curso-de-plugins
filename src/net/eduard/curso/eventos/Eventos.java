@@ -3,6 +3,7 @@ package net.eduard.curso.eventos;
 import java.util.Arrays;
 import java.util.Random;
 
+import net.eduard.api.lib.game.EnchantGlow;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -32,9 +33,8 @@ import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.api.lib.inventory.EnchantGlow;
 import net.eduard.api.lib.modules.VaultAPI;
-import net.eduard.curso.Assunto;
+
 
 /**
  * Esta classe contem eventos alterados de varios tipos e comentados
@@ -43,7 +43,6 @@ import net.eduard.curso.Assunto;
  *
  */
 
-@Assunto(subnivel = 3, cronograma = 3)
 public class Eventos implements Listener {
 
 	@EventHandler
@@ -144,7 +143,7 @@ public class Eventos implements Listener {
 	 * @author Eduard
 	 *
 	 */
-	@Assunto(subnivel = 4)
+
 	public class EditarMotd implements Listener {
 
 		@EventHandler

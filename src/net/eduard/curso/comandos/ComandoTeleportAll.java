@@ -6,13 +6,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.Assunto;
+
 /**
  * Comando de teleportar todo mundo até você
  * @author Eduard
  *
  */
-@Assunto(subnivel=7)
+
 public class ComandoTeleportAll implements CommandExecutor
 {
 

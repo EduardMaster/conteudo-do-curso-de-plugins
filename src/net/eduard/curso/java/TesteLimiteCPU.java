@@ -3,7 +3,7 @@ package net.eduard.curso.java;
 /**
  * Aumentou o Uso da CPU de 75% depois se mantem no 25%
  */
-public class LimiteCPU {
+public class TesteLimiteCPU {
     public static void a( ){
 
     }

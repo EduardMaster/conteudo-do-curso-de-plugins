@@ -13,15 +13,11 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
-import net.eduard.api.lib.player.DisplayBoard;
-import net.eduard.api.lib.player.Scoreboards;
-
 /**
  * Scoreboard simples sem uso de API
  * 
  * @author Eduard
- * @see DisplayBoard
- * @see Scoreboards
+
  */
 public class ScoreboardBasica extends BukkitRunnable {
 

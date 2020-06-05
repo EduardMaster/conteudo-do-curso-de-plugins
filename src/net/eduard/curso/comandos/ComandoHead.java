@@ -9,13 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import net.eduard.curso.Assunto;
+
 /**
  * Comndo de dar cabeça de si mesmo
  * @author Eduard-PC
  *
  */
-@Assunto(subnivel=5)
+
 public class ComandoHead implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

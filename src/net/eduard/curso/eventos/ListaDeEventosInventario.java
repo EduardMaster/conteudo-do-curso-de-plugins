@@ -17,8 +17,7 @@ import org.bukkit.event.player.PlayerItemBreakEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
-import net.eduard.curso.Assunto;
-@Assunto(subnivel=3,cronograma=3)
+
 public class ListaDeEventosInventario implements Listener {
 
 	@EventHandler

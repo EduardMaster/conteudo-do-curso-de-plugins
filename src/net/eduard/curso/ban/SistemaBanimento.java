@@ -12,15 +12,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 
-import net.eduard.curso.Assunto;
-import net.eduard.curso.AssuntoNivel;
+
 
 /**
  * Sistema de banimento completo
  * @author Eduard
  *
  */
-@Assunto(nivel=AssuntoNivel.INTERMEDIARIO,subnivel=15)
 public class SistemaBanimento implements CommandExecutor, Listener {
 
 	public static Map<String, Banimento> banimentos = new HashMap<>();
