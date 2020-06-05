@@ -37,9 +37,7 @@ public class TutorialThreadCME {
 
     public static void main(String[] args) throws InterruptedException {
 
-//		for (int i = 0; i < 1000; i++) {
-//			instancia.lista.add("numero "+i);
-//		}
+
         Thread1 t1 = new Thread1();
 
         Thread2 t2 = new Thread2();
@@ -73,17 +71,8 @@ public class TutorialThreadCME {
             while (true) {
 
                 TutorialThreadCME.mudar2(false);
-                System.out.println("Lendo lista");
-//			for (String linha : new ArrayList<>(CurrentModificationDebug.getInstancia().lista)) {
-////				System.out.println("Linha " + id++ + " " + linha);
-//
-//			}
-                System.out.println("Mostrando linhas " + TutorialThreadCME.lista.size());
 
-//			for (String linha :CurrentModificationDebug.getInstancia().lista) {
-//				System.out.println("Linha " + id++ + " " + linha);
 
-//			}
 
                 try {
                     Thread.sleep(10);

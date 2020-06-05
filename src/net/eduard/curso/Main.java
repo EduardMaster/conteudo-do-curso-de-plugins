@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import net.eduard.curso.entidades.MobsAPI;
+import net.eduard.curso.variados.MobsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -149,9 +149,9 @@ public class Main extends JavaPlugin {
 	public void configuracaoPadrao() {
 		FileConfiguration config = getConfig();
 		// teste do plugin: Sistema de nomeclatura de mensagem/op§§o
-		// net.eduard.curso.mongodb.MongoDBTeste do Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.curso.armazenamento.MongoDBTeste do Plugin: Sistema de nomeclatura de mensagem/secao
 		// teste-do-plugin: Sistema de nomeclatura de mensagem/op§§o
-		// net.eduard.curso.mongodb.MongoDBTeste-do-Plugin: Sistema de nomeclatura de mensagem/secao
+		// net.eduard.curso.armazenamento.MongoDBTeste-do-Plugin: Sistema de nomeclatura de mensagem/secao
 		// TesteDoPlugin: Sistema de nomeclatura de classe
 		// testeDoPlugin: Sistema de nomeclatura de variavel/pacote
 		// teste_do_plugin: Sistema de nomeclatura de variavel/pacote

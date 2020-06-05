@@ -28,7 +28,7 @@ public class CashSqlite {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			con = DriverManager.getConnection("jdbc:sqlite:F:/Tudo/net.eduard.curso.mongodb.MongoDBTeste/cash.db");
+			con = DriverManager.getConnection("jdbc:sqlite:F:/Tudo/net.eduard.curso.armazenamento.MongoDBTeste/cash.db");
 
 			Statement stmt = con.createStatement();
 			stmt.execute("CREATE TABLE IF NOT EXISTS cash (nickname TEXT, amount INTEGER);");
