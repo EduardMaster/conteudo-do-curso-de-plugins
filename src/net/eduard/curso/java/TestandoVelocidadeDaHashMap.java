@@ -58,22 +58,9 @@ public class TestandoVelocidadeDaHashMap {
         int y;
         int z;
 
-        @Override
-        public boolean equals(Object o) {
 
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            FakeLocation that = (FakeLocation) o;
-            return x == that.x &&
-                    y == that.y &&
-                    z == that.z &&
-                    Objects.equals(world, that.world);
-        }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(world, x, y, z);
-        }
+
     }
     public static class MaquinaFake{
         private String dono;
