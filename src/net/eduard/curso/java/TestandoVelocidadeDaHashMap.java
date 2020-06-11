@@ -9,7 +9,7 @@ public class TestandoVelocidadeDaHashMap {
 
     public static void main(String[] args) {
         HashMap<FakeLocation,MaquinaFake> mapa = new HashMap();
-        int maximo = 1500000;
+        int maximo = 150000;
         Random r = new Random();
         MaquinaFake ultimaMaquina = null;
         System.out.println("Iniciando inserção de dados "+maximo);
@@ -25,7 +25,13 @@ public class TestandoVelocidadeDaHashMap {
             maquina.setDono("DonoAleatorio"+r.nextInt(maximo));
             maquina.local = local;
             mapa.put(local,maquina);
-            ultimaMaquina = maquina;
+
+            if (r.nextDouble() < 0.05) {
+                ultimaMaquina = maquina;
+            }
+        }
+        if (ultimaMaquina == null) {
+            ultimaMaquina = mapa.values().iterator().next();
         }
         long tempoFinal = System.currentTimeMillis();
         long dif = tempoFinal - tempoInicial;
@@ -57,7 +63,6 @@ public class TestandoVelocidadeDaHashMap {
         int x;
         int y;
         int z;
-
 
 
 
