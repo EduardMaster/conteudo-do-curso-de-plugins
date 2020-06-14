@@ -1,12 +1,25 @@
 package net.eduard.curso.java;
 
-public class TutorialVariaveis {
+public class TutorialDadosVariaveis {
 	public static class Pessoa {
 
 		String nome = "Sem nome";
 		int idade = 1;
 	}
+	public static void forInfinito1() {
+		for (;;) {
+			System.out.println("For que nunca acaba");
 
+		}
+	}
+
+	public static void whileInfinito1() {
+		while (true) {
+			System.out.println("While que nunca acaba");
+
+		}
+
+	}
 	public static void main(String[] args) {
 		int x = 10;
 		// tipo

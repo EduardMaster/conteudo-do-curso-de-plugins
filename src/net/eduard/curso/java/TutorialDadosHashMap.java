@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @author Eduard
  *
  */
-public class TutorialHashMap {
+public class TutorialDadosHashMap {
 
 	public static HashMap<String, String> sobrenomeDosJogadores = new HashMap<>();
 	public static HashMap<String, Integer> placarDosJogadores = new HashMap<>();

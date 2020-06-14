@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
-public class TutorialStreams {
+public class TutorialDadosStreams {
 
 	public static void main(String[] args) {
 		HashMap<String, Double> banco = new HashMap<>();

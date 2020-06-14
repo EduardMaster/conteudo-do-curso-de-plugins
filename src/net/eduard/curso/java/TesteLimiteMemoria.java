@@ -5,7 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class TutorialMemoria {
+public class TesteLimiteMemoria {
 	public static ArrayList<String> dados = new ArrayList<>();
 	public static int contagematual = 0;
 	private static final DecimalFormat ROUNDED_DOUBLE_DECIMALFORMAT;

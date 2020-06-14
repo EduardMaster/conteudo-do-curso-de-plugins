@@ -5,7 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-public class AlgoritimoDeRemoverPvPEmCertoMundo implements Listener{
+public class RemoverPvPEmCertoMundo implements Listener{
 
 	public static String mundo = "plotme";
 	public static long noite = 18000;

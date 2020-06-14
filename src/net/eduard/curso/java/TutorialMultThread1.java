@@ -2,15 +2,16 @@ package net.eduard.curso.java;
 
 import java.util.ArrayList;
 
-public class TutorialThreadSyncronizedVolatile {
+public class TutorialMultThread1 {
 	/**
-	 * Quando tem o volatile a variavel fica sincronizada com todas as threads, se
-	 * vc alterar o valor dela usando uma thread, na outra muda o valor na hora
+	 * Quando tem o volatile a variavel fica sincronizada com todas as threads
+	 * sempre tem o mesmo valor não importa a thread que vc esteja usando para ver o valor da variavel
+	 *
 	 */
 	public static volatile boolean variavel1 = true;
 	/**
 	 * Caso nao tiver o 'volatile' a variavel pode acontecer de ter dois valores ao
-	 * mesmo tempo
+	 * mesmo tempo em thread diferentes
 	 */
 	public static boolean variavel2 = true;
 

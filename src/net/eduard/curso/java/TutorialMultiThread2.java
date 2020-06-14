@@ -11,7 +11,7 @@ import java.util.ConcurrentModificationException;
  *
  * @author Eduard
  */
-public class TutorialThreadCME {
+public class TutorialMultiThread2 {
     public static ArrayList<String> lista = new ArrayList<>();
     public static Object lock = new Object();
 
@@ -19,9 +19,9 @@ public class TutorialThreadCME {
         synchronized ((lock)) {
             if (tirar) {
                 if (!lista.isEmpty()) {
-                    TutorialThreadCME.lista.remove(0);
+                    TutorialMultiThread2.lista.remove(0);
                 }
-            } else TutorialThreadCME.lista.add("MongoDBTeste");
+            } else TutorialMultiThread2.lista.add("MongoDBTeste");
         }
     }
 
@@ -29,9 +29,9 @@ public class TutorialThreadCME {
 
         if (tirar) {
             if (!lista.isEmpty()) {
-                TutorialThreadCME.lista.remove(0);
+                TutorialMultiThread2.lista.remove(0);
             }
-        } else TutorialThreadCME.lista.add("MongoDBTeste");
+        } else TutorialMultiThread2.lista.add("MongoDBTeste");
 
     }
 
@@ -52,7 +52,7 @@ public class TutorialThreadCME {
             while (true) {
 
                 System.out.println("Remove primeiro texto");
-                TutorialThreadCME.mudar2(true);
+                TutorialMultiThread2.mudar2(true);
 
                 try {
                     Thread.sleep(10);
@@ -70,7 +70,7 @@ public class TutorialThreadCME {
         public void run() {
             while (true) {
 
-                TutorialThreadCME.mudar2(false);
+                TutorialMultiThread2.mudar2(false);
 
 
 

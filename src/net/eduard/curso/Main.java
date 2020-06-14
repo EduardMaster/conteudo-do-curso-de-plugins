@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.util.TutorialBukkitSearialization;
+import net.eduard.curso.armazenamento.TutorialBukkitSearialization;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de

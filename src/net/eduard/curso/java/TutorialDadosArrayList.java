@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class TutorialArrayList {
+public class TutorialDadosArrayList {
 
 	public static List<String> nomes = new LinkedList<>();
 	public static List<Integer> numerosDaSorte = new ArrayList<>();
@@ -41,22 +41,8 @@ public class TutorialArrayList {
 		System.out.println(numerosDaSorte);
 		Integer sortearNumero = numerosDaSorte.get(new Random().nextInt(numerosDaSorte.size()));
 		System.out.println("Numero aleatorio: "+sortearNumero);
-//		forInfinito1();
-		whileInfinito1();
-	}
-
-	public static void forInfinito1() {
-		for (;;) {
-			System.out.println("For que nunca acaba");
-			
-		}
-	}
-
-	public static void whileInfinito1() {
-		while (true) {
-			System.out.println("While que nunca acaba");
-		
-		}
 
 	}
+
+
 }

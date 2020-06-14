@@ -1,4 +1,4 @@
-package net.eduard.curso.util;
+package net.eduard.curso.armazenamento;
 
 import java.io.File;
 import java.io.FileInputStream;
