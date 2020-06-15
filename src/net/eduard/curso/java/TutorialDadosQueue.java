@@ -3,7 +3,7 @@ package net.eduard.curso.java;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class TutorialQueue {
+public class TutorialDadosQueue {
 
     public static ConcurrentLinkedQueue<Runnable> listaDeAfazeres = new ConcurrentLinkedQueue<>();
 
