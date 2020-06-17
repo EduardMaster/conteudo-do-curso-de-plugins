@@ -19,7 +19,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="EduardAPI" scope="PROVIDED" />
     <orderEntry type="library" scope="PROVIDED" name="Plugins APIs" level="application" />
-    <orderEntry type="jdk" jdkName="java11" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="Java APIs" level="application" />
   </component>
 </module>
