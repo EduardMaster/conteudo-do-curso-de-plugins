@@ -18,7 +18,7 @@ public class TesteBits {
         // 10 << 1 == 10 * 2
         // se aumentar o numerico da direta repete mais uma vez o processo
         // 10 >> 2 == 10 / 2 / 2 == 2.50
-        // 100 >> 3 == 100 / 2^3 == 2.50
+        // 100 >> 3 == 100 / 2 / 2 == 2.50
 
 
         for (int x = 0; x < 10; x++) {
@@ -29,8 +29,18 @@ public class TesteBits {
         }
     }
 
+    public static void xor(){
+        for (int x = 2; x <= 2 ; x++) {
+
+            for (int y = 1; y <= 100 ; y++) {
+                System.out.println("x="+x +" y="+ y + " xor="+ (x ^ y ));
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        bitShifting();
+        //bitShifting();
+        xor();
 
 
     }

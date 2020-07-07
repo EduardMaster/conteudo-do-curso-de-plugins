@@ -1,5 +1,6 @@
 package net.eduard.curso.projeto.caixas;
 
+import net.eduard.api.lib.modules.Extra;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -76,7 +77,7 @@ public class AnimacaoEcantamentoFraca implements Listener {
 				
 
 			}
-		}.runTaskTimerAsynchronously(Main.getInstance(), 6, Mine.getRandomInt(5, 10));
+		}.runTaskTimerAsynchronously(Main.getInstance(), 6, Extra.getRandomInt(5, 10));
 	}
 
 }

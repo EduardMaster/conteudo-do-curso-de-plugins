@@ -81,10 +81,10 @@ public class CaixaMisteriosaBasica implements Listener {
 				}
 
 				for (int i = 0; i < 9 + 1; i++) {
-					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Mine.getRandomInt(1, 15)));
+					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Extra.getRandomInt(1, 15)));
 				}
 				for (int i = 18 - 2; i < menu.getSize(); i++) {
-					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Mine.getRandomInt(1, 15)));
+					menu.setItem(i, Mine.newItem(Material.STAINED_GLASS_PANE, "", 1, Extra.getRandomInt(1, 15)));
 				}
 				ItemStack prize = Extra.getRandom(premios);
 				menu.setItem(Mine.getPosition(2, 8), prize);
