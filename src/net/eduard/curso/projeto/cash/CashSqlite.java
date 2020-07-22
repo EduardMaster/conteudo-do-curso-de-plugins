@@ -141,7 +141,7 @@ public class CashSqlite {
 		Stream<Entry<String, Double>> streamLimitada = streamOrdenada.limit(10);
 //		streamLimitada.forEach(entrada -> {
 //			String chave = entrada.getKey();
-//			Double valor = entrada.getValue();
+//			Double valor = entrada.getFieldValue();
 //			
 //			
 //			

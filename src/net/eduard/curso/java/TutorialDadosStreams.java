@@ -30,12 +30,12 @@ public class TutorialDadosStreams {
 //
 //					@Override
 //					public Entry<String, Double> apply(Entry<String, Double> conta1, Entry<String, Double> conta2) {
-//						conta1.setValue(conta1.getValue() + conta2.getValue());
+//						conta1.setFieldValue(conta1.getFieldValue() + conta2.getFieldValue());
 //						return conta1;
 //					}
 //				}).get();
 //		
-//		System.out.println("Soma das contas " + entradaSomada.getValue());
+//		System.out.println("Soma das contas " + entradaSomada.getFieldValue());
 		
 		
 		
@@ -44,7 +44,7 @@ public class TutorialDadosStreams {
 
 					@Override
 					public Double apply(Double saldoSendoSomado, Entry<String, Double> conta) {
-						//System.out.println("Saldo do " + conta.getKey() + " : " + conta.getValue());
+						//System.out.println("Saldo do " + conta.getKey() + " : " + conta.getFieldValue());
 
 						return saldoSendoSomado + conta.getValue();
 					}
