@@ -36,7 +36,7 @@ public class TutorialComunicacoesSocket {
 			try {
 				setServidor(new ServerSocket(porta));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -52,7 +52,7 @@ public class TutorialComunicacoesSocket {
 				clientes.add(clienteNovo);
 				System.out.println("Cliente adicionado");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -80,7 +80,7 @@ public class TutorialComunicacoesSocket {
 				try {
 					cliente.getCliente().getOutputStream().write(mensagem.getBytes("UTF-8"));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -109,17 +109,17 @@ public class TutorialComunicacoesSocket {
 			try {
 				setCliente(new Socket(ip, porta));
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
-			// TODO Auto-generated constructor stub
+
 		}
 
 		public Cliente() {
-			// TODO Auto-generated constructor stub
+
 		}
 
 		public void mandarMensagem(String mensagem) {
@@ -127,10 +127,10 @@ public class TutorialComunicacoesSocket {
 			try {
 				cliente.getOutputStream().write(mensagem.getBytes("UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -138,7 +138,7 @@ public class TutorialComunicacoesSocket {
 			try {
 				return Extra.readSTR(cliente.getInputStream(), StandardCharsets.UTF_8);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 			return null;
@@ -172,13 +172,11 @@ public class TutorialComunicacoesSocket {
 	public static void main(String[] args) throws IOException {
 		
 		Servidor servidor = new Servidor(12345);
-	
 		servidor.start();
 		Cliente cliente = new Cliente(12345);
 		try {
 			Thread.sleep(10);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	

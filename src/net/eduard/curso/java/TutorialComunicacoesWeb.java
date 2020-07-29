@@ -19,10 +19,7 @@ import com.google.gson.JsonParser;
 
 public class TutorialComunicacoesWeb {
 
-	public static void main(String[] args) {
 
-		
-	}
 	public static String sendPost(String link, String parametros) throws Exception {
 		return sendRequest(link, parametros, "POST");
 	}
@@ -56,7 +53,7 @@ public class TutorialComunicacoesWeb {
 		return retorno;
 	}
 
-	public static void main2(String[] args) {
+	public static void main(String[] args) {
 
 		System.out.println("Abrindo console");
 		try {

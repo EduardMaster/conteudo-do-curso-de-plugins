@@ -1,8 +1,8 @@
 package net.eduard.curso.projeto.rankup;
 
-import net.eduard.api.lib.storage.Storable;
 
-public class Rank implements Storable {
+
+public class Rank {
 
 	private String name;
 	private String prefix;

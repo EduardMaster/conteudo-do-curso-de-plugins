@@ -26,8 +26,7 @@ public class RankAPI {
 	}
 
 	public static void reload() {
-		StorageAPI.register(Rank.class);
-		StorageAPI.register(RankManager.class);
+
 
 		if (config.contains("ranks")) {
 

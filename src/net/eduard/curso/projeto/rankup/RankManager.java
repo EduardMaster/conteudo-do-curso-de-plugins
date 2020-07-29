@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.storage.Storable;
 
-public class RankManager implements Storable {
+public class RankManager {
 
 	public RankManager() {
 	}
@@ -44,7 +44,7 @@ public class RankManager implements Storable {
 	}
 
 
-	@StorageAttributes(reference = true)
+	@Storable.StorageAttributes(reference = true)
 	private Map<UUID, Rank> players = new HashMap<>();
 
 	public Map<UUID, Rank> getPlayers() {
