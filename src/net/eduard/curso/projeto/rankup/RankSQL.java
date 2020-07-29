@@ -26,7 +26,7 @@ public class RankSQL extends DBManager {
 	}
 
 	public void deleteRank(String name) {
-		delete("ranks", "name = ?", name.toLowerCase());
+		deleteData("ranks", "name = ?", name.toLowerCase());
 	}
 
 	public boolean hasRank(String name) {
