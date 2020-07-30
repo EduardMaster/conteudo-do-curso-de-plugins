@@ -14,6 +14,7 @@ import net.minecraft.server.v1_8_R3.PathEntity;
 import net.minecraft.server.v1_8_R3.PathfinderGoal;
 import net.minecraft.server.v1_8_R3.PathfinderGoalFloat;
 import net.minecraft.server.v1_8_R3.PathfinderGoalSelector;
+import org.bukkit.entity.Player;
 
 public class PetsAPI {
 
@@ -53,21 +54,23 @@ public class PetsAPI {
 	    public static class PathfinderGoalWalktoTile extends PathfinderGoal {
 	        private EntityInsentient entity;
 	        private PathEntity path;
-	        private UUID p;
-	        public PathfinderGoalWalktoTile(EntityInsentient entitycreature, UUID p) {
+	        private UUID uuid;
+
+	        public PathfinderGoalWalktoTile(EntityInsentient entitycreature, UUID playerUUID) {
 	            this.entity = entitycreature;
-	            this.p = p;
+	            this.uuid = playerUUID;
+
 	        }
 	        @Override
 	        public boolean a() {
-	            if (Bukkit.getPlayer(p) == null) {
+	        	Player alvo = Bukkit.getPlayer(uuid);
+	            if (Bukkit.getPlayer(uuid) == null) {
 	                return path != null;
 	            }
-	            Location targetLocation = Bukkit.getPlayer(p).getLocation();
-	            boolean flag = this.entity.getNavigation().m();
-	            this.entity.getNavigation();
+	            Location targetLocation = alvo.getLocation();
+				//boolean flag = this.entity.getNavigation().m();
 	            this.path = this.entity.getNavigation().a(targetLocation.getX() + 1, targetLocation.getY(), targetLocation.getZ() + 1);
-	            this.entity.getNavigation();
+
 	            if (this.path != null) {
 	                this.c();
 	            }
@@ -75,7 +78,7 @@ public class PetsAPI {
 	        }
 	        @Override
 	        public void c() {
-	            this.entity.getNavigation().a(this.path, 1D);
+	        	this.entity.getNavigation().a(this.path, 1D);
 	        }
 	    }		
 }
