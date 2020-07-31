@@ -31,7 +31,6 @@ public class TesteBits {
 
     public static void xor(){
         for (int x = 2; x <= 2 ; x++) {
-
             for (int y = 1; y <= 100 ; y++) {
                 System.out.println("x="+x +" y="+ y + " xor="+ (x ^ y ));
             }
@@ -39,8 +38,8 @@ public class TesteBits {
     }
 
     public static void main(String[] args) {
-        //bitShifting();
-        xor();
+
+        System.out.println(10 & 2);
 
 
     }

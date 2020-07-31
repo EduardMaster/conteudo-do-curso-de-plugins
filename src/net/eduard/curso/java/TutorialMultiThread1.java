@@ -2,7 +2,7 @@ package net.eduard.curso.java;
 
 import java.util.ArrayList;
 
-public class TutorialMultThread1 {
+public class TutorialMultiThread1 {
 	/**
 	 * Quando tem o volatile a variavel fica sincronizada com todas as threads
 	 * sempre tem o mesmo valor não importa a thread que vc esteja usando para ver o valor da variavel
