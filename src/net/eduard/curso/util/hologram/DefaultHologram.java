@@ -49,7 +49,7 @@ public class DefaultHologram extends CraftHologram {
 			public void run() {
 				DefaultHologram.this.despawn();
 			}
-		}.runTaskLater(CraftHologram.getPlugin(), ticks);
+		}.runTaskLater(CraftHologram.getInstance(), ticks);
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class DefaultHologram extends CraftHologram {
 				DefaultHologram.this.update();
 			}
 		};
-		this.updater.runTaskTimer(CraftHologram.getPlugin(), interval, interval);
+		this.updater.runTaskTimer(CraftHologram.getInstance(), interval, interval);
 	}
 
 	@Override
