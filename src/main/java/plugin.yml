@@ -1,7 +1,7 @@
 name: EduardCurso
 description: Sistemas feitos no Curso do Eduard
 main: net.eduard.curso.Main
-version: 1.0
+version: ${project.version}
 authors: [Eduard]
 depend: [EduardAPI]
 website: https://www.youtube.com/user/EduTutoriaisHD
