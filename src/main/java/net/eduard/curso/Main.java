@@ -2,10 +2,7 @@
 package net.eduard.curso;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
-import net.eduard.curso.sistemas.MobsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

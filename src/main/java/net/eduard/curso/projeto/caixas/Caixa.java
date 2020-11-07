@@ -1,7 +1,6 @@
 package net.eduard.curso.projeto.caixas;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import net.eduard.api.lib.modules.Extra;
 import org.bukkit.Bukkit;
