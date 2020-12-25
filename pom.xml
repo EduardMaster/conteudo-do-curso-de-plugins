@@ -8,15 +8,16 @@
     <artifactId>curso</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Curso de Plugins</name>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.3.72</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
+
     </properties>
 
-
+    <name>Curso de Plugins</name>
 
     <build>
         <finalName>${project.name}</finalName>
