@@ -16,8 +16,8 @@ public class ChatComDelay implements Listener {
 
 	@EventHandler
 	private void chat(AsyncPlayerChatEvent e) {
-		Player p = e.getPlayer();
-		if (onCooldown(p)) {
+		Player player = e.getPlayer();
+		if (onCooldown(player)) {
 			e.setCancelled(true);
 		}
 	}

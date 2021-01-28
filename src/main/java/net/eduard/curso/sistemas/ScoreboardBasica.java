@@ -26,8 +26,8 @@ public class ScoreboardBasica extends BukkitRunnable {
 	 */
 	@Override
 	public void run() {
-		for (Player p : Bukkit.getOnlinePlayers()) {
-			newScoreboard(p, "titulo", "linha1");
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			newScoreboard(player, "titulo", "linha1");
 		}
 
 	}
@@ -58,31 +58,31 @@ public class ScoreboardBasica extends BukkitRunnable {
 
 				@Override
 				public Map<String, Object> serialize() {
-					// TODO Auto-generated method stub
+
 					return null;
 				}
 
 				@Override
 				public void setOp(boolean arg0) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public boolean isOp() {
-					// TODO Auto-generated method stub
+
 					return false;
 				}
 
 				@Override
 				public void setWhitelisted(boolean arg0) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public void setBanned(boolean arg0) {
-					// TODO Auto-generated method stub
+
 
 				}
 
@@ -94,55 +94,55 @@ public class ScoreboardBasica extends BukkitRunnable {
 
 				@Override
 				public boolean isOnline() {
-					// TODO Auto-generated method stub
+
 					return false;
 				}
 
 				@Override
 				public boolean isBanned() {
-					// TODO Auto-generated method stub
+
 					return false;
 				}
 
 				@Override
 				public boolean hasPlayedBefore() {
-					// TODO Auto-generated method stub
+
 					return false;
 				}
 
 				@Override
 				public UUID getUniqueId() {
-					// TODO Auto-generated method stub
+
 					return null;
 				}
 
 				@Override
 				public Player getPlayer() {
-					// TODO Auto-generated method stub
+
 					return null;
 				}
 
 				@Override
 				public String getName() {
-					// TODO Auto-generated method stub
+
 					return line;
 				}
 
 				@Override
 				public long getLastPlayed() {
-					// TODO Auto-generated method stub
+
 					return 0;
 				}
 
 				@Override
 				public long getFirstPlayed() {
-					// TODO Auto-generated method stub
+
 					return 0;
 				}
 
 				@Override
 				public Location getBedSpawnLocation() {
-					// TODO Auto-generated method stub
+
 					return null;
 				}
 			}).setScore(id);

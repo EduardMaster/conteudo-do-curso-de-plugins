@@ -16,13 +16,12 @@ import org.bukkit.util.Vector;
 public class SistemaImpulsos implements Listener{
 	@EventHandler
 	public void BlocoPulador(EntityDamageEvent e) {
-
 		if (e.getEntity() instanceof Player) {
-			Player p = (Player) e.getEntity();
+			Player player = (Player) e.getEntity();
 			if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)
-				&& JUMPERS.contains(p)) {
+				&& JUMPERS.contains(player)) {
 				e.setCancelled(true);
-				JUMPERS.remove(p);
+				JUMPERS.remove(player);
 			}
 		
 		}
@@ -33,13 +32,13 @@ public class SistemaImpulsos implements Listener{
 	@EventHandler
 	public void BlocoPulador(PlayerMoveEvent e) {
 
-		Player p = e.getPlayer();
+		Player player = e.getPlayer();
 		if (e.getTo().getBlock().getRelative(BlockFace.DOWN)
 			.getType() == Material.DIAMOND_BLOCK) {
-			JUMPERS.remove(p);
-			Vector sponge = p.getLocation().getDirection().multiply(0).setY(1);
-			p.setVelocity(sponge);
-			JUMPERS.add(p);
+			JUMPERS.remove(player);
+			Vector sponge = player.getLocation().getDirection().multiply(0).setY(1);
+			player.setVelocity(sponge);
+			JUMPERS.add(player);
 		}
 	}
 }

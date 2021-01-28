@@ -20,15 +20,15 @@ public class ComandoSkit implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label,
 		String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
-			for (Player player:Bukkit.getOnlinePlayers()) {
-				if (player!=p) {
-						player.getInventory().setArmorContents(p.getInventory().getArmorContents());
-						player.getInventory().setContents(p.getInventory().getContents());
+			Player player = (Player) sender;
+			for (Player playerLoop:Bukkit.getOnlinePlayers()) {
+				if (playerLoop!=player) {
+						playerLoop.getInventory().setArmorContents(player.getInventory().getArmorContents());
+						playerLoop.getInventory().setContents(player.getInventory().getContents());
 					
 				}
 			}
-			p.sendMessage("§6Seu inventario foi aplicado para todos jogadores!");
+			player.sendMessage("§6Seu inventario foi aplicado para todos jogadores!");
 		}
 		return true;
 	}

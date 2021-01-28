@@ -15,13 +15,13 @@ public class AnimacaoArmostand extends EventsManager {
 
 	@EventHandler
 	public void clicar(PlayerInteractEvent e) {
-		Player p = e.getPlayer();
+		Player player = e.getPlayer();
 
-		if (p.getItemInHand() == null)
+		if (player.getItemInHand() == null)
 			return;
-		if (p.getItemInHand().getType() == Material.DIAMOND) {
+		if (player.getItemInHand().getType() != Material.DIAMOND)return;
 
-			ArmorStand stand = p.getWorld().spawn(p.getLocation(), ArmorStand.class);
+			ArmorStand stand = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
 			stand.setSmall(true);
 			stand.setVisible(true);
 			stand.setGravity(false);
@@ -42,7 +42,7 @@ public class AnimacaoArmostand extends EventsManager {
 				}
 			}.runTaskTimer(getPlugin(), 2, 2);
 
-		}
+
 
 	}
 }

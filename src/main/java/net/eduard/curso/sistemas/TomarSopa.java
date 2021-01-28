@@ -8,34 +8,29 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 
-
-
 /**
  * Sistema de ao clicar na sopa ira tomar ela duma vez, em vez de comer como é o tradicional
- * @author Eduard
  *
+ * @author Eduard
  */
 public class TomarSopa implements Listener {
 
-	@EventHandler
-	public void event(PlayerInteractEvent e) {
-		Player p = e.getPlayer();
-		if (e.getMaterial() == Material.MUSHROOM_SOUP) {
+    @EventHandler
+    public void event(PlayerInteractEvent e) {
+        Player player = e.getPlayer();
+        if (e.getMaterial() != Material.MUSHROOM_SOUP) return;
+        double soma = player.getHealth() + 7;
+        if (player.getHealth() == player.getMaxHealth()) return;
 
-			double soma = p.getHealth() + 7;
-			if (p.getHealth() == p.getMaxHealth()) {
+        if (soma > player.getMaxHealth()) {
+            soma = (player.getMaxHealth());
+        }
+        player.setHealth(soma);
 
-			} else {
-				if (soma > p.getMaxHealth()) {
-					p.setHealth(p.getMaxHealth());
-				} else {
-					p.setHealth(soma);
-				}
-				p.playSound(p.getLocation(), Sound.BURP, 2, 1);
-				// p.setItemInHand(null);
-				p.getItemInHand().setType(Material.BOWL);
-			}
+        player.playSound(player.getLocation(), Sound.BURP, 2, 1);
+        // p.setItemInHand(null);
+        player.getItemInHand().setType(Material.BOWL);
 
-		}
-	}
+
+    }
 }

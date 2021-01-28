@@ -10,21 +10,24 @@ import org.bukkit.help.HelpTopic;
 
 /**
  * Alterar mensagem do quando executa um comando Errado
- * @author Eduard
  *
+ * @author Eduard
  */
 public class ComandoErrado implements Listener {
-	@EventHandler
-	public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
-		if (!event.isCancelled()) {
-			Player player = event.getPlayer();
-			String cmd = event.getMessage().split(" ")[0];
-			HelpTopic topic = Bukkit.getServer().getHelpMap().getHelpTopic(cmd);
-			if (topic == null) {
-				player.sendMessage("§7Ops... comando errado!");
-				player.playSound(player.getLocation(), Sound.ANVIL_BREAK, 1.0F, 1.0F);
-				event.setCancelled(true);
-			}
-		}
-	}
+
+    @EventHandler(ignoreCancelled = true)
+    public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
+
+        Player player = event.getPlayer();
+        String cmd = event.getMessage().split(" ")[0];
+        HelpTopic topic = Bukkit.getServer().getHelpMap().getHelpTopic(cmd);
+        if (topic != null) {
+            return;
+        }
+        player.sendMessage("§7Ops... comando errado!");
+        player.playSound(player.getLocation(), Sound.ANVIL_BREAK, 1.0F, 1.0F);
+        event.setCancelled(true);
+
+
+    }
 }

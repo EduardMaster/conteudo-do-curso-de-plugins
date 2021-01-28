@@ -20,14 +20,14 @@ public class ComandoFlyBasico implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label,
 		String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
-			if (p.getAllowFlight()) {
-				p.setFlying(false);
-				p.setAllowFlight(false);
-				p.sendMessage("§6Fly desativado!");
+			Player player = (Player) sender;
+			if (player.getAllowFlight()) {
+				player.setFlying(false);
+				player.setAllowFlight(false);
+				player.sendMessage("§6Fly desativado!");
 			}else {
-				p.setAllowFlight(true);
-				p.sendMessage("§6Fly ativado!");
+				player.setAllowFlight(true);
+				player.sendMessage("§6Fly ativado!");
 			}
 			
 		}

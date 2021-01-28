@@ -12,14 +12,13 @@ public class ComandoSpawn implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
+			Player player = (Player) sender;
 			if (Main.getConfigs().contains("spawn")) {
-				p.teleport(Main.getConfigs().getLocation("spawn"));
-
-				p.sendMessage("§aVoce foi teleportado para o Spawn.");
+				player.teleport(Main.getConfigs().getLocation("spawn"));
+				player.sendMessage("§aVoce foi teleportado para o Spawn.");
 
 			} else {
-				p.sendMessage("§cO spawn nao foi setado.");
+				player.sendMessage("§cO spawn nao foi setado.");
 			}
 
 		}

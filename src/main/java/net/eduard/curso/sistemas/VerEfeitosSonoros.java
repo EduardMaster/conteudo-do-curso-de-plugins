@@ -18,7 +18,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class VerEfeitosSonoros implements Listener{
 	@EventHandler
 	public void event(PlayerJoinEvent e) {
-		 Player p = e.getPlayer();
+		 Player player = e.getPlayer();
 		 
 		 
 		 new BukkitRunnable() {
@@ -30,15 +30,15 @@ public class VerEfeitosSonoros implements Listener{
 					v = 0;
 				}
 				Effect effect = Effect.values()[v];
-				Bukkit.getConsoleSender().sendMessage("§cMonstrano efeito "+effect.name()+" para o "+p.getName()+" id "+v);
+				Bukkit.getConsoleSender().sendMessage("§cMonstrano efeito "+effect.name()+" para o "+player.getName()+" id "+v);
 				if (effect == Effect.ITEM_BREAK) {
-					p.sendMessage("§cInvalido");
+					player.sendMessage("§cInvalido");
 					v++;
 					return;
 				}
-				Location loc = p.getLocation();
-				p.playEffect(loc.add(0, 2, 0),effect , 0);
-				p.sendMessage("§aMostrando efeito "+effect.name());
+				Location loc = player.getLocation();
+				player.playEffect(loc.add(0, 2, 0),effect , 0);
+				player.sendMessage("§aMostrando efeito "+effect.name());
 				v++;
 			}
 		}.runTaskTimer(JavaPlugin.getProvidingPlugin(VerEfeitosSonoros.class), 20*3, 20*3);

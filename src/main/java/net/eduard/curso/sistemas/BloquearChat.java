@@ -6,21 +6,25 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
 /**
  * Sistema de player mutado
- * @author Eduard
  *
+ * @author Eduard
  */
-public class BloquearChat implements Listener{
-	public final static ArrayList<Player> MUTEDS = new ArrayList<>();
-	@EventHandler
-	public void Mutado(AsyncPlayerChatEvent e) {
+public class BloquearChat implements Listener {
+    public final static ArrayList<Player> MUTEDS = new ArrayList<>();
 
-		Player p = e.getPlayer();
-		if (MUTEDS.contains(p)) {
-			e.setCancelled(true);
-			p.sendMessage("§cVoce foi silenciado!");
-		}
-	}
-	
+    @EventHandler
+    public void Mutado(AsyncPlayerChatEvent e) {
+
+        Player player = e.getPlayer();
+        if (!MUTEDS.contains(player)) {
+            return;
+        }
+        e.setCancelled(true);
+        player.sendMessage("§cVoce foi silenciado!");
+
+    }
+
 }

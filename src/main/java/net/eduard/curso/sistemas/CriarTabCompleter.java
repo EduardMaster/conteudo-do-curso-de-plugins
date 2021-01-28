@@ -12,36 +12,41 @@ import org.bukkit.entity.Player;
 
 /**
  * TabComplete criado para um Comando simples
- * @author Eduard
  *
+ * @author Eduard
  */
 
-public class CriarTabCompleter implements TabCompleter{
+public class CriarTabCompleter implements TabCompleter {
 
-	@Override
-	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
-			player.sendMessage("§aVoce esta apertando o Tab");
-			if (args.length == 0) {
-				return null;
-			}else if (args.length == 1) {
-				if (args[0].equalsIgnoreCase("usar")) {
-					return Arrays.asList("comando","subcomando");
-				}
-			}else {
-				if (args[1].equalsIgnoreCase("comando")) {
-					List<String> lista = new ArrayList<>();
-					lista.add("outrosubcomando");
-					return lista;
-				}
-			}
-			
-		}else {
-			
-		}
-		return null;
-	}
-	
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (!(sender instanceof Player)) {
+            return null;
+
+        }
+
+
+        Player player = (Player) sender;
+        player.sendMessage("§aVoce esta apertando o Tab");
+        if (args.length == 0) {
+            return null;
+        }
+
+        if (args.length == 1) {
+            if (args[0].equalsIgnoreCase("usar")) {
+                return Arrays.asList("comando", "subcomando");
+            }
+        } else {
+            if (args[1].equalsIgnoreCase("comando")) {
+                List<String> lista = new ArrayList<>();
+                lista.add("outrosubcomando");
+                return lista;
+            }
+        }
+
+
+        return null;
+    }
+
 
 }

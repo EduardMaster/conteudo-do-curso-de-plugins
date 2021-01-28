@@ -52,8 +52,8 @@ public class Eventos implements Listener {
 
 	@EventHandler
 	public void event(BlockPlaceEvent e) {
-		Player p = e.getPlayer();
-		if (!p.hasPermission("permissao.de.colocar")) {
+		Player player = e.getPlayer();
+		if (!player.hasPermission("permissao.de.colocar")) {
 			e.setCancelled(true);
 		}
 
@@ -62,9 +62,9 @@ public class Eventos implements Listener {
 	@EventHandler
 	public void event(BlockBreakEvent e) {
 
-		Player p = e.getPlayer();
+		Player player = e.getPlayer();
 		e.setCancelled(true);
-		if (p.getGameMode() == GameMode.CREATIVE && p.hasPermission("permissao.de.quebrar")) {
+		if (player.getGameMode() == GameMode.CREATIVE && player.hasPermission("permissao.de.quebrar")) {
 			e.setCancelled(false);
 		}
 		e.setExpToDrop(3);
@@ -95,10 +95,10 @@ public class Eventos implements Listener {
 	@EventHandler
 	public void event(BlockDamageEvent e) {
 		if (e.getBlock().getType() == Material.BEDROCK) {
-			Player p = e.getPlayer();
-			if (p.getItemInHand() != null) {
-				if (p.getItemInHand().getType().name().contains("PICKAXE")) {
-					if (p.getItemInHand().containsEnchantment(Enchantment.SILK_TOUCH)) {
+			Player player = e.getPlayer();
+			if (player.getItemInHand() != null) {
+				if (player.getItemInHand().getType().name().contains("PICKAXE")) {
+					if (player.getItemInHand().containsEnchantment(Enchantment.SILK_TOUCH)) {
 						e.setInstaBreak(true);
 					}
 				}

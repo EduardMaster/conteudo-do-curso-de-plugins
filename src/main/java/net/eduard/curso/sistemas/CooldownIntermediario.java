@@ -94,15 +94,15 @@ public class CooldownIntermediario implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
+			Player player = (Player) sender;
 
-			if (estaEmCooldown(p, 15)) {
-				long tempoRestante = pegarTempoRestanteDoCooldown(p, 15);
+			if (estaEmCooldown(player, 15)) {
+				long tempoRestante = pegarTempoRestanteDoCooldown(player, 15);
 				String tempoFormatado = Extra.formatTime(tempoRestante);
 				sender.sendMessage("§cVoce esta em cooldown e precisa esperar " + tempoFormatado);
 			} else {
 
-				colocarEmCooldown(p,15);
+				colocarEmCooldown(player,15);
 				sender.sendMessage("§aVoce executou o comando e agora esta em cooldown.");
 
 			}

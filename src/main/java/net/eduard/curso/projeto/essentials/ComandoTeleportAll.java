@@ -20,12 +20,12 @@ public class ComandoTeleportAll implements CommandExecutor
 	public boolean onCommand(CommandSender sender, Command command, String label,
 			String[] args) {
 		if (sender instanceof Player ) {
-			Player p = (Player) sender;
-			if (p.hasPermission("tp.all")) {
-				for (Player d : Bukkit.getOnlinePlayers()) {
-					d.teleport(p);
+			Player player = (Player) sender;
+			if (player.hasPermission("tp.all")) {
+				for (Player alvoLoop : Bukkit.getOnlinePlayers()) {
+					alvoLoop.teleport(player);
 				}
-				Bukkit.broadcastMessage("§aO Master "+p.getName()+ " puxou os jogadores!");
+				Bukkit.broadcastMessage("§aO Master "+player.getName()+ " puxou os jogadores!");
 			}
 			
 		}

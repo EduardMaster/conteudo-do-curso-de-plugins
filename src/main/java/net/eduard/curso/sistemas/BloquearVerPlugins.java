@@ -23,9 +23,9 @@ public class BloquearVerPlugins implements Listener {
 	@EventHandler
 	public void NaoProcurarOsPluginsDoServer(PlayerCommandPreprocessEvent e) {
 
-		Player p = e.getPlayer();
+		Player player = e.getPlayer();
 		if (comandosBloqueados.contains(e.getMessage().toLowerCase())) {
-			p.sendMessage("§6Nao tente procurar nossos Plugins");
+			player.sendMessage("§6Nao tente procurar nossos Plugins");
 			e.setCancelled(true);
 		}
 

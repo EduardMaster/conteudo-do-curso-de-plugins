@@ -24,17 +24,17 @@ public class TodosTeleportesTerDelay implements Listener {
 
 	@EventHandler
 	public void event(PlayerTeleportEvent e) {
-		Player p = e.getPlayer();
-		if (!teleporting.contains(p)) {
+		Player player = e.getPlayer();
+		if (!teleporting.contains(player)) {
 //			if (!p.hasPermission("delay.bypass")) {
 			e.setCancelled(true);
-			teleporting.add(p);
+			teleporting.add(player);
 			new BukkitRunnable() {
 
 				@Override
 				public void run() {
-					p.teleport(e.getTo());
-					teleporting.remove(p);
+					player.teleport(e.getTo());
+					teleporting.remove(player);
 				}
 			}.runTaskLater(JavaPlugin.getProvidingPlugin(TodosTeleportesTerDelay.class), delaySeconds * 20);
 //			}

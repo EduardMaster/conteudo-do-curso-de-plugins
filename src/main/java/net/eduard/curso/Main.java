@@ -3,6 +3,7 @@ package net.eduard.curso;
 
 import java.io.File;
 
+import net.eduard.curso.sistemas.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -52,6 +53,8 @@ public class Main extends JavaPlugin {
         // iniciando a variavel instance
         instance = this;
         usandoBukkitSerialization();
+        new InicioAutomatico(this);
+
     }
 
     public void usandoBukkitSerialization() {

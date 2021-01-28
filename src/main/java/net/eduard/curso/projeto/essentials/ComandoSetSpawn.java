@@ -14,11 +14,11 @@ public class ComandoSetSpawn implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String lb, String[] args) {
 
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
+			Player player = (Player) sender;
 
-			Main.getConfigs().set("spawn", p.getLocation());
+			Main.getConfigs().set("spawn", player.getLocation());
 			Main.getConfigs().saveConfig();
-			p.sendMessage(ChatColor.GREEN + "O spawn foi setado");
+			player.sendMessage(ChatColor.GREEN + "O spawn foi setado");
 
 		}
 		return false;

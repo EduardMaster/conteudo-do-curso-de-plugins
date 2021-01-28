@@ -11,47 +11,48 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 /**
  * Classe de um Evento Customizado que pode ser chamado
- * @author Eduard
  *
+ * @author Eduard
  */
-public class CriarEventoCustomizado extends Event implements Listener,Cancellable{
-	@EventHandler
-	public void onPlayerJoinEvent(PlayerJoinEvent e) {
-		Player p = e.getPlayer();
-		CriarEventoCustomizado event = new CriarEventoCustomizado("Mensagem a ser Enviada");
-		Bukkit.getPluginManager().callEvent(event);
-		if (!event.isCancelled()) {
-			p.sendMessage(event.getMessage());
-		}
-	}
-	  private static final HandlerList handlers = new HandlerList();
-	    private String message;
-	    private boolean cancelled;
+public class CriarEventoCustomizado extends Event implements Listener, Cancellable {
+    @EventHandler
+    public void onPlayerJoinEvent(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        CriarEventoCustomizado event = new CriarEventoCustomizado("Mensagem a ser Enviada");
+        Bukkit.getPluginManager().callEvent(event);
+        if (!event.isCancelled()) {
+            player.sendMessage(event.getMessage());
+        }
+    }
 
-	    public CriarEventoCustomizado(String example) {
-	        message = example;
-	    }
+    private static final HandlerList handlers = new HandlerList();
+    private String message;
+    private boolean cancelled;
 
-	    public String getMessage() {
-	        return message;
-	    }
+    public CriarEventoCustomizado(String example) {
+        message = example;
+    }
 
-	    @Override
-		public boolean isCancelled() {
-	        return cancelled;
-	    }
+    public String getMessage() {
+        return message;
+    }
 
-	    @Override
-		public void setCancelled(boolean cancel) {
-	        cancelled = cancel;
-	    }
+    @Override
+    public boolean isCancelled() {
+        return cancelled;
+    }
 
-	    @Override
-		public HandlerList getHandlers() {
-	        return handlers;
-	    }
+    @Override
+    public void setCancelled(boolean cancel) {
+        cancelled = cancel;
+    }
 
-	    public static HandlerList getHandlerList() {
-	        return handlers;
-	    }
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
 }

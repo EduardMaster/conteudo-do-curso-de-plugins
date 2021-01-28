@@ -18,20 +18,20 @@ public class CooldownBasico implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
+			Player player = (Player) sender;
 
-			if (jogadoresEmCooldown.contains(p)) {
+			if (jogadoresEmCooldown.contains(player)) {
 				sender.sendMessage("§cVoce esta em cooldown");
 			} else {
 
-				jogadoresEmCooldown.add(p);
+				jogadoresEmCooldown.add(player);
 				sender.sendMessage("§aVoce executou o comando e agora esta em cooldown.");
 				new BukkitRunnable() {
 
 					public void run() {
 
 						sender.sendMessage("§cVoce pode usar o comando novamente.");
-						jogadoresEmCooldown.remove(p);
+						jogadoresEmCooldown.remove(player);
 					}
 				}.runTaskLater(Main.getInstance(), 20 * 10);
 

@@ -22,9 +22,9 @@ public class ComandoStaffChat2 implements Listener,CommandExecutor{
 	
 	@EventHandler
 	public void event(AsyncPlayerChatEvent e ) {
-		Player p = e.getPlayer();
-		if (players.contains(p)) {
-			e.setFormat("§8[§bSTAFF§8] §r" + p.getDisplayName() + "§f:§r" + e.getMessage());
+		Player player = e.getPlayer();
+		if (players.contains(player)) {
+			e.setFormat("§8[§bSTAFF§8] §r" + player.getDisplayName() + "§f:§r" + e.getMessage());
 		}
 	
 		e.getRecipients().clear();
@@ -33,12 +33,12 @@ public class ComandoStaffChat2 implements Listener,CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (sender instanceof Player) {
-			Player p = (Player) sender;
-			if (players.contains(p)) {
-				p.sendMessage("§aVoce saiu do chat da Staff");
+			Player player = (Player) sender;
+			if (players.contains(player)) {
+				player.sendMessage("§aVoce saiu do chat da Staff");
 			}else {
-				players.add(p);
-				p.sendMessage("§aVoce entrou no chat da Staff");
+				players.add(player);
+				player.sendMessage("§aVoce entrou no chat da Staff");
 			}
 
 		}

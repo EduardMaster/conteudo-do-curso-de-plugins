@@ -9,13 +9,13 @@ public class EditarChat implements Listener{
 
 	@EventHandler
 	public void aoDigitarAlgo(AsyncPlayerChatEvent e) {
-		Player p = e.getPlayer();
+		Player player = e.getPlayer();
 		String format = "<tag> <player> > <message>";
 		format = format.replace("<message>", e.getMessage());
-		format = format.replace("<player>", p.getDisplayName());
-		if (p.hasPermission("tag.adm")) {
+		format = format.replace("<player>", player.getDisplayName());
+		if (player.hasPermission("tag.adm")) {
 			format = format.replace("<tag>", "§cADM");
-		}else if (p.hasPermission("tag.mod")) {
+		}else if (player.hasPermission("tag.mod")) {
 			format = format.replace("<tag>", "§cMOD");
 		}
 		e.setFormat(format);

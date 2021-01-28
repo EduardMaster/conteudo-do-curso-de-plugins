@@ -17,17 +17,17 @@ public class CombatLog extends BukkitRunnable {
 	public void Combat(EntityDamageByEntityEvent e) {
 
 		if (e.getEntity() instanceof Player) {
-			Player p = (Player) e.getEntity();
+			Player player = (Player) e.getEntity();
 			if (e.getDamager() instanceof Player) {
-				Player p2 = (Player) e.getDamager();
-				if (!ON_COMBAT.containsKey(p)) {
-					p.sendMessage("§cVoce entrou em combate!");
+				Player damager = (Player) e.getDamager();
+				if (!ON_COMBAT.containsKey(player)) {
+					player.sendMessage("§cVoce entrou em combate!");
 				}
-				if (!ON_COMBAT.containsKey(p2)) {
-					p.sendMessage("§cVoce entrou em combate!");
+				if (!ON_COMBAT.containsKey(damager)) {
+					player.sendMessage("§cVoce entrou em combate!");
 				}
-				ON_COMBAT.put(p2, System.currentTimeMillis());
-				ON_COMBAT.put(p, System.currentTimeMillis());
+				ON_COMBAT.put(damager, System.currentTimeMillis());
+				ON_COMBAT.put(player, System.currentTimeMillis());
 			}
 		}
 	}
@@ -35,20 +35,20 @@ public class CombatLog extends BukkitRunnable {
 	@EventHandler
 	public void Combat(PlayerCommandPreprocessEvent e) {
 
-		Player p = e.getPlayer();
-		if (ON_COMBAT.containsKey(p)) {
+		Player player = e.getPlayer();
+		if (ON_COMBAT.containsKey(player)) {
 			e.setCancelled(true);
-			p.sendMessage("§cVoce esta em combate n§o pode usar comandos!");
+			player.sendMessage("§cVoce esta em combate n§o pode usar comandos!");
 		}
 	}
 
 	@EventHandler
 	public void Combat(PlayerDeathEvent e) {
 
-		Player p = e.getEntity();
-		if (ON_COMBAT.containsKey(p)) {
-			ON_COMBAT.remove(p);
-			p.sendMessage("§cVoce saiu do combate!");
+		Player player = e.getEntity();
+		if (ON_COMBAT.containsKey(player)) {
+			ON_COMBAT.remove(player);
+			player.sendMessage("§cVoce saiu do combate!");
 		}
 	}
 
@@ -57,14 +57,14 @@ public class CombatLog extends BukkitRunnable {
 	@EventHandler
 	public void event(PlayerQuitEvent e) {
 
-		Player p = e.getPlayer();
-		if (ON_COMBAT.containsKey(p)) {
-			Long time = ON_COMBAT.get(p);
+		Player player = e.getPlayer();
+		if (ON_COMBAT.containsKey(player)) {
+			Long time = ON_COMBAT.get(player);
 			long now = System.currentTimeMillis();
 			if (now - time > (COMBAT_LIMIT_SECONDS * 1000)) {
-				ON_COMBAT.remove(p);
+				ON_COMBAT.remove(player);
 			} else {
-				p.setHealth(0);
+				player.setHealth(0);
 			}
 		}
 	}
