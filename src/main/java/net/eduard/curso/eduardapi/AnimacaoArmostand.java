@@ -1,17 +1,18 @@
-package net.eduard.curso.sistemas;
+package net.eduard.curso.eduardapi;
 
+import net.eduard.curso.Curso;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.api.lib.manager.EventsManager;
 import net.eduard.api.lib.game.Animation;
 
-public class AnimacaoArmostand extends EventsManager {
+public class AnimacaoArmostand implements Listener {
 
 	@EventHandler
 	public void clicar(PlayerInteractEvent e) {
@@ -40,7 +41,7 @@ public class AnimacaoArmostand extends EventsManager {
 						stand.remove();
 					}
 				}
-			}.runTaskTimer(getPlugin(), 2, 2);
+			}.runTaskTimer(Curso.getInstance(), 2, 2);
 
 
 

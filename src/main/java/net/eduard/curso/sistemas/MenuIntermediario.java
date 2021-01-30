@@ -1,8 +1,7 @@
 package net.eduard.curso.sistemas;
 
-import net.eduard.api.EduardAPI;
 import net.eduard.api.lib.plugin.IPluginInstance;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -70,7 +69,7 @@ public class MenuIntermediario implements IPluginInstance {
 	}
 
 	@Override
-	public Main getPlugin() {
-		return Main.getInstance();
+	public Curso getPlugin() {
+		return Curso.getInstance();
 	}
 }

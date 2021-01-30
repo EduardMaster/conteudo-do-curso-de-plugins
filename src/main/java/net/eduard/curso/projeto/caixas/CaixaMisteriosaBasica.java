@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CaixaMisteriosaBasica implements Listener {
 
@@ -101,7 +101,7 @@ public class CaixaMisteriosaBasica implements Listener {
 					player.closeInventory();
 				}
 			}
-		}.runTaskTimerAsynchronously(Main.getInstance(), 7, 7);
+		}.runTaskTimerAsynchronously(Curso.getInstance(), 7, 7);
 	}
 
 }

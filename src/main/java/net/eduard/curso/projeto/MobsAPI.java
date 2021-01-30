@@ -1,7 +1,7 @@
-package net.eduard.curso.sistemas;
+package net.eduard.curso.projeto;
 
 import net.eduard.api.lib.config.BukkitConfigs;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.ArmorStand;
@@ -14,7 +14,7 @@ import java.util.Set;
 public class MobsAPI {
 
     private static MobManager manager = new MobManager();
-    private static BukkitConfigs config = new BukkitConfigs("mobs.yml", Main.getInstance());
+    private static BukkitConfigs config = new BukkitConfigs("mobs.yml", Curso.getInstance());
 
     public static void killMobs(){
         for (Mob mob : manager.getMobs()) {

@@ -2,6 +2,7 @@ package net.eduard.curso.sistemas;
 
 import java.util.Collection;
 
+import net.eduard.curso.Curso;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
@@ -39,7 +40,7 @@ public class PegarDropsAutomaticoDeMineracao implements Listener {
 				}
 
 			}
-		}.runTaskAsynchronously(JavaPlugin.getProvidingPlugin(getClass()));
+		}.runTaskAsynchronously(Curso.getInstance());
 
 	}
 }

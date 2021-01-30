@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.modules.Extra;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CooldownIntermediario implements CommandExecutor {
 	
@@ -25,7 +25,7 @@ public class CooldownIntermediario implements CommandExecutor {
 
 			p.sendMessage("§aVocê saiu do tempo de espera.");	
 			}
-		}.runTaskLater(Main.getInstance(), 20 * segundos);
+		}.runTaskLater(Curso.getInstance(), 20 * segundos);
 	}
 
 	public static boolean estaEmCooldown(Player player, int segundos) {

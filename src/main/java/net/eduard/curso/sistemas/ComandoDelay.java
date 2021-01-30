@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class ComandoDelay implements CommandExecutor {
 
@@ -21,7 +21,7 @@ public class ComandoDelay implements CommandExecutor {
 			}
 		};
 
-		objeto.runTaskLater(Main.getInstance(), 20 * 5);
+		objeto.runTaskLater(Curso.getInstance(), 20 * 5);
 
 		return true;
 	}

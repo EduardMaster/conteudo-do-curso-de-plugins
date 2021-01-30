@@ -5,13 +5,13 @@ import java.util.HashMap;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.config.BukkitConfig;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CoinsAPI {
 
 	public static HashMap<String, Double> dinheiro = new HashMap<>();
 
-	public static BukkitConfig config = new BukkitConfig("dinheiro.yml", Main.getInstance());
+	public static BukkitConfig config = new BukkitConfig("dinheiro.yml", Curso.getInstance());
 
 	public static void save() {
 		config.set("contas", dinheiro);

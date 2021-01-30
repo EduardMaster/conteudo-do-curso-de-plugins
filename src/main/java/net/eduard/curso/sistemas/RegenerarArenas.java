@@ -2,6 +2,7 @@ package net.eduard.curso.sistemas;
 
 import java.util.ArrayList;
 
+import net.eduard.api.lib.modules.Mine;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -16,7 +17,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
-import net.eduard.api.lib.modules.Mine;
 
 
 public class RegenerarArenas implements Listener {

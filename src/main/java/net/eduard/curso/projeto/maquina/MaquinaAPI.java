@@ -7,11 +7,11 @@ import org.bukkit.Material;
 import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.storage.StorageAPI;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class MaquinaAPI {
 
-	private static BukkitConfig config = new BukkitConfig("maquinas.yml", Main.getInstance());
+	private static BukkitConfig config = new BukkitConfig("maquinas.yml", Curso.getInstance());
 	private static MaquinaManager manager;
 
 	public static void reload() {

@@ -5,11 +5,11 @@ import org.bukkit.inventory.ItemStack;
 
 import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CaixaAPI {
 	private static CaixaManager manager;
-	private static BukkitConfig config = new BukkitConfig("caixas.yml", Main.getInstance());
+	private static BukkitConfig config = new BukkitConfig("caixas.yml", Curso.getInstance());
 	
 	static {
 	}

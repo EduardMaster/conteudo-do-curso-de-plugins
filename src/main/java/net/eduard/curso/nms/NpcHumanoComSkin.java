@@ -1,4 +1,4 @@
-package net.eduard.curso.sistemas;
+package net.eduard.curso.nms;
 
 import java.util.UUID;
 

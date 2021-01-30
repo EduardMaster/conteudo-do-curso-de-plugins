@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CommandHome implements CommandExecutor {
 
@@ -19,7 +19,7 @@ public class CommandHome implements CommandExecutor {
 			} else {
 				String nomedahome = args[0];
 				if (HomesAPI.existsHome(p, nomedahome)) {
-					Location home = Main.getConfigs().getLocation("home." + p.getName() + "." + nomedahome);
+					Location home = Curso.getConfigs().getLocation("home." + p.getName() + "." + nomedahome);
 					p.teleport(home);
 					p.sendMessage("§a§lHOME §aVoce foi teleportado para home: " + nomedahome);
 				} else {

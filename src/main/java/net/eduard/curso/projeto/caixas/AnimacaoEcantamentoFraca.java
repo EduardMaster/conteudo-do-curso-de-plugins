@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class AnimacaoEcantamentoFraca implements Listener {
 
@@ -77,7 +77,7 @@ public class AnimacaoEcantamentoFraca implements Listener {
 				
 
 			}
-		}.runTaskTimerAsynchronously(Main.getInstance(), 6, Extra.getRandomInt(5, 10));
+		}.runTaskTimerAsynchronously(Curso.getInstance(), 6, Extra.getRandomInt(5, 10));
 	}
 
 }

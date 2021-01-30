@@ -2,11 +2,11 @@ package net.eduard.curso.projeto.rankup;
 
 import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.storage.StorageAPI;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class RankAPI {
 
-	private static BukkitConfig config = new BukkitConfig("rankup.yml", Main.getInstance());
+	private static BukkitConfig config = new BukkitConfig("rankup.yml", Curso.getInstance());
 	private static RankManager manager;
 
 	public static BukkitConfig getConfig() {
@@ -26,11 +26,9 @@ public class RankAPI {
 	}
 
 	public static void reload() {
-
-
 		if (config.contains("ranks")) {
 
-			manager = (RankManager) config.get("ranks");
+			//manager =  config.get("ranks" , RankManager.class);
 
 			StorageAPI.updateReferences();
 		} else {

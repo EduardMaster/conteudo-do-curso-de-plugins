@@ -1,4 +1,4 @@
-package net.eduard.curso.sistemas;
+package net.eduard.curso.nms;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

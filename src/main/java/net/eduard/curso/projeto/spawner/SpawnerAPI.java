@@ -3,11 +3,11 @@ package net.eduard.curso.projeto.spawner;
 import org.bukkit.entity.EntityType;
 
 import net.eduard.api.lib.config.BukkitConfig;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class SpawnerAPI {
 
-	private static BukkitConfig config = new BukkitConfig("spawners.yml", Main.getInstance());
+	private static BukkitConfig config = new BukkitConfig("spawners.yml", Curso.getInstance());
 
 	private static SpawnerManager manager;
 

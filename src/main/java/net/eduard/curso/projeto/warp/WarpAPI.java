@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.bukkit.Location;
 
 import net.eduard.api.lib.config.BukkitConfig;
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class WarpAPI {
 
-	private static BukkitConfig config = Main.getConfigs();
+	private static BukkitConfig config = Curso.getConfigs();
 
 	public static void setWarp(String name, Location local) {
 		config.set("Warps." + name.toLowerCase(), local);

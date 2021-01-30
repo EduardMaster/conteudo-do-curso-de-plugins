@@ -118,39 +118,8 @@ public class Eventos implements Listener {
 
 	}
 
-	/**
-	 * Remover a fome e restaurar ela pra o Inicio
-	 * 
-	 * @author Eduard
-	 *
-	 */
-	public class RemoverFome implements Listener {
-		@EventHandler
-		public void removerFome(FoodLevelChangeEvent e) {
-			if (e.getEntity() instanceof Player) {
-				Player p = (Player) e.getEntity();
-				e.setFoodLevel(20);
-				p.setSaturation(20);
-				p.setExhaustion(0);
-			}
-		}
-	}
 
-	/**
-	 * MOTD significa Mensagem de entrada do servidor quando atulizamos a lista de
-	 * servidores aparece uma mensagem de 2 linhas
-	 * 
-	 * @author Eduard
-	 *
-	 */
 
-	public class EditarMotd implements Listener {
-
-		@EventHandler
-		public void aoVerMOTD(ServerListPingEvent e) {
-			e.setMotd("§6Parabens Por Jogar Primeira linha\n§bAQUI Segunda Linha");
-		}
-	}
 
 	// ganhar um item ao entrar
 	@EventHandler

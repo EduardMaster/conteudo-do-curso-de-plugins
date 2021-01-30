@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class CooldownBasico implements CommandExecutor {
 
@@ -33,7 +33,7 @@ public class CooldownBasico implements CommandExecutor {
 						sender.sendMessage("§cVoce pode usar o comando novamente.");
 						jogadoresEmCooldown.remove(player);
 					}
-				}.runTaskLater(Main.getInstance(), 20 * 10);
+				}.runTaskLater(Curso.getInstance(), 20 * 10);
 
 			}
 

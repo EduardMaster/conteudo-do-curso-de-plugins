@@ -6,7 +6,10 @@ authors: [Eduard]
 depend: [EduardAPI]
 website: https://www.youtube.com/user/EduTutoriaisHD
 commands:
+  report:
+    aliases: [reportar]
   caixa:
+    aliases: [caixas]
   rank:
     description: Subir de Rank
     usage: /<command>

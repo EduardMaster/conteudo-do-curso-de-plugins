@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.config.BukkitConfig;
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.projeto.essentials.TutorialBukkitSearialization;
+import net.eduard.curso.sistemas.TutorialBukkitSearialization;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -25,11 +25,11 @@ import net.eduard.curso.projeto.essentials.TutorialBukkitSearialization;
  *
  * @author Eduard
  */
-public class Main extends JavaPlugin {
+public class Curso extends JavaPlugin {
     /**
      * Instancia do Plugin (Básicamente guarda o plugin em uma variavel)
      */
-    private static Main instance;
+    private static Curso instance;
     /**
      * Config principal do Plugin feita usando api {@link BukkitConfig}
      */
@@ -100,7 +100,7 @@ public class Main extends JavaPlugin {
      *
      * @return o Plugin
      */
-    public static Main getInstance() {
+    public static Curso getInstance() {
         return instance;
     }
 

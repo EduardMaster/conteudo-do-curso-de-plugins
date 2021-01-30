@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class CombatLog extends BukkitRunnable {
+public class CombatLog {
 	public static final HashMap<Player, Long> ON_COMBAT = new HashMap<>();
 
 	@EventHandler
@@ -69,9 +69,4 @@ public class CombatLog extends BukkitRunnable {
 		}
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
 }

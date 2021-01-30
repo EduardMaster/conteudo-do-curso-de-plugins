@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import net.eduard.curso.Main;
+import net.eduard.curso.Curso;
 
 public class ComandoTimer implements CommandExecutor {
 
@@ -25,7 +25,7 @@ public class ComandoTimer implements CommandExecutor {
 					sender.sendMessage("§aO tempo do timer esta passando " + contagem);
 				}
 			}
-		}.runTaskTimer(Main.getInstance(), 20, 20);
+		}.runTaskTimer(Curso.getInstance(), 20, 20);
 
 		return true;
 	}
