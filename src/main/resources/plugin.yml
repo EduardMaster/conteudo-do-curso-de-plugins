@@ -8,6 +8,8 @@ website: https://www.youtube.com/user/EduTutoriaisHD
 commands:
   report:
     aliases: [reportar]
+  reports:
+    aliases: [reportados]
   caixa:
     aliases: [caixas]
   rank:
