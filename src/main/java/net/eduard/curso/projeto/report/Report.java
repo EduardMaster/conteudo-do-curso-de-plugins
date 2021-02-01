@@ -1,12 +1,39 @@
 package net.eduard.curso.projeto.report;
 
 import net.eduard.api.lib.config.BukkitConfigs;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Report {
+    private static SimpleDateFormat formatador =
+            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    public ItemStack getIcon(){
+        String horarioFormatado = formatador.format(time);
+        ItemStack item = new ItemStack(Material.SKULL_ITEM,1,(short)3);
+        SkullMeta meta = (SkullMeta) item.getItemMeta();
+        meta.setDisplayName("§a"+reportedPlayer);
+        List<String> lore = new ArrayList<>();
+
+        meta.setOwner(reportedPlayer);
+
+        lore.add("");
+        lore.add("§7Reportador: §e"+reporterPlayer);
+        lore.add("§7Horario: §f"+ horarioFormatado);
+        lore.add("§7Motivo: §c"+cause);
+        lore.add("");
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        return item;
+    }
+
+
     private static BukkitConfigs config =
             new BukkitConfigs("reports.yml");
 

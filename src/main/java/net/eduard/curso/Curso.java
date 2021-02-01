@@ -1,21 +1,20 @@
 
 package net.eduard.curso;
 
-import java.io.File;
 
+import net.eduard.curso.projeto.report.ComandoReport;
+import net.eduard.curso.projeto.report.ComandoReports;
+import net.eduard.curso.projeto.report.MenuReport;
+import net.eduard.curso.projeto.report.Report;
 import net.eduard.curso.sistemas.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.enchantments.Enchantment;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.config.BukkitConfig;
-import net.eduard.api.lib.modules.Mine;
-import net.eduard.curso.sistemas.TutorialBukkitSearialization;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -39,12 +38,7 @@ public class Curso extends JavaPlugin {
         return config;
     }
 
-    /**
-     * Evento de quando plugin é carregado
-     */
-    public void onLoad() {
 
-    }
 
     /**
      * Evento de quando o plugin é ativado
@@ -52,31 +46,13 @@ public class Curso extends JavaPlugin {
     public void onEnable() {
         // iniciando a variavel instance
         instance = this;
-        usandoBukkitSerialization();
+        getDataFolder().mkdirs();
         new InicioAutomatico(this);
+        getCommand("report").setExecutor(new ComandoReport());
+        getCommand("reports").setExecutor(new ComandoReports());
+        Bukkit.getPluginManager().registerEvents(new MenuReport() , this);
+        Report.reloadReports();
 
-    }
-
-    public void usandoBukkitSerialization() {
-        File arquivo = new File(getDataFolder(), "items.db");
-        ItemStack itemEncantado = Mine.newItem(Material.DIAMOND_SWORD, "§aEspada longa", 1, 0, "Lorezita");
-        itemEncantado.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
-
-        try {
-            TutorialBukkitSearialization.salvarItems(arquivo, itemEncantado);
-        } catch (Exception e) {
-
-
-            e.printStackTrace();
-        }
-        try {
-            ItemStack[] dadosLidos = TutorialBukkitSearialization.restaurarItems(arquivo);
-            System.out.println("Item retornado " + dadosLidos[0]);
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
 
     }
 
@@ -104,53 +80,6 @@ public class Curso extends JavaPlugin {
         return instance;
     }
 
-    public void configuracaoPadrao() {
-        FileConfiguration config = getConfig();
-
-        config.set("ALGO_NA_CONFIG", 1);
-        config.set("algo_na_config", 1);
-        config.set("AlgoNaConfig", 1);
-        config.set("algoNaConfig", 1);
-        config.set("algo-na-config", 1);
-        config.set("algo na config", 1);
-        config.set("Algo na Config", 1);
-        config.set("Algo-na-Config", 1);
-        config.set("$player", 1);
-        config.set("$player$", 1);
-        config.set("<player>", 1);
-        config.set("%player%", 1);
-        config.set("%player", 1);
-        config.set("@player@", 1);
-        config.set("@player", 1);
-        config.set("{player}", 1);
-        config.set("[player]", 1);
-        config.set("(player)", 1);
-    }
 
 
-    public void mensagensColoridas() {
-        Bukkit.broadcastMessage("§6Tudo bem amo §evoces");
-        Bukkit.broadcastMessage("§eTudo bem amo §6voces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§2Tudo bem amo §avoces");
-        Bukkit.broadcastMessage("§aTudo bem amo §2voces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§dTudo bem amo §5voces");
-        Bukkit.broadcastMessage("§5Tudo bem amo §dvoces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§bTudo bem amo §3voces");
-        Bukkit.broadcastMessage("§3Tudo bem amo §bvoces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§8Tudo bem amo §7voces");
-        Bukkit.broadcastMessage("§7Tudo bem amo §8voces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§cTudo bem amo §4voces");
-        Bukkit.broadcastMessage("§4Tudo bem amo §cvoces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§1Tudo bem amo §9voces");
-        Bukkit.broadcastMessage("§9Tudo bem amo §1voces");
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("§0Tudo bem amo §Fvoces");
-        Bukkit.broadcastMessage("§FTudo bem amo §0voces");
-    }
 }
