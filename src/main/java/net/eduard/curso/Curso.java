@@ -4,13 +4,11 @@ package net.eduard.curso;
 
 import net.eduard.curso.projeto.report.ComandoReport;
 import net.eduard.curso.projeto.report.ComandoReports;
-import net.eduard.curso.projeto.report.MenuReport;
+import net.eduard.curso.projeto.report.MenuReports;
 import net.eduard.curso.projeto.report.Report;
 import net.eduard.curso.sistemas.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -50,7 +48,7 @@ public class Curso extends JavaPlugin {
         new InicioAutomatico(this);
         getCommand("report").setExecutor(new ComandoReport());
         getCommand("reports").setExecutor(new ComandoReports());
-        Bukkit.getPluginManager().registerEvents(new MenuReport() , this);
+        Bukkit.getPluginManager().registerEvents(new MenuReports() , this);
         Report.reloadReports();
 
 

@@ -15,7 +15,7 @@ public class ComandoReports implements CommandExecutor {
             return true;
         }
         Player player = (Player)sender;
-        MenuReport.abrirMenu(player);
+        MenuReports.abrirMenu(player);
         player.sendMessage("§aAbrindo menu dos reportes.");
         return true;
     }
