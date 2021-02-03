@@ -6,6 +6,8 @@ import net.eduard.curso.projeto.report.ComandoReport;
 import net.eduard.curso.projeto.report.ComandoReports;
 import net.eduard.curso.projeto.report.MenuReports;
 import net.eduard.curso.projeto.report.Report;
+import net.eduard.curso.projeto.tag.PlayerTag;
+import net.eduard.curso.projeto.tag.PlayerTagUpdater;
 import net.eduard.curso.sistemas.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -49,6 +51,8 @@ public class Curso extends JavaPlugin {
         getCommand("report").setExecutor(new ComandoReport());
         getCommand("reports").setExecutor(new ComandoReports());
         Bukkit.getPluginManager().registerEvents(new MenuReports() , this);
+        new PlayerTagUpdater().runTaskTimerAsynchronously(this, 20 , 20);
+
         Report.reloadReports();
 
 

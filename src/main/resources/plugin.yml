@@ -6,6 +6,8 @@ authors: [Eduard]
 depend: [EduardAPI]
 website: https://www.youtube.com/user/EduTutoriaisHD
 commands:
+  settag:
+    aliases: [setartag]
   report:
     aliases: [reportar]
   reports:

@@ -7,14 +7,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MenuReports implements Listener {
 
@@ -23,10 +20,10 @@ public class MenuReports implements Listener {
     // private static HashMap<Integer, Report> reportes = new HashMap<>();
 
 
-    private static HashMap<Player, HashMap<Integer, Report>> playersReportes
+    private static final HashMap<Player, HashMap<Integer, Report>> playersReportes
             = new HashMap<>();
 
-    private static HashMap<Player, Integer> paginaAberta = new HashMap<>();
+    private static final HashMap<Player, Integer> paginaAberta = new HashMap<>();
 
     public static void exemplo() {
         HashMap<String, Double> contas = new HashMap<>();
@@ -56,6 +53,11 @@ public class MenuReports implements Listener {
     }
     private static final int slotVoltar = 0;
     private static final int slotAvancar = 8;
+    @EventHandler
+    public void clearCache(PlayerQuitEvent event){
+        paginaAberta.remove(event.getPlayer());
+        playersReportes.remove(event.getPlayer());
+    }
     @EventHandler
     public void controle(InventoryClickEvent evento) {
         Player player = (Player) evento.getWhoClicked();
