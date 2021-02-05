@@ -7,47 +7,46 @@ import org.bukkit.entity.Player;
 
 public class ComandoRegister implements CommandExecutor {
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
-		
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+    @Override
+    public boolean onCommand(CommandSender sender, Command command,
+                             String label, String[] args) {
 
-			if (!LoginAPI.isRegistred(p)) {
+        if (!(sender instanceof Player)) {
 
-				if (args.length <= 2) {
+            return true;
+        }
+        Player p = (Player) sender;
 
-					sender.sendMessage("§c/register SENHA CONFIRMAR-SENHA");
+        if (!LoginAPI.isRegistred(p)) {
+            sender.sendMessage("§cVoce ja esta registrado!");
+            return true;
+        }
+        if (args.length <= 2) {
 
-				} else {
+            sender.sendMessage("§c/register SENHA CONFIRMAR-SENHA");
+            return true;
+        }
 
-					String senha = args[0];
+        String senha = args[0];
 
-					String confirmar = args[1];
+        String confirmar = args[1];
 
-					if (senha.equals(confirmar)) {
-						sender.sendMessage("§aVoce registrou sua Conta!");
-						LoginAPI.register(p, senha);
-						sender.sendMessage(
-								"§aVoce precisa Logar! digite /login senha");
-						
-					} else {
-						sender.sendMessage("§cAs senhas nao s§o as mesmas!");
-					}
+        if (!senha.equals(confirmar)) {
 
-				}
+            sender.sendMessage("§cAs senhas nao s§o as mesmas!");
 
-			} else {
-				sender.sendMessage("§cVoce ja esta registrado!");
-				
-			}
+            return true;
 
-			// register senha confirmasenha
+        }
+        sender.sendMessage("§aVoce registrou sua Conta!");
+        LoginAPI.register(p, senha);
+        sender.sendMessage(
+                "§aVoce precisa Logar! digite /login senha");
 
-		}
+        // register senha confirmasenha
 
-		return true;
-	}
+
+        return true;
+    }
 
 }

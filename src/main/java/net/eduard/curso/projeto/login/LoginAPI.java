@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.config.BukkitConfig;
-import net.eduard.api.lib.modules.Mine;
 
 public class LoginAPI {
 	private static HashMap<UUID, String> registrados = new HashMap<>();
@@ -14,9 +13,11 @@ public class LoginAPI {
 	
 	public static void register(Player player,String senha) {
 		config.set("Contas."+player.getUniqueId()+".senha", senha);
+		registrados.put(player.getUniqueId() , senha);
+
 	}
 	public static void login(Player player) {
-		logados.put(player, Mine.getNow());
+		logados.put(player,System.currentTimeMillis());
 		
 	}
 	public static String getSenha(Player player) {

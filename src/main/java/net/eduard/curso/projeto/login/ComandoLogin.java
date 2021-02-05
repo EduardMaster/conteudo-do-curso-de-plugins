@@ -7,44 +7,40 @@ import org.bukkit.entity.Player;
 
 public class ComandoLogin implements CommandExecutor {
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command,
+                             String label, String[] args) {
 
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+        if (!(sender instanceof Player)) {
+            return true;
+        }
+        Player p = (Player) sender;
 
-			if (LoginAPI.isRegistred(p)) {
+        if (!LoginAPI.isRegistred(p)) {
+            p.sendMessage("§cVoce nao esta registrado ainda por "
+                    + "favor digite /register senha confirmar");
+            return true;
+        }
+        // login senha
 
-				// login senha
+        if (args.length == 0) {
+            // login
+            sender.sendMessage("§c/login SENHA");
+            return true;
+        }
+        String digitou = args[0];
+        String senha = LoginAPI.getSenha(p);
+        if (!digitou.equals(senha)) {
+            p.kickPlayer(
+                    "§cVoce deve acertar a senha de primeira por motivos de seguran§a!");
 
-				if (args.length == 0) {
-					// login
-					sender.sendMessage("§c/login SENHA");
+            return true;
+        }
+        LoginAPI.login(p);
+        p.sendMessage("§aAutentica§§o feita com sucesso!");
 
-				} else {
-					String digitou = args[0];
-					String senha = LoginAPI.getSenha(p);
-					if (digitou.equals(senha)) {
 
-						LoginAPI.login(p);
-						p.sendMessage("§aAutentica§§o feita com sucesso!");
-
-					} else {
-						p.kickPlayer(
-								"§cVoce deve acertar a senha de primeira por motivos de seguran§a!");
-					}
-
-				}
-
-			} else {
-				p.sendMessage("§cVoce nao esta registrado ainda por "
-						+ "favor digite /register senha confirmar");
-			}
-
-		}
-
-		return true;
-	}
+        return true;
+    }
 
 }
