@@ -14,36 +14,35 @@ import net.eduard.api.lib.game.Animation;
 
 public class AnimacaoArmostand implements Listener {
 
-	@EventHandler
-	public void clicar(PlayerInteractEvent e) {
-		Player player = e.getPlayer();
+    @EventHandler
+    public void clicar(PlayerInteractEvent e) {
+        Player player = e.getPlayer();
 
-		if (player.getItemInHand() == null)
-			return;
-		if (player.getItemInHand().getType() != Material.DIAMOND)return;
+        if (player.getItemInHand() == null)
+            return;
+        if (player.getItemInHand().getType() != Material.DIAMOND) return;
 
-			ArmorStand stand = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
-			stand.setSmall(true);
-			stand.setVisible(true);
-			stand.setGravity(false);
-			stand.setHelmet(new ItemStack(Material.DIAMOND_BLOCK));
-			Animation animador = new Animation(stand);
-			new BukkitRunnable() {
-				int duracao = 100;
+        ArmorStand stand = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
+        stand.setSmall(true);
+        stand.setVisible(true);
+        stand.setGravity(false);
+        stand.setHelmet(new ItemStack(Material.DIAMOND_BLOCK));
+        Animation animador = new Animation(stand);
+        new BukkitRunnable() {
+            int duracao = 100;
 
-				@Override
-				public void run() {
+            @Override
+            public void run() {
 
-					duracao--;
-					animador.moveHeadUp(10);
-					if (duracao == 0) {
-						cancel();
-						stand.remove();
-					}
-				}
-			}.runTaskTimer(Curso.getInstance(), 2, 2);
+                duracao--;
+                animador.moveHeadUp(10);
+                if (duracao == 0) {
+                    cancel();
+                    stand.remove();
+                }
+            }
+        }.runTaskTimer(Curso.getInstance(), 2, 2);
 
 
-
-	}
+    }
 }

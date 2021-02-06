@@ -2,13 +2,16 @@
 package net.eduard.curso;
 
 
+import net.eduard.api.lib.config.BukkitConfigs;
+import net.eduard.curso.projeto.login.ComandoLogin;
+import net.eduard.curso.projeto.login.ComandoRegister;
+import net.eduard.curso.projeto.login.LoginSystem;
 import net.eduard.curso.projeto.report.ComandoReport;
 import net.eduard.curso.projeto.report.ComandoReports;
 import net.eduard.curso.projeto.report.MenuReports;
 import net.eduard.curso.projeto.report.Report;
-import net.eduard.curso.projeto.tag.PlayerTag;
 import net.eduard.curso.projeto.tag.PlayerTagUpdater;
-import net.eduard.curso.sistemas.InicioAutomatico;
+import net.eduard.curso.sistemas.com_tempo.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Listener;
@@ -30,11 +33,20 @@ public class Curso extends JavaPlugin {
      */
     private static Curso instance;
     /**
+     * Método que retorna a instancia do Plugin
+     *
+     * @return o Plugin
+     */
+    public static Curso getInstance() {
+        return instance;
+    }
+
+    /**
      * Config principal do Plugin feita usando api {@link BukkitConfig}
      */
-    private static BukkitConfig config;
+    private static BukkitConfigs config;
 
-    public static BukkitConfig getConfigs() {
+    public static BukkitConfigs getConfigs() {
         return config;
     }
 
@@ -47,14 +59,18 @@ public class Curso extends JavaPlugin {
         // iniciando a variavel instance
         instance = this;
         getDataFolder().mkdirs();
+        config = new BukkitConfigs("config.yml");
+
         new InicioAutomatico(this);
         getCommand("report").setExecutor(new ComandoReport());
         getCommand("reports").setExecutor(new ComandoReports());
+        getCommand("register").setExecutor(new ComandoRegister());
+        getCommand("login").setExecutor(new ComandoLogin());
         Bukkit.getPluginManager().registerEvents(new MenuReports() , this);
         new PlayerTagUpdater().runTaskTimerAsynchronously(this, 20 , 20);
 
         Report.reloadReports();
-
+        LoginSystem.reload();
 
     }
 
@@ -73,14 +89,6 @@ public class Curso extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Plugin desativado do curso");
     }
 
-    /**
-     * Método que retorna a instancia do Plugin
-     *
-     * @return o Plugin
-     */
-    public static Curso getInstance() {
-        return instance;
-    }
 
 
 

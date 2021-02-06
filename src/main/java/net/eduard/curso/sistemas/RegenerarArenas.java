@@ -47,11 +47,11 @@ public class RegenerarArenas implements Listener {
 	@EventHandler
 	public void ResetarBlocos(PlayerJoinEvent e) {
 
-		Player p = e.getPlayer();
-		p.getInventory().clear();
-		p.getInventory().addItem();
-		p.getInventory().addItem(REGENERAR);
-		p.getInventory().addItem(RESETAR);
+		Player player = e.getPlayer();
+		player.getInventory().clear();
+		player.getInventory().addItem();
+		player.getInventory().addItem(REGENERAR);
+		player.getInventory().addItem(RESETAR);
 	}
 
 	@EventHandler

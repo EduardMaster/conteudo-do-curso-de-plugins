@@ -28,8 +28,9 @@ commands:
     description: Sistema de Cash
     usage: Digite /cash
   login:
-    description: Sistema de Login
-    usage: Digite /cash
+    aliases: [logar]
+    description: Entrar na conta
+    usage: /<command> <senha>
   register:
     aliases: [registrar]
     description: Registrar sua Conta
@@ -50,6 +51,9 @@ commands:
     description: Teleportar ate uma Warp
     aliases: [local]
     usage: /<command> <warp>
+  money:
+    aliases: [dinheiro]
+  # Comandos abaixo de sistemas isolados
   delay:
   timer:
     description: Inicia um Timer ou seja um repetidor
@@ -59,7 +63,5 @@ commands:
     description: Ao fizer este comando ficara em cooldown nao podendo digitar novamente
   cooldown2:
     description: Igual comando cooldown1, a diferenca mostra o tempo restante para sair do cooldown  
-  money:
-    aliases: [dinheiro]
-  
+
 

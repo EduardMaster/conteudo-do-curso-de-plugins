@@ -15,15 +15,15 @@ public class ComandoRegister implements CommandExecutor {
 
             return true;
         }
-        Player p = (Player) sender;
+        Player player = (Player) sender;
 
-        if (!LoginAPI.isRegistred(p)) {
+        if (LoginSystem.isRegistred(player)) {
             sender.sendMessage("§cVoce ja esta registrado!");
             return true;
         }
         if (args.length <= 2) {
 
-            sender.sendMessage("§c/register SENHA CONFIRMAR-SENHA");
+            sender.sendMessage("§c/register <senha> <confirma>");
             return true;
         }
 
@@ -33,13 +33,13 @@ public class ComandoRegister implements CommandExecutor {
 
         if (!senha.equals(confirmar)) {
 
-            sender.sendMessage("§cAs senhas nao s§o as mesmas!");
+            sender.sendMessage("§cAs senhas nao sao as mesmas!");
 
             return true;
 
         }
         sender.sendMessage("§aVoce registrou sua Conta!");
-        LoginAPI.register(p, senha);
+        LoginSystem.register(player, senha);
         sender.sendMessage(
                 "§aVoce precisa Logar! digite /login senha");
 

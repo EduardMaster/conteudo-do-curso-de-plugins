@@ -14,10 +14,10 @@ public class ComandoLogin implements CommandExecutor {
         if (!(sender instanceof Player)) {
             return true;
         }
-        Player p = (Player) sender;
+        Player player = (Player) sender;
 
-        if (!LoginAPI.isRegistred(p)) {
-            p.sendMessage("§cVoce nao esta registrado ainda por "
+        if (!LoginSystem.isRegistred(player)) {
+            player.sendMessage("§cVoce nao esta registrado ainda por "
                     + "favor digite /register senha confirmar");
             return true;
         }
@@ -29,15 +29,15 @@ public class ComandoLogin implements CommandExecutor {
             return true;
         }
         String digitou = args[0];
-        String senha = LoginAPI.getSenha(p);
+        String senha = LoginSystem.getSenha(player);
         if (!digitou.equals(senha)) {
-            p.kickPlayer(
+            player.kickPlayer(
                     "§cVoce deve acertar a senha de primeira por motivos de seguran§a!");
 
             return true;
         }
-        LoginAPI.login(p);
-        p.sendMessage("§aAutentica§§o feita com sucesso!");
+        LoginSystem.login(player);
+        player.sendMessage("§aAutentica§§o feita com sucesso!");
 
 
         return true;
