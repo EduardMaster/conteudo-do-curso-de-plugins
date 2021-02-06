@@ -1,4 +1,4 @@
-package net.eduard.curso.eduardapi;
+package net.eduard.curso.sistemas.com_eduardapi;
 
 import net.eduard.curso.Curso;
 import org.bukkit.Material;
