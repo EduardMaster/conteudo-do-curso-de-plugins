@@ -6,6 +6,7 @@ import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.projeto.login.ComandoLogin;
 import net.eduard.curso.projeto.login.ComandoRegister;
 import net.eduard.curso.projeto.login.LoginSystem;
+import net.eduard.curso.projeto.minion.ProjetoMinion;
 import net.eduard.curso.projeto.report.ComandoReport;
 import net.eduard.curso.projeto.report.ComandoReports;
 import net.eduard.curso.projeto.report.MenuReports;
@@ -18,6 +19,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.eduard.api.lib.config.BukkitConfig;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -50,6 +54,8 @@ public class Curso extends JavaPlugin {
         return config;
     }
 
+    private Set<Projeto> projetos = new HashSet<>();
+
 
 
     /**
@@ -60,6 +66,9 @@ public class Curso extends JavaPlugin {
         instance = this;
         getDataFolder().mkdirs();
         config = new BukkitConfigs("config.yml");
+
+
+        newProject(new ProjetoMinion());
 
         new InicioAutomatico(this);
         getCommand("report").setExecutor(new ComandoReport());
@@ -72,24 +81,30 @@ public class Curso extends JavaPlugin {
         Report.reloadReports();
         LoginSystem.reload();
 
+
+        for (Projeto projeto : this.projetos){
+            projeto.onEnable();
+        }
+
+    }
+    public void newProject(Projeto projeto){
+
+        projetos.add(projeto);
     }
 
-    /**
-     * Registra uma classe com Eventos
-     *
-     * @param classeComEventos Classe com Eventos
-     */
-    public void registrarEventos(Listener classeComEventos) {
-        Bukkit.getPluginManager().registerEvents(classeComEventos, this);
-    }
 
     public void onDisable() {
 //		CaixaAPI.save();
 //		RankAPI.save();
+        for (Projeto projeto : this.projetos){
+            projeto.onDisable();
+        }
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Plugin desativado do curso");
+
     }
 
 
-
-
+    public Set<Projeto> getProjetos() {
+        return projetos;
+    }
 }

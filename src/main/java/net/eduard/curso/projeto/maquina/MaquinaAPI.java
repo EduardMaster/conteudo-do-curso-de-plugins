@@ -17,7 +17,7 @@ public class MaquinaAPI {
 	public static void reload() {
 		config.reloadConfig();
 		if (config.contains("maquinas")) {
-			manager = (MaquinaManager) config.get("maquinas");
+			//manager =  config.get("maquinas",(MaquinaManager.class));
 			StorageAPI.updateReferences();
 		} else {
 			manager = new MaquinaManager();
