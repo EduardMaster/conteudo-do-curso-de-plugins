@@ -16,7 +16,7 @@ public class ComandoLogin implements CommandExecutor {
         }
         Player player = (Player) sender;
 
-        if (!LoginSystem.isRegistred(player)) {
+        if (!ProjetoLogin.getManager().isRegistred(player)) {
             player.sendMessage("§cVoce nao esta registrado ainda por "
                     + "favor digite /register senha confirmar");
             return true;
@@ -29,14 +29,14 @@ public class ComandoLogin implements CommandExecutor {
             return true;
         }
         String digitou = args[0];
-        String senha = LoginSystem.getSenha(player);
+        String senha = ProjetoLogin.getManager().getSenha(player);
         if (!digitou.equals(senha)) {
             player.kickPlayer(
                     "§cVoce deve acertar a senha de primeira por motivos de seguran§a!");
 
             return true;
         }
-        LoginSystem.login(player);
+        ProjetoLogin.getManager().login(player);
         player.sendMessage("§aAutentica§§o feita com sucesso!");
 
 

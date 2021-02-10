@@ -17,7 +17,7 @@ public class ComandoRegister implements CommandExecutor {
         }
         Player player = (Player) sender;
 
-        if (LoginSystem.isRegistred(player)) {
+        if (ProjetoLogin.isRegistred(player)) {
             sender.sendMessage("§cVoce ja esta registrado!");
             return true;
         }
@@ -39,7 +39,7 @@ public class ComandoRegister implements CommandExecutor {
 
         }
         sender.sendMessage("§aVoce registrou sua Conta!");
-        LoginSystem.register(player, senha);
+        ProjetoLogin.register(player, senha);
         sender.sendMessage(
                 "§aVoce precisa Logar! digite /login senha");
 

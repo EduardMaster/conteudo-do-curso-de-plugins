@@ -8,6 +8,12 @@ public abstract class Projeto {
 
     public abstract void onEnable();
     public abstract void onDisable();
+    public void reload(){
+
+    }
+    public void save(){
+
+    }
     public void registerEvents(Listener listener){
         Bukkit.getPluginManager().registerEvents(listener , Curso.getInstance());
     }
