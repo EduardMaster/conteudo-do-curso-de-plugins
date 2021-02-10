@@ -1,19 +1,46 @@
 package net.eduard.curso.projeto.report;
 
-import net.eduard.api.lib.config.BukkitConfigs;
+import net.eduard.curso.ConfigData;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Report {
+public class Report implements ConfigData {
+
     private static SimpleDateFormat formatador =
             new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+
+    public void save(ConfigurationSection section){
+        section.set("reporterPlayer" , reporterPlayer);
+        section.set("reportedPlayer" , reportedPlayer);
+        section.set("cause" , cause);
+        section.set("time" , time);
+        section.set("verified" , verified);
+        section.set("verifierPlayer" , verifierPlayer);
+    }
+
+    public void reload(ConfigurationSection section){
+        this.reportedPlayer = section.getString("reporterPlayer");
+        this.reportedPlayer = section.getString("reportedPlayer");
+        this.cause = section.getString("cause");
+        this.time = section.getLong("time");
+        this.verified = section.getBoolean("verified");
+        this.verifierPlayer = section.getString("verifierPlayer");
+    }
+
+
+    private String reporterPlayer;
+    private String reportedPlayer;
+    private String cause;
+    private long time;
+    private boolean verified;
+    private String verifierPlayer;
+
     public ItemStack getIcon(){
         String horarioFormatado = formatador.format(time);
         ItemStack item = new ItemStack(Material.SKULL_ITEM,1,(short)3);
@@ -32,68 +59,6 @@ public class Report {
         item.setItemMeta(meta);
         return item;
     }
-
-
-    private static BukkitConfigs config =
-            new BukkitConfigs("reports.yml");
-
-    private static final List<Report> reports = new ArrayList<>();
-
-    public static List<Report> getReports() {
-        return reports;
-    }
-
-    public static void saveReports(){
-        config.remove("reports");
-        int id = 1;
-        for (Report report : reports){
-            ConfigurationSection secao = config.create("reports.report-"+id);
-            report.save(secao);
-            id++;
-        }
-        config.saveConfig();
-    }
-    public static void reloadReports(){
-        config.reloadConfig();
-        reports.clear();
-        for (String chave : config.getSection("reports").getKeys(false)){
-            ConfigurationSection secao = config.getSection("reports."+chave);
-            Report reportNovo = new Report();
-            reportNovo.reload(secao);
-            reports.add(reportNovo);
-
-
-        }
-
-
-
-    }
-
-
-    public void save(ConfigurationSection section){
-        section.set("reporterPlayer" , reporterPlayer);
-        section.set("reportedPlayer" , reportedPlayer);
-        section.set("cause" , cause);
-        section.set("time" , time);
-        section.set("verified" , verified);
-        section.set("verifierPlayer" , verifierPlayer);
-    }
-    public void reload(ConfigurationSection section){
-        this.reportedPlayer = section.getString("reporterPlayer");
-        this.reportedPlayer = section.getString("reportedPlayer");
-        this.cause = section.getString("cause");
-        this.time = section.getLong("time");
-        this.verified = section.getBoolean("verified");
-        this.verifierPlayer = section.getString("verifierPlayer");
-    }
-
-
-    private String reporterPlayer;
-    private String reportedPlayer;
-    private String cause;
-    private long time;
-    private boolean verified;
-    private String verifierPlayer;
 
 
     public String getReporterPlayer() {
@@ -143,4 +108,6 @@ public class Report {
     public void setVerifierPlayer(String verifierPlayer) {
         this.verifierPlayer = verifierPlayer;
     }
+
+
 }

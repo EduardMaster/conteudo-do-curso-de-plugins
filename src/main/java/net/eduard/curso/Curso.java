@@ -5,10 +5,7 @@ package net.eduard.curso;
 import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.projeto.login.ProjetoLogin;
 import net.eduard.curso.projeto.minion.ProjetoMinion;
-import net.eduard.curso.projeto.report.ComandoReport;
-import net.eduard.curso.projeto.report.ComandoReports;
-import net.eduard.curso.projeto.report.MenuReports;
-import net.eduard.curso.projeto.report.Report;
+import net.eduard.curso.projeto.report.*;
 import net.eduard.curso.projeto.tag.PlayerTagUpdater;
 import net.eduard.curso.sistemas.com_tempo.InicioAutomatico;
 import org.bukkit.Bukkit;
@@ -67,14 +64,14 @@ public class Curso extends JavaPlugin {
 
         newProject(new ProjetoMinion());
         newProject(new ProjetoLogin());
+        newProject(new ProjetoReport());
+
         new InicioAutomatico(this);
-        getCommand("report").setExecutor(new ComandoReport());
-        getCommand("reports").setExecutor(new ComandoReports());
+
 
         Bukkit.getPluginManager().registerEvents(new MenuReports() , this);
         new PlayerTagUpdater().runTaskTimerAsynchronously(this, 20 , 20);
 
-        Report.reloadReports();
 
 
 

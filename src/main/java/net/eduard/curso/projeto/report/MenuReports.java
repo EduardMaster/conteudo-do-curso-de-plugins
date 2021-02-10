@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class MenuReports implements Listener {
 
 
-    private static String nome = "Reportes";
+    private static final String nome = "Reportes";
     // private static HashMap<Integer, Report> reportes = new HashMap<>();
 
 
@@ -25,32 +25,6 @@ public class MenuReports implements Listener {
 
     private static final HashMap<Player, Integer> paginaAberta = new HashMap<>();
 
-    public static void exemplo() {
-        HashMap<String, Double> contas = new HashMap<>();
-        contas.put("Eduard", 10000.0);
-        contas.put("Yonatan", 20000.0);
-        contas.put("Yonatan", (contas.get("Yonatan") - 200.0));
-        contas.get("Yonatan");// 20000.0
-        HashMap<String, HashMap<String, Integer>> moedas = new HashMap<>();
-
-        HashMap<String, Integer> cash = new HashMap<>();
-        cash.put("Eduard", 100);
-        cash.put("Yonatan", 200);
-
-        moedas.put("Cash", cash);
-
-        HashMap<String, Integer> coins = new HashMap<>();
-        coins.put("Eduard", 100000000);
-        coins.put("Yonatan", 200000000);
-
-        moedas.put("Coins", coins);
-
-        HashMap<String, Integer> moedaCash = moedas.get("Cash");
-        moedaCash.put("Eduard", moedaCash.get("Eduard") + 200);
-
-        HashMap<String, Integer> moedaCoins = moedas.get("Coins");
-        moedaCoins.put("Eduard", moedaCoins.get("Eduard") - 1000000);
-    }
     private static final int slotVoltar = 0;
     private static final int slotAvancar = 8;
     @EventHandler
@@ -81,7 +55,7 @@ public class MenuReports implements Listener {
         if (reporte == null) return;
         // player.sendMessage("§aVocê clicou no report do " + reporte.getReportedPlayer());
         if (evento.getClick() == ClickType.RIGHT) {
-            Report.getReports().remove(reporte);
+            ProjetoReport.getManager().getReports().remove(reporte);
             reportes.remove(slotClicado);
             player.sendMessage("§AEste report foi removido.");
             abrirMenu(player);
@@ -116,7 +90,7 @@ public class MenuReports implements Listener {
         int porPagina = 2;
         int fim = (pagina * porPagina);
         HashMap<Integer, Report> reports = new HashMap<>();
-        int size = Report.getReports().size();
+        int size = ProjetoReport.getManager().getReports().size();
         if (pagina > 1) {
             ItemStack item = new ItemStack(Material.ARROW);
             ItemMeta meta = item.getItemMeta();
@@ -134,7 +108,7 @@ public class MenuReports implements Listener {
 
         for (int atual = (pagina - 1) * porPagina; atual < fim; atual++) {
             if (atual >= size) break;
-            Report reporte = Report.getReports().get(atual);
+            Report reporte = ProjetoReport.getManager().getReports().get(atual);
             if (reporte.isVerified()) {
                 continue;
             }

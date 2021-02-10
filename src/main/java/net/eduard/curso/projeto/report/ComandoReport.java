@@ -41,9 +41,9 @@ public class ComandoReport implements CommandExecutor {
         novoReport.setReportedPlayer(alvo.getName());
         novoReport.setCause(motivo);
         novoReport.setTime(System.currentTimeMillis());
-        Report.getReports().add(novoReport);
+        ProjetoReport.getManager().getReports().add(novoReport);
         player.sendMessage("§aJogador reportado.");
-        Report.saveReports();
+        ProjetoReport.getManager().saveReports();
 
         return true;
     }
