@@ -1,8 +1,10 @@
 package net.eduard.curso.projeto.warp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import net.eduard.api.lib.config.BukkitConfigs;
 import org.bukkit.Location;
 
 import net.eduard.api.lib.config.BukkitConfig;
@@ -10,7 +12,7 @@ import net.eduard.curso.Curso;
 
 public class WarpAPI {
 
-	private static BukkitConfig config = Curso.getConfigs();
+	private static BukkitConfigs config = new BukkitConfigs("warps.yml");
 
 	public static void setWarp(String name, Location local) {
 		config.set("Warps." + name.toLowerCase(), local);
@@ -32,16 +34,13 @@ public class WarpAPI {
 		config.remove("Warps." + name.toLowerCase());
 	}
 
-	public static BukkitConfig getConfig() {
+	public static BukkitConfigs getConfig() {
 		return config;
 	}
 
 	public static List<String> getWarps() {
-		return config.getSection("Warps").getKeys(false).stream().collect(Collectors.toList());
+		return new ArrayList<>(config.getSection("Warps").getKeys(false));
 	}
 
-	public static void setConfig(BukkitConfig config) {
-		WarpAPI.config = config;
-	}
 
 }
