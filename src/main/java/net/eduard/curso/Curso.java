@@ -7,6 +7,7 @@ import net.eduard.curso.projeto.login.ProjetoLogin;
 import net.eduard.curso.projeto.minion.ProjetoMinion;
 import net.eduard.curso.projeto.report.*;
 import net.eduard.curso.projeto.tag.PlayerTagUpdater;
+import net.eduard.curso.projeto.tag.ProjetoTags;
 import net.eduard.curso.sistemas.com_tempo.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -65,13 +66,7 @@ public class Curso extends JavaPlugin {
         newProject(new ProjetoMinion());
         newProject(new ProjetoLogin());
         newProject(new ProjetoReport());
-
-        new InicioAutomatico(this);
-
-
-        Bukkit.getPluginManager().registerEvents(new MenuReports() , this);
-        new PlayerTagUpdater().runTaskTimerAsynchronously(this, 20 , 20);
-
+        newProject(new ProjetoTags());
 
 
 

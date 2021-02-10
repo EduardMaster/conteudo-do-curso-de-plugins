@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.junit.internal.runners.statements.RunAfters;
 
 public abstract class Projeto {
 
@@ -29,8 +28,10 @@ public abstract class Projeto {
         runnable.runTaskTimer(Curso.getInstance(),startDelay,cycleTicks);
     }
     public void registerDelay(BukkitRunnable runnable, long delayTicks){
-        runnable.runTaskTimer(Curso.getInstance(),delayTicks);
+        runnable.runTaskLater(Curso.getInstance(),delayTicks);
     }
-
+    public void registerAsyncDelay(BukkitRunnable runnable, long delayTicks){
+        runnable.runTaskLaterAsynchronously(Curso.getInstance(),delayTicks);
+    }
 }
 

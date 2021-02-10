@@ -30,7 +30,8 @@ public class ComandoSetTag implements CommandExecutor {
             sender.sendMessage("§Cjogador offline");
             return true;
         }
-        PlayerTag.setTag(alvo, prefix, suffix);
+
+        ProjetoTags.getManager().setTag(alvo, prefix, suffix);
         return true;
     }
 }

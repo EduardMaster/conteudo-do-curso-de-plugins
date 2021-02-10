@@ -6,7 +6,6 @@ public class PlayerTagUpdater extends BukkitRunnable {
 
     @Override
     public void run() {
-        PlayerTag.updateTags();
-
+        ProjetoTags.getManager().updateTags();
     }
 }
