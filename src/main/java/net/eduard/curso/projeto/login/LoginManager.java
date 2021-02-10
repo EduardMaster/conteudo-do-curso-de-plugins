@@ -18,6 +18,9 @@ public class LoginManager {
         return config;
     }
 
+    public boolean isLogado(Player player){
+        return getLogados().containsKey(player);
+    }
     public void register(Player player, String senha) {
         config.set("Contas." + player.getUniqueId() + ".senha", senha);
         registrados.put(player.getUniqueId(), senha);
