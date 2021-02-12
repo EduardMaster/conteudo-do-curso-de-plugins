@@ -6,14 +6,11 @@ import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.projeto.login.ProjetoLogin;
 import net.eduard.curso.projeto.minion.ProjetoMinion;
 import net.eduard.curso.projeto.report.*;
-import net.eduard.curso.projeto.tag.PlayerTagUpdater;
 import net.eduard.curso.projeto.tag.ProjetoTags;
-import net.eduard.curso.sistemas.com_tempo.InicioAutomatico;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.eduard.api.lib.config.BukkitConfig;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,9 +37,6 @@ public class Curso extends JavaPlugin {
         return instance;
     }
 
-    /**
-     * Config principal do Plugin feita usando api {@link BukkitConfig}
-     */
     private static BukkitConfigs config;
 
     public static BukkitConfigs getConfigs() {
@@ -61,6 +55,7 @@ public class Curso extends JavaPlugin {
         instance = this;
         getDataFolder().mkdirs();
         config = new BukkitConfigs("config.yml");
+
 
 
         newProject(new ProjetoMinion());
