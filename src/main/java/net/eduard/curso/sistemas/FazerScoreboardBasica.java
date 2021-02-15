@@ -1,5 +1,7 @@
 package net.eduard.curso.sistemas;
 
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -7,11 +9,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 
 /**
  * Scoreboard simples sem uso de API
@@ -19,7 +25,108 @@ import org.bukkit.scoreboard.Scoreboard;
  * @author Eduard
 
  */
-public class FazerScoreboardBasica extends BukkitRunnable {
+public class FazerScoreboardBasica extends BukkitRunnable implements Listener {
+
+	private static final HashMap<Player, Scoreboard> scores =  new HashMap<>();
+
+	static class FakeOfflinePlayer implements  OfflinePlayer{
+
+
+		public FakeOfflinePlayer(String text) {
+			this.text = text;
+		}
+
+		private String text;
+
+		public String getText() {
+			return text;
+		}
+
+		public void setText(String text) {
+			this.text = text;
+		}
+
+		@Override
+		public boolean isOnline() {
+			return false;
+		}
+
+		@Override
+		public String getName() {
+			return getText();
+		}
+
+		@Override
+		public UUID getUniqueId() {
+			return UUID.nameUUIDFromBytes(("OfflinePlayer:"+
+					getText()).getBytes(StandardCharsets.UTF_8));
+
+		}
+
+		@Override
+		public boolean isBanned() {
+			return false;
+		}
+
+		@Override
+		public void setBanned(boolean banned) {
+
+		}
+
+		@Override
+		public boolean isWhitelisted() {
+			return false;
+		}
+
+		@Override
+		public void setWhitelisted(boolean value) {
+
+		}
+
+		@Override
+		public Player getPlayer() {
+			return Bukkit.getPlayer(text);
+		}
+
+		@Override
+		public long getFirstPlayed() {
+			return 0;
+		}
+
+		@Override
+		public long getLastPlayed() {
+			return 0;
+		}
+
+		@Override
+		public boolean hasPlayedBefore() {
+			return true;
+		}
+
+		@Override
+		public Location getBedSpawnLocation() {
+			return null;
+		}
+
+		@Override
+		public Map<String, Object> serialize() {
+			return null;
+		}
+
+		@Override
+		public boolean isOp() {
+			return false;
+		}
+
+		@Override
+		public void setOp(boolean value) {
+
+		}
+	}
+	@EventHandler
+	public void join(PlayerJoinEvent e){
+		ativar(e.getPlayer());
+	}
 
 	/**
 	 * Atualizado a Scoreboard dos jogadores
@@ -27,7 +134,7 @@ public class FazerScoreboardBasica extends BukkitRunnable {
 	@Override
 	public void run() {
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			newScoreboard(player, "titulo", "linha1");
+			atualizar(player);
 		}
 
 	}
@@ -36,7 +143,51 @@ public class FazerScoreboardBasica extends BukkitRunnable {
 	 * @param plugin Plugin
 	 */
 	public FazerScoreboardBasica(JavaPlugin plugin) {
+
 		runTaskTimer(plugin, 20, 20);
+		Bukkit.getPluginManager().registerEvents(this, plugin);
+	}
+	public void ativar(Player player){
+		Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
+		Objective obj = board.registerNewObjective("board", "score");
+		obj.setDisplayName("§6§lScoreboard");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+
+		{
+			String linha = "§aVida: §2";
+			Team team = board.registerNewTeam("linha10");
+			team.setSuffix("" + player.getHealth());
+			team.addEntry(linha);
+			obj.getScore(linha).setScore(10);
+		}
+
+		obj.getScore("§a").setScore(9);
+
+		{
+			String linha = "§eFome: §6";
+			Team team = board.registerNewTeam("linha8");
+			team.setSuffix("" + player.getFoodLevel());
+			team.addEntry(linha);
+			obj.getScore(linha).setScore(8);
+		}
+
+		player.setScoreboard(board);
+	}
+
+	public void atualizar(Player player){
+
+		Scoreboard score = scores.get(player);
+		if (score == null)return;
+		{
+			Team team = score.getTeam("linha10");
+			team.setSuffix("" + player.getHealth());
+		}
+		{
+			Team team = score.getTeam("linha8");
+			team.setSuffix("" + player.getFoodLevel());
+		}
+
+
 	}
 
 	/**
@@ -52,101 +203,17 @@ public class FazerScoreboardBasica extends BukkitRunnable {
 		Objective obj = board.registerNewObjective("board", "score");
 		obj.setDisplayName(title);
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+
+		Objective vida = board.registerNewObjective("health", "health");
+		vida.setDisplayName("Vida");
+		vida.setDisplaySlot(DisplaySlot.BELOW_NAME);
+		vida.getScore(player).setScore(20);
+
+
 		int id = 15;
 		for (final String line : lines) {
-			obj.getScore(new OfflinePlayer() {
 
-				@Override
-				public Map<String, Object> serialize() {
-
-					return null;
-				}
-
-				@Override
-				public void setOp(boolean arg0) {
-
-
-				}
-
-				@Override
-				public boolean isOp() {
-
-					return false;
-				}
-
-				@Override
-				public void setWhitelisted(boolean arg0) {
-
-
-				}
-
-				@Override
-				public void setBanned(boolean arg0) {
-
-
-				}
-
-				@Override
-				public boolean isWhitelisted() {
-					// TODO Auto-generated method stub
-					return false;
-				}
-
-				@Override
-				public boolean isOnline() {
-
-					return false;
-				}
-
-				@Override
-				public boolean isBanned() {
-
-					return false;
-				}
-
-				@Override
-				public boolean hasPlayedBefore() {
-
-					return false;
-				}
-
-				@Override
-				public UUID getUniqueId() {
-
-					return null;
-				}
-
-				@Override
-				public Player getPlayer() {
-
-					return null;
-				}
-
-				@Override
-				public String getName() {
-
-					return line;
-				}
-
-				@Override
-				public long getLastPlayed() {
-
-					return 0;
-				}
-
-				@Override
-				public long getFirstPlayed() {
-
-					return 0;
-				}
-
-				@Override
-				public Location getBedSpawnLocation() {
-
-					return null;
-				}
-			}).setScore(id);
-			;
+			obj.getScore(new FakeOfflinePlayer(line)).setScore(id);
 			id--;
 			if (id == 0) {
 				break;
@@ -154,6 +221,7 @@ public class FazerScoreboardBasica extends BukkitRunnable {
 		}
 
 		player.setScoreboard(board);
+		scores.put(player, board);
 		return board;
 	}
 
