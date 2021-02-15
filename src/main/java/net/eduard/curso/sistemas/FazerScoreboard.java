@@ -25,7 +25,7 @@ import org.bukkit.scoreboard.Team;
  * @author Eduard
 
  */
-public class FazerScoreboardBasica extends BukkitRunnable implements Listener {
+public class FazerScoreboard extends BukkitRunnable implements Listener {
 
 	private static final HashMap<Player, Scoreboard> scores =  new HashMap<>();
 
@@ -142,7 +142,7 @@ public class FazerScoreboardBasica extends BukkitRunnable implements Listener {
 	 * Construtor pedindo Plugin para ligar o sistema
 	 * @param plugin Plugin
 	 */
-	public FazerScoreboardBasica(JavaPlugin plugin) {
+	public FazerScoreboard(JavaPlugin plugin) {
 
 		runTaskTimer(plugin, 20, 20);
 		Bukkit.getPluginManager().registerEvents(this, plugin);
