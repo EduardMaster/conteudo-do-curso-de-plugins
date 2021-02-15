@@ -14,11 +14,15 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class Sistema extends BukkitRunnable implements Listener, CommandExecutor, TabCompleter {
+    public Sistema(){
+        sistemas.add(this);
+    }
     private static final Set<Sistema> sistemas= new HashSet<>();
 
     public static Set<Sistema> getSistemas() {
         return sistemas;
     }
+
 
     public abstract void onEnable();
 
