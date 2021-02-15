@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import net.eduard.curso.Curso;
+import net.eduard.curso.Sistema;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -20,17 +21,32 @@ import org.bukkit.util.io.BukkitObjectOutputStream;
  *
  * @author Eduard
  */
-public class UsarBukkitSearialization {
-    /**
-     * Exemplo
-     */
-    public static void usandoBukkitSerialization() {
+public class SistemaBukkitSearialization extends Sistema {
+
+
+    public static void salvarItems(File arquivo, ItemStack... items) throws FileNotFoundException, IOException {
+
+        BukkitObjectOutputStream armazenar = new BukkitObjectOutputStream(new FileOutputStream(arquivo));
+        armazenar.writeObject(items);
+        armazenar.close();
+    }
+
+    public static ItemStack[] restaurarItems(File arquivo) throws ClassNotFoundException, IOException {
+        ItemStack[] items = null;
+        BukkitObjectInputStream restaurador = new BukkitObjectInputStream(new FileInputStream(arquivo));
+        items = (ItemStack[]) restaurador.readObject();
+        restaurador.close();
+        return items;
+    }
+
+    @Override
+    public void onEnable() {
         File arquivo = new File(Curso.getInstance().getDataFolder(), "items.db");
         ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("§aEspada longa");
         meta.setLore(Arrays.asList("Lorezita"));
-		item.setItemMeta(meta);
+        item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
 
@@ -48,22 +64,10 @@ public class UsarBukkitSearialization {
 
             e.printStackTrace();
         }
-
     }
 
-    public static void salvarItems(File arquivo, ItemStack... items) throws FileNotFoundException, IOException {
+    @Override
+    public void onDisable() {
 
-        BukkitObjectOutputStream armazenar = new BukkitObjectOutputStream(new FileOutputStream(arquivo));
-        armazenar.writeObject(items);
-        armazenar.close();
     }
-
-    public static ItemStack[] restaurarItems(File arquivo) throws ClassNotFoundException, IOException {
-        ItemStack[] items = null;
-        BukkitObjectInputStream restaurador = new BukkitObjectInputStream(new FileInputStream(arquivo));
-        items = (ItemStack[]) restaurador.readObject();
-        restaurador.close();
-        return items;
-    }
-
 }

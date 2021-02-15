@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.eduard.curso.Sistema;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 
@@ -16,7 +16,18 @@ import org.bukkit.entity.Player;
  * @author Eduard
  */
 
-public class FazerTabCompleter implements TabCompleter {
+public class SistemaTabCompleter extends Sistema {
+
+    @Override
+    public void onEnable() {
+        registerCommand("tabcomplete");
+        registerTabcompleter("tabcomplete");
+    }
+
+    @Override
+    public void onDisable() {
+
+    }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
@@ -33,6 +44,7 @@ public class FazerTabCompleter implements TabCompleter {
         }
 
         if (args.length == 1) {
+
             if (args[0].equalsIgnoreCase("usar")) {
                 return Arrays.asList("comando", "subcomando");
             }

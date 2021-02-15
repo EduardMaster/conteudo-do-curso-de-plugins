@@ -1,5 +1,6 @@
-package net.eduard.curso.sistemas.com_tempo;
+package net.eduard.curso.sistemas;
 
+import net.eduard.curso.Sistema;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -11,12 +12,8 @@ import net.eduard.api.server.EduardPlugin;
  * @author Eduard
  *
  */
-public class TimerBasico extends BukkitRunnable {
+public class SistemaTimerBasico extends Sistema {
 
-	public TimerBasico(EduardPlugin plugin) {
-		// ligando timer a cada 20 ticks (1 segundo)
-		runTaskTimerAsynchronously(plugin, 20, 20);
-	}
 
 	/**
 	 * Estado do timer se esta ligado ou não
@@ -27,6 +24,16 @@ public class TimerBasico extends BukkitRunnable {
 	 * Contagem atual do Timer
 	 */
 	private int contagem = 10;
+
+	@Override
+	public void onEnable() {
+		registerAsyncTimer(20,20);
+	}
+
+	@Override
+	public void onDisable() {
+
+	}
 
 	/**
 	 * Método run() sobeescrito da interface {@link Runnable}<br>

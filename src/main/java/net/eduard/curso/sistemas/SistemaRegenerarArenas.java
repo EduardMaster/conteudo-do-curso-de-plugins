@@ -3,6 +3,7 @@ package net.eduard.curso.sistemas;
 import java.util.ArrayList;
 
 import net.eduard.api.lib.modules.Mine;
+import net.eduard.curso.Sistema;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -19,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
 
 
 
-public class RegenerarArenas implements Listener {
+public class SistemaRegenerarArenas extends Sistema {
 
 	public static final ArrayList<BlockState> BLOCKS = new ArrayList<>();
 	public static final ItemStack REGENERAR = Mine.newItem(Material.APPLE, "§6Regenerar");
@@ -85,5 +86,15 @@ public class RegenerarArenas implements Listener {
 	public void resetar() {
 		BLOCKS.clear();
 		Bukkit.broadcastMessage("§6Resetado!");
+	}
+
+	@Override
+	public void onEnable() {
+		registerEvents();
+	}
+
+	@Override
+	public void onDisable() {
+
 	}
 }

@@ -5,15 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import net.eduard.curso.Sistema;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
@@ -25,8 +23,17 @@ import org.bukkit.scoreboard.Team;
  * @author Eduard
 
  */
-public class FazerScoreboard extends BukkitRunnable implements Listener {
+public class SistemaScoreboard extends Sistema {
+	@Override
+	public void onEnable() {
+		registerEvents();
+		registerAsyncTimer(20,20);
+	}
 
+	@Override
+	public void onDisable() {
+
+	}
 	private static final HashMap<Player, Scoreboard> scores =  new HashMap<>();
 
 	static class FakeOfflinePlayer implements  OfflinePlayer{
@@ -128,6 +135,8 @@ public class FazerScoreboard extends BukkitRunnable implements Listener {
 		ativar(e.getPlayer());
 	}
 
+
+
 	/**
 	 * Atualizado a Scoreboard dos jogadores
 	 */
@@ -138,15 +147,7 @@ public class FazerScoreboard extends BukkitRunnable implements Listener {
 		}
 
 	}
-	/**
-	 * Construtor pedindo Plugin para ligar o sistema
-	 * @param plugin Plugin
-	 */
-	public FazerScoreboard(JavaPlugin plugin) {
 
-		runTaskTimer(plugin, 20, 20);
-		Bukkit.getPluginManager().registerEvents(this, plugin);
-	}
 	public void ativar(Player player){
 		Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
 		Objective obj = board.registerNewObjective("board", "score");

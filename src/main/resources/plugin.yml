@@ -54,6 +54,8 @@ commands:
   money:
     aliases: [dinheiro]
   # Comandos abaixo de sistemas isolados
+  tabcomplete:
+    aliases: [completes]
   delay:
   timer:
     description: Inicia um Timer ou seja um repetidor

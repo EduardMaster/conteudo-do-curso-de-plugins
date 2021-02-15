@@ -7,13 +7,11 @@ import net.eduard.curso.projeto.login.ProjetoLogin;
 import net.eduard.curso.projeto.minion.ProjetoMinion;
 import net.eduard.curso.projeto.report.*;
 import net.eduard.curso.projeto.tag.ProjetoTags;
+import net.eduard.curso.sistemas.SistemaScoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Classe principal na criação de plugin ela é uma extenção de
@@ -43,9 +41,6 @@ public class Curso extends JavaPlugin {
         return config;
     }
 
-    private Set<Projeto> projetos = new HashSet<>();
-
-
 
     /**
      * Evento de quando o plugin é ativado
@@ -56,38 +51,39 @@ public class Curso extends JavaPlugin {
         getDataFolder().mkdirs();
         config = new BukkitConfigs("config.yml");
 
-
-
-        newProject(new ProjetoMinion());
-        newProject(new ProjetoLogin());
-        newProject(new ProjetoReport());
-        newProject(new ProjetoTags());
+        new SistemaScoreboard();
 
 
 
-        for (Projeto projeto : this.projetos){
+        new ProjetoMinion();
+        new ProjetoLogin();
+        new ProjetoReport();
+        new ProjetoTags();
+
+
+        for (Sistema sistema : Sistema.getSistemas()){
+            sistema.onEnable();
+        }
+
+        for (Projeto projeto : Projeto.getProjetos()){
             projeto.onEnable();
         }
 
     }
-    public void newProject(Projeto projeto){
 
-        projetos.add(projeto);
-    }
 
 
     public void onDisable() {
-//		CaixaAPI.save();
-//		RankAPI.save();
-        for (Projeto projeto : this.projetos){
+
+        for (Projeto projeto : Projeto.getProjetos()){
             projeto.onDisable();
         }
+        for (Sistema sistema : Sistema.getSistemas()){
+            sistema.onDisable();
+        }
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Plugin desativado do curso");
-
+        Sistema.getSistemas().clear();
+        Projeto.getProjetos().clear();
     }
 
-
-    public Set<Projeto> getProjetos() {
-        return projetos;
-    }
 }

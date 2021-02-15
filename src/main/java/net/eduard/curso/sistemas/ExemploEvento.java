@@ -14,11 +14,13 @@ import org.bukkit.event.player.PlayerJoinEvent;
  *
  * @author Eduard
  */
-public class FazerEventoCustomizado extends Event implements Listener, Cancellable {
+public class ExemploEvento extends Event implements Listener, Cancellable {
+
+
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent e) {
         Player player = e.getPlayer();
-        FazerEventoCustomizado event = new FazerEventoCustomizado("Mensagem a ser Enviada");
+        ExemploEvento event = new ExemploEvento("Mensagem a ser Enviada");
         Bukkit.getPluginManager().callEvent(event);
         if (!event.isCancelled()) {
             player.sendMessage(event.getMessage());
@@ -29,7 +31,7 @@ public class FazerEventoCustomizado extends Event implements Listener, Cancellab
     private String message;
     private boolean cancelled;
 
-    public FazerEventoCustomizado(String example) {
+    public ExemploEvento(String example) {
         message = example;
     }
 

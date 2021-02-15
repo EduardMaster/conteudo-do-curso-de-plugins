@@ -8,7 +8,7 @@ import org.bukkit.inventory.ShapelessRecipe;
 
 import net.eduard.api.lib.modules.Mine;
 
-public class FazerCraftSimples {
+public class ExemploCrafts {
 	
 	public static void craftEspadaLonga() {
 		ItemStack espada = Mine.newItem(Material.DIAMOND_SWORD, "§aEspada longa");

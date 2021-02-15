@@ -1,10 +1,10 @@
 package net.eduard.curso.sistemas;
 
+import net.eduard.curso.Sistema;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class FazerCaptcha implements Listener {
+public class SistemaCaptcha extends Sistema {
 
     private final static ItemStack vidroVerde;
     private final static ItemStack vidroCinza;
@@ -98,4 +98,13 @@ public class FazerCaptcha implements Listener {
     }
 
 
+    @Override
+    public void onEnable() {
+        registerEvents();
+    }
+
+    @Override
+    public void onDisable() {
+
+    }
 }

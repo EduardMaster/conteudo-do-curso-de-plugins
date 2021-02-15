@@ -1,17 +1,17 @@
 package net.eduard.curso.sistemas;
 
+import net.eduard.curso.Sistema;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 
-public class FazerLojaBasica implements Listener {
+public class SistemaLojaBasica extends Sistema {
     @EventHandler
     public void event(PlayerInteractEvent e) {
         Player p = e.getPlayer();
@@ -35,13 +35,23 @@ public class FazerLojaBasica implements Listener {
         if (e.getCurrentItem() == null)
             return;
         if (inv.containsAtLeast(new ItemStack(Material.DIAMOND), 16)) {
-        }
-        if (e.getCurrentItem().getType() == Material.DIAMOND) {
+
+            if (e.getCurrentItem().getType() == Material.DIAMOND) {
 //					Mine.remove(inv, new ItemStack(Material.DIAMOND,3));;
-            e.setCancelled(true);
+                e.setCancelled(true);
+            }
         }
 
 
     }
 
+    @Override
+    public void onEnable() {
+        registerEvents();
+    }
+
+    @Override
+    public void onDisable() {
+
+    }
 }

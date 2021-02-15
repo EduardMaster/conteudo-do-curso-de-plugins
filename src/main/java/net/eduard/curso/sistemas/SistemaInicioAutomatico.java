@@ -1,22 +1,28 @@
-package net.eduard.curso.sistemas.com_tempo;
+package net.eduard.curso.sistemas;
 
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
+import net.eduard.curso.Sistema;
 
 import java.util.Calendar;
 
-public class InicioAutomatico extends BukkitRunnable {
+public class SistemaInicioAutomatico extends Sistema {
 
 
-    public InicioAutomatico(JavaPlugin plugin){
-        runTaskTimerAsynchronously(plugin, 20,20);
-    }
 
     public static int diaDaSemana = 5;
     public static int horarioDoDia = 12;
     public static int minutoDaHora = 30;
 
     public static void start(){
+
+    }
+
+    @Override
+    public void onEnable() {
+        registerAsyncTimer(20,20);
+    }
+
+    @Override
+    public void onDisable() {
 
     }
 
