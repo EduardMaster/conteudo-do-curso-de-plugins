@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -53,6 +54,11 @@ public abstract class Sistema extends BukkitRunnable implements Listener, Comman
     public void registerAsyncDelay(long delayTicks) {
         this.runTaskLaterAsynchronously(Curso.getInstance(), delayTicks);
     }
+
+    public void unregisterEvents(){
+        HandlerList.unregisterAll(this);
+    }
+
 
     @Override
     public void run() {
