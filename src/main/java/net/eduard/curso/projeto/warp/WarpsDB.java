@@ -8,13 +8,12 @@ import org.bukkit.World;
 
 import net.eduard.api.lib.database.DBManager;
 
-public class WarpsDB extends DBManager {
+public class WarpsDB {
  
-	public WarpsDB(String user, String pass, String host,
-			String database) {
-		super(user, pass, host, database);
-		update("create table if not exists warps(name varchar(11) not null unique,"
-				+ "x double, y double , z double , yaw double , pitch double,world varchar(11)");
+	public WarpsDB() {
+
+		//update("create table if not exists warps(name varchar(11) not null unique,"
+			//	+ "x double, y double , z double , yaw double , pitch double,world varchar(11)");
 
 	}
 	public void setWarp(Location location, String name) {
@@ -26,18 +25,18 @@ public class WarpsDB extends DBManager {
 		float yaw = location.getYaw();
 		String world = location.getWorld().getName();
 		if (hasWarp(name)) {
-			update("update warps set x = ?, y = ?, z = ? , yaw = ? , pitch =  ?,world = ? where name = ?",
-					x, y, z, yaw, pitch, world, name);
+		//	update("update warps set x = ?, y = ?, z = ? , yaw = ? , pitch =  ?,world = ? where name = ?",
+				//	x, y, z, yaw, pitch, world, name);
 		} else {
-			update("insert into warps values (?,?,?,?,?,?,?)", name, x, y, z,
-					yaw, pitch, world);
+			//update("insert into warps values (?,?,?,?,?,?,?)", name, x, y, z,
+				//	yaw, pitch, world);
 		}
 	}
 	public Location getWarp(String name) {
 		name = name.toLowerCase();
 		Location location = null;
 		try {
-			ResultSet rs = select("select * from warps where name = ?", name);
+			ResultSet rs = null;//  select("select * from warps where name = ?", name);
 			if (rs.next()) {
 				double x = rs.getDouble("x");
 				double y = rs.getDouble("y");
@@ -56,7 +55,9 @@ public class WarpsDB extends DBManager {
 		//
 	}
 	public boolean hasWarp(String name) {
-		return contains("select name from warps where name = ?", name.toLowerCase());
+		//return contains("select name from warps where name = ?", name.toLowerCase());
+
+		return true;
 	}
 
 }
