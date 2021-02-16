@@ -9,7 +9,7 @@ import net.eduard.curso.SQLConnection;
 public class CashSQL extends SQLConnection {
 
     private String tableName = "cash_table";
-
+     // varchar(50)
     public void criarTabela() {
         try {
 

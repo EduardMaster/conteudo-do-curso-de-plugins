@@ -13,7 +13,9 @@ public class ProjetoCash extends Projeto {
     public void onEnable() {
         registerCommand("cash", new ComandoCash());
         manager.setUseSQL(true);
+        manager.getSql().setDatabase("minecraft");
         manager.getSql().abrirMySQL();
+        manager.getSql().criarTabela();
         manager.reloadFromSQL();
     }
 
