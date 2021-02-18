@@ -26,12 +26,10 @@ public class SQLConnection {
             }
             connection =
                     DriverManager.getConnection(
-                            "jdbc:mysql://%host:%port/%database?username=%user&password=%password&autoReconnect=true"
+                            "jdbc:mysql://%host:%port/%database?autoReconnect=true"
                     .replace("%host", host)
                     .replace("%port",""+porta)
                     .replace("%database" , database)
-                    .replace("%password" , senha)
-                    .replace("%user" , usuario)
                     );
 
 
