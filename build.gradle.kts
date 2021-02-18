@@ -17,6 +17,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     compileOnly("com.github.MilkBowl:VaultAPI:1.7")
     compileOnly("net.eduard:eduardapi:1.0-SNAPSHOT")
+    compileOnly("org.bukkit:spigot:1.8.9")
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
     testCompile("junit", "junit", "4.12")
 }
