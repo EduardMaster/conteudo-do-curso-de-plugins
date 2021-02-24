@@ -6,9 +6,10 @@ public class ProjetoReport extends Projeto {
     public static ReportManager getManager() {
         return manager;
     }
-
+    private static  ReportManager manager;
     @Override
     public void onEnable() {
+        manager =  new ReportManager();
         registerCommand("report", new ComandoReport());
         registerCommand("reports", new ComandoReports());
         registerEvents(new MenuReports());
@@ -21,5 +22,5 @@ public class ProjetoReport extends Projeto {
         getManager().saveReports();
     }
 
-    private static final ReportManager manager = new ReportManager();
+
 }

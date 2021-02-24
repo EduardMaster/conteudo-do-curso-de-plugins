@@ -44,7 +44,7 @@ public class RankManager {
 	}
 
 
-	@Storable.StorageAttributes(reference = true)
+
 	private Map<UUID, Rank> players = new HashMap<>();
 
 	public Map<UUID, Rank> getPlayers() {

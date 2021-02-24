@@ -17,7 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class TutorialComunicacoesWeb {
+public class TutorialUsarWeb {
 
 
 	public static String sendPost(String link, String parametros) throws Exception {

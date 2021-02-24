@@ -1,11 +1,9 @@
 package net.eduard.curso.java;
 
-public class TutorialDadosVariaveis {
-	public static class Pessoa {
+import net.eduard.curso.java.objetos.Pessoa;
 
-		String nome = "Sem nome";
-		int idade = 1;
-	}
+public class TutorialDadosVariaveis {
+
 	public static void forInfinito1() {
 		for (;;) {
 			System.out.println("For que nunca acaba");
@@ -47,7 +45,7 @@ public class TutorialDadosVariaveis {
 		System.out.println("O resultado da subtração foi: " + subtracaoDosPesos);
 
 		Pessoa p1 = new Pessoa();
-		p1.nome = "Edu";
+		p1.setNome("Edu");
 		p1.idade = 15;
 		Pessoa p2 = new Pessoa();
 		p2.nome = "Gabriel";

@@ -1,4 +1,4 @@
-package net.eduard.curso.projeto.pvp;
+package net.eduard.curso.projeto.essentials;
 
 import java.util.HashMap;
 

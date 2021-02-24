@@ -1,29 +1,30 @@
 package net.eduard.curso.java;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Vector;
+import net.eduard.curso.java.objetos.FakeLocation;
+import net.eduard.curso.java.objetos.FakeMaquina;
 
-public class TestandoVelocidadeDaArrayList {
+import java.util.ArrayList;
+import java.util.Random;
+
+public class TesteVelocidadeArrayList {
 
     public static void main(String[] args) {
-        ArrayList<MaquinaFake> lista = new ArrayList();
+        ArrayList<FakeMaquina> lista = new ArrayList();
         int maximo = 1500000;
         Random r = new Random();
-        MaquinaFake ultimaMaquina = null;
+        FakeMaquina ultimaMaquina = null;
         System.out.println("Iniciando inserção de dados " + maximo);
         long tempoInicial = System.currentTimeMillis();
         for (int id = 0; id < maximo; id++) {
             FakeLocation local = new FakeLocation();
-            local.world = "world";
-            local.x = r.nextInt(maximo);
-            local.y = r.nextInt(maximo);
-            local.z = r.nextInt(maximo);
+            local.setWorld( "world");
+            local.setX( r.nextInt(maximo));
+            local.setY(r.nextInt(maximo));
+            local.setZ(r.nextInt(maximo));
             local.hashCode();
-            MaquinaFake maquina = new MaquinaFake();
+            FakeMaquina maquina = new FakeMaquina();
             maquina.setDono("DonoAleatorio" + r.nextInt(maximo));
-            maquina.local = local;
+            maquina.setLocal( local);
             lista.add(maquina);
             ultimaMaquina = maquina;
         }
@@ -33,10 +34,10 @@ public class TestandoVelocidadeDaArrayList {
         System.out.println("Inserção terminada diferença em millis: " + dif);
         tempoInicial = System.currentTimeMillis();
         int vezesPassado = 0;
-        int hashDoUltimo = ultimaMaquina.local.hashCode();
-        for (MaquinaFake maquina : lista) {
+        int hashDoUltimo = ultimaMaquina.getLocal().hashCode();
+        for (FakeMaquina maquina : lista) {
             vezesPassado++;
-            if (maquina.local.hashCode() == hashDoUltimo) {
+            if (maquina.getLocal().hashCode() == hashDoUltimo) {
                 System.out.println("Maquina encontrada em " + vezesPassado);
                 tempoFinal = System.currentTimeMillis();
                 dif = tempoFinal - tempoInicial;
@@ -47,9 +48,9 @@ public class TestandoVelocidadeDaArrayList {
         tempoInicial = System.currentTimeMillis();
         vezesPassado = 0;
 
-        for (MaquinaFake maquina : lista) {
+        for (FakeMaquina maquina : lista) {
             vezesPassado++;
-            if (maquina.local.equals(ultimaMaquina.local)) {
+            if (maquina.getLocal().equals(ultimaMaquina.getLocal())) {
                 System.out.println("Maquina encontrada em " + vezesPassado);
                 tempoFinal = System.currentTimeMillis();
                 dif = tempoFinal - tempoInicial;
@@ -61,9 +62,9 @@ public class TestandoVelocidadeDaArrayList {
         vezesPassado = 0;
 
         for (int id = 0; id < lista.size(); id++) {
-            MaquinaFake maquina = lista.get(id);
+            FakeMaquina maquina = lista.get(id);
             vezesPassado++;
-            if (maquina.local.hashCode() == hashDoUltimo ) {
+            if (maquina.getLocal().hashCode() == hashDoUltimo ) {
                 System.out.println("Maquina encontrada em " + vezesPassado);
                 tempoFinal = System.currentTimeMillis();
                 dif = tempoFinal - tempoInicial;
@@ -73,52 +74,6 @@ public class TestandoVelocidadeDaArrayList {
         }
     }
     static Object[][] teste = new Object[24][24];
-
-
-    public static class FakeLocation {
-        String world;
-        int x;
-        int y;
-        int z;
-        int hash;
-
-        @Override
-        public boolean equals(Object o) {
-
-
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            FakeLocation that = (FakeLocation) o;
-            return x == that.x &&
-                    y == that.y &&
-                    z == that.z &&
-                    Objects.equals(world, that.world);
-        }
-
-        @Override
-        public int hashCode() {
-            if (hash == 0) {
-                hash = Objects.hash(world, x, y, z);
-            }
-
-            return hash;
-        }
-    }
-
-    public static class MaquinaFake {
-        private String dono;
-        private FakeLocation local;
-
-        public String getDono() {
-            return dono;
-        }
-
-        public void setDono(String dono) {
-            this.dono = dono;
-        }
-
-
-    }
 
 
 }

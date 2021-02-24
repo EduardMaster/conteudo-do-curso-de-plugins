@@ -7,15 +7,11 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.bukkit.Bukkit;
-/**
- * 
- * Donos Will e Hero
- *
- */
-public class TestClassLoading {
+
+public class TesteCarregandoClasse {
 	
 	 
-		public TestClassLoading() {
+		public TesteCarregandoClasse() {
 	        ClassLoader pClassLoader = CustomClassLoader.class.getClassLoader();
 
 	        try {

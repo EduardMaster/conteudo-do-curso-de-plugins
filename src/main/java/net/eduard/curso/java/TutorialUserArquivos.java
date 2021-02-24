@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class TutorialComunicacoesArquivos {
+public class TutorialUserArquivos {
 
 	public static void main(String[] args) throws Exception {
 		
