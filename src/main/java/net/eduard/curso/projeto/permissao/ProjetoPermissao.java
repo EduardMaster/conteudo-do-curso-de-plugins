@@ -7,7 +7,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
-import java.io.File;
 
 public class ProjetoPermissao extends Projeto {
     private static ProjetoPermissao instance;
@@ -63,29 +62,11 @@ public class ProjetoPermissao extends Projeto {
     }
 
     public void saveUsuario(Player player){
-        saveUsuario(manager.getUsuario(player.getName()));
+      manager.saveUsuario(manager.getUsuario(player.getName()));
     }
-    public void saveUsuario(PermissaoUsuario usuario){
-        String nick = usuario.getPlayer().toLowerCase();
-        BukkitConfigs playerConfig = new BukkitConfigs("jogadores/" + nick + ".yml");
-        playerConfig.set("nome" , usuario.getPlayer());
-        playerConfig.set("permissoes", usuario.getPermissoes());
-        playerConfig.set("grupos",usuario.getGroupsNames());
-        playerConfig.saveConfig();
-    }
-    public void reloadPlayers(){
-        File pasta = new File(Curso.getInstance().getDataFolder(), "jogadores/");
-        pasta.mkdirs();
 
-        for (File arquivo : pasta.listFiles()){
-            String nick = arquivo.getName().replace(".yml","");
-            BukkitConfigs playerConfig = new BukkitConfigs("jogadores/" + nick + ".yml");
-            PermissaoUsuario usuario = new PermissaoUsuario();
-            usuario.setPlayer(playerConfig.getString("nome"));
-            usuario.getGroupsNames().addAll( playerConfig.getStringList("grupos"));
-            usuario.getPermissoes().addAll(playerConfig.getStringList("permissoes"));
-            manager.getUsuarios().put(usuario.getPlayer().toLowerCase() , usuario);
-        }
+    public void reloadPlayers(){
+        manager.getUsuariosModel().loadAll();
 
     }
 

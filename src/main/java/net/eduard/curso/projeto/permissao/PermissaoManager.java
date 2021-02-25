@@ -2,6 +2,8 @@ package net.eduard.curso.projeto.permissao;
 
 
 
+import net.eduard.curso.data.Model;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,9 +13,16 @@ public class PermissaoManager {
     public PermissaoManager() {
         gruposPadroes();
     }
-
+    private Model<PermissaoUsuario ,String ,Object> usuariosModel;
     private Map<String, PermissaoGrupo> grupos = new HashMap<>();
-    private Map<String, PermissaoUsuario> usuarios = new HashMap<>();
+
+
+    public void saveUsuario(PermissaoUsuario usuario){
+        usuariosModel.save(usuario);
+
+
+    }
+
 
     public void gruposPadroes() {
         PermissaoGrupo membro = new PermissaoGrupo();
@@ -26,18 +35,7 @@ public class PermissaoManager {
     }
 
     public PermissaoUsuario getUsuario(String player) {
-        if (usuarios.containsKey(player.toLowerCase())) {
-            return usuarios
-                    .get(player.toLowerCase());
-
-        }
-
-
-        PermissaoUsuario usuario = new PermissaoUsuario();
-        usuario.getGroupsNames().add("membro");
-        usuario.setPlayer(player);
-        usuarios.put(player.toLowerCase(), usuario);
-        return usuario;
+        return usuariosModel.getOrLoad(player);
 
     }
 
@@ -46,7 +44,11 @@ public class PermissaoManager {
         return grupos;
     }
 
-    public Map<String, PermissaoUsuario> getUsuarios() {
-        return usuarios;
+    public Model<PermissaoUsuario, String, Object> getUsuariosModel() {
+        return usuariosModel;
+    }
+
+    public void setUsuariosModel(Model<PermissaoUsuario, String, Object> usuariosModel) {
+        this.usuariosModel = usuariosModel;
     }
 }
