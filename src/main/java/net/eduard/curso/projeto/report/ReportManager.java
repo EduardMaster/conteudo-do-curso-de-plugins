@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ReportManager {
 
-
     private BukkitConfigs config =
             new BukkitConfigs("reports.yml");
 

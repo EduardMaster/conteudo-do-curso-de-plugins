@@ -5,6 +5,7 @@ package net.eduard.curso;
 import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.projeto.login.ProjetoLogin;
 import net.eduard.curso.projeto.minion.ProjetoMinion;
+import net.eduard.curso.projeto.permissao.ProjetoPermissao;
 import net.eduard.curso.projeto.report.*;
 import net.eduard.curso.projeto.tag.ProjetoTags;
 import net.eduard.curso.sistemas.SistemaScoreboard;
@@ -16,14 +17,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 /**
  * Classe principal na criação de plugin ela é uma extenção de
  * {@link JavaPlugin}<br>
- * <b>API</b> é o nome dado a um certo código ou métodos que facilitam a criação
- * de algo
+ *
  *
  * @author Eduard
  */
 public class Curso extends JavaPlugin {
     /**
-     * Instancia do Plugin (Básicamente guarda o plugin em uma variavel)
+     * Instancia do Plugin
      */
     private static Curso instance;
     /**
@@ -51,14 +51,15 @@ public class Curso extends JavaPlugin {
         getDataFolder().mkdirs();
         config = new BukkitConfigs("config.yml");
 
+        
         new SistemaScoreboard();
 
-
-
+        new ProjetoPermissao();
         new ProjetoMinion();
         new ProjetoLogin();
         new ProjetoReport();
         new ProjetoTags();
+
 
 
         for (Sistema sistema : Sistema.getSistemas()){

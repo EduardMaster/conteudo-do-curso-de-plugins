@@ -2,12 +2,9 @@ package net.eduard.curso.projeto.permissao;
 
 
 
-import net.eduard.curso.DadoConfig;
-import org.bukkit.configuration.ConfigurationSection;
-
 import java.util.*;
 
-public class PermissaoGrupo implements DadoConfig {
+public class PermissaoGrupo  {
 
     private String nome;
     private String prefix;
@@ -84,14 +81,4 @@ public class PermissaoGrupo implements DadoConfig {
 
     }
 
-
-    @Override
-    public void save(ConfigurationSection section) {
-
-    }
-
-    @Override
-    public void reload(ConfigurationSection section) {
-
-    }
 }

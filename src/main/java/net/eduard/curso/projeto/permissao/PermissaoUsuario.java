@@ -1,19 +1,15 @@
 package net.eduard.curso.projeto.permissao;
 
-import net.eduard.curso.DadoConfig;
-import org.bukkit.configuration.ConfigurationSection;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class PermissaoUsuario implements DadoConfig {
-
+public class PermissaoUsuario {
     private String player;
     private Set<String> groupsNames = new HashSet<>();
     private Set<String> permissoes = new HashSet<>();
-    private Map<String, Boolean> permissoesCalculadas = new HashMap<>();
+    private final Map<String, Boolean> permissoesCalculadas = new HashMap<>();
 
     public String getPlayer() {
         return player;
@@ -60,12 +56,5 @@ public class PermissaoUsuario implements DadoConfig {
             }
         }
     }
-    public void save(ConfigurationSection section){
-
-    }
-    public void reload(ConfigurationSection section){
-
-    }
-
 
 }
