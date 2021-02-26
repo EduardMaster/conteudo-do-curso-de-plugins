@@ -11,6 +11,7 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -19,6 +20,7 @@ dependencies {
     compileOnly("net.eduard:eduardapi:1.0-SNAPSHOT")
     compileOnly("org.bukkit:spigot:1.8.9")
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+    compileOnly("net.md-5:bungeecord-api:1.16-R0.2-SNAPSHOT")
     testCompile("junit", "junit", "4.12")
 }
 java.sourceCompatibility = JavaVersion.VERSION_1_8
