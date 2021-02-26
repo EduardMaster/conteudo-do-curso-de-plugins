@@ -11,6 +11,6 @@ public class CursoBungee  extends Plugin {
 
     @Override
     public void onDisable() {
-        
+
     }
 }
