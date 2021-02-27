@@ -10,8 +10,6 @@ import org.bukkit.permissions.PermissionAttachment;
 
 public class ProjetoPermissao extends Projeto {
     private static ProjetoPermissao instance;
-
-
     private static PermissaoManager manager;
 
     public static PermissaoManager getManager() {
@@ -28,7 +26,10 @@ public class ProjetoPermissao extends Projeto {
 
     @Override
     public void onEnable() {
+        instance = this;
         manager = new PermissaoManager();
+        manager.setUsuariosArmazenamento(new ArmazenamentoPermissaoUsuario());
+
         registerCommand("permissao" , new PermissaoComando());
         registerEvents(new PermissaoListener());
         config = new BukkitConfigs("grupos.yml");
@@ -66,7 +67,7 @@ public class ProjetoPermissao extends Projeto {
     }
 
     public void reloadPlayers(){
-        manager.getUsuariosModel().loadAll();
+       // manager.getUsuariosModel().loadAll();
 
     }
 

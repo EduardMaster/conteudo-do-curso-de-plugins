@@ -1,8 +1,7 @@
 package net.eduard.curso.projeto.permissao;
 
 
-
-import net.eduard.curso.data.Model;
+import net.eduard.curso.Armazenamento;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,16 +12,14 @@ public class PermissaoManager {
     public PermissaoManager() {
         gruposPadroes();
     }
-    private Model<PermissaoUsuario ,String ,Object> usuariosModel;
+
+    private Armazenamento<PermissaoUsuario , ?> usuariosArmazenamento;
+
     private Map<String, PermissaoGrupo> grupos = new HashMap<>();
 
-
     public void saveUsuario(PermissaoUsuario usuario){
-        usuariosModel.save(usuario);
-
-
+        usuariosArmazenamento.save(usuario);
     }
-
 
     public void gruposPadroes() {
         PermissaoGrupo membro = new PermissaoGrupo();
@@ -35,20 +32,19 @@ public class PermissaoManager {
     }
 
     public PermissaoUsuario getUsuario(String player) {
-        return usuariosModel.getOrLoad(player);
+        return usuariosArmazenamento.load(player);
 
     }
-
 
     public Map<String, PermissaoGrupo> getGrupos() {
         return grupos;
     }
 
-    public Model<PermissaoUsuario, String, Object> getUsuariosModel() {
-        return usuariosModel;
+    public Armazenamento<PermissaoUsuario, ?> getUsuariosArmazenamento() {
+        return usuariosArmazenamento;
     }
 
-    public void setUsuariosModel(Model<PermissaoUsuario, String, Object> usuariosModel) {
-        this.usuariosModel = usuariosModel;
+    public void setUsuariosArmazenamento(Armazenamento<PermissaoUsuario, ?> usuariosArmazenamento) {
+        this.usuariosArmazenamento = usuariosArmazenamento;
     }
 }

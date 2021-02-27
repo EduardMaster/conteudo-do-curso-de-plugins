@@ -18,15 +18,12 @@ public class PermissaoComando implements CommandExecutor {
             PermissaoUsuario usuario = manager
                     .getUsuario(player.getName());
 
-            sender
-                    .sendMessage("Você tem: "+ usuario.getGroupsNames().size() + " cargos");
+            sender.sendMessage("Você tem: "+ usuario.getGroupsNames().size() + " cargos");
 
-            sender
-                    .sendMessage("Você tem: "+ usuario.getPermissoes().size()
+            sender.sendMessage("Você tem: "+ usuario.getPermissoes().size()
                             + " permissões direto no seu perfil");
 
-            sender
-                    .sendMessage("Você tem: "+ usuario.getPermissoesCalculadas().size()
+            sender.sendMessage("Você tem: "+ usuario.getPermissoesCalculadas().size()
                             + " permissões ativadas no momento");
 
 
