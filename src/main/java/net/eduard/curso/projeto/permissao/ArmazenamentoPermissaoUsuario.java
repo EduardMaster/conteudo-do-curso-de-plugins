@@ -45,7 +45,7 @@ public class ArmazenamentoPermissaoUsuario implements
 
     @Override
     public Collection<PermissaoUsuario> loadAll() {
-        
+
         return cacheamento.values();
     }
 
