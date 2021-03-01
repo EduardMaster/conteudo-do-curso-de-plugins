@@ -13,6 +13,8 @@ public interface Armazenamento<T, M> {
 
     T load(String key);
 
+    T loadOrGet(String key);
+
     Collection<T> loadAll();
 
     void reload(T dado);

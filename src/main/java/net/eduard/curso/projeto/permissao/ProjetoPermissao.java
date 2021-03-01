@@ -67,8 +67,7 @@ public class ProjetoPermissao extends Projeto {
     }
 
     public void reloadPlayers(){
-       // manager.getUsuariosModel().loadAll();
-
+      manager.getUsuariosArmazenamento().loadAll();
     }
 
 

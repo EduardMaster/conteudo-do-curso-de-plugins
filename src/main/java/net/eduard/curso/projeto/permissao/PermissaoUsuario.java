@@ -41,6 +41,9 @@ public class PermissaoUsuario {
 
 
     public boolean hasPermission(String permission){
+        if (permissoesCalculadas.containsKey("*")){
+            return true;
+        }
         return permissoesCalculadas.getOrDefault(permission.toLowerCase()
                 , false);
 

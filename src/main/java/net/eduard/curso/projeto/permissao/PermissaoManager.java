@@ -32,7 +32,7 @@ public class PermissaoManager {
     }
 
     public PermissaoUsuario getUsuario(String player) {
-        return usuariosArmazenamento.load(player);
+        return usuariosArmazenamento.loadOrGet(player);
 
     }
 

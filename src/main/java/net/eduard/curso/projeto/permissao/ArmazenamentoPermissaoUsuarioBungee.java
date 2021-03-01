@@ -1,8 +1,9 @@
 package net.eduard.curso.projeto.permissao;
 
-import net.eduard.api.lib.config.BukkitConfigs;
+import net.eduard.api.lib.config.BungeeConfigs;
 import net.eduard.curso.Armazenamento;
 import net.eduard.curso.Curso;
+import net.eduard.curso.CursoBungee;
 
 import java.io.File;
 import java.util.Arrays;
@@ -10,14 +11,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArmazenamentoPermissaoUsuario implements
-        Armazenamento<PermissaoUsuario , BukkitConfigs> {
+public class ArmazenamentoPermissaoUsuarioBungee implements
+        Armazenamento<PermissaoUsuario , BungeeConfigs> {
     private HashMap<String, PermissaoUsuario> cacheamento = new HashMap<>();
 
 
     @Override
-    public BukkitConfigs getBy(String key) {
-        return new BukkitConfigs("jogadores/"+key.toLowerCase() +".yml");
+    public BungeeConfigs getBy(String key) {
+
+        return new BungeeConfigs("jogadores/"+key.toLowerCase() +".yml"
+                , CursoBungee.getInstance());
     }
 
     @Override
@@ -28,7 +31,7 @@ public class ArmazenamentoPermissaoUsuario implements
     @Override
     public void save(PermissaoUsuario usuario) {
 
-        BukkitConfigs config = getBy(usuario.getPlayer());
+        BungeeConfigs config = getBy(usuario.getPlayer());
         config.set("nome", usuario.getPlayer());
         config.set("permissoes" , Arrays.asList( usuario.getPermissoes() ) );
         config.set("cargos" , Arrays.asList( usuario.getGroupsNames() ));
@@ -68,7 +71,7 @@ public class ArmazenamentoPermissaoUsuario implements
 
     @Override
     public void reload(PermissaoUsuario usuario) {
-        BukkitConfigs config = getBy(usuario.getPlayer());
+        BungeeConfigs config = getBy(usuario.getPlayer());
         usuario.setPlayer( config.getString("nome"));
         usuario.getPermissoes().clear();
         usuario.getGroupsNames().clear();
