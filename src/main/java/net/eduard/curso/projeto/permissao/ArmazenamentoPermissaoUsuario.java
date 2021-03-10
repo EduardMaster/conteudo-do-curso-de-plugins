@@ -3,6 +3,7 @@ package net.eduard.curso.projeto.permissao;
 import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.Armazenamento;
 import net.eduard.curso.Curso;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
 
 import java.io.File;
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArmazenamentoPermissaoUsuario implements
-        Armazenamento<PermissaoUsuario , BukkitConfigs> {
+        Armazenamento<PermissaoUsuario, BukkitConfigs> {
     private HashMap<String, PermissaoUsuario> cacheamento = new HashMap<>();
 
 

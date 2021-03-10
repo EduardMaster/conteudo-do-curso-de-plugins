@@ -1,4 +1,4 @@
-package net.eduard.curso.projeto.permissao;
+package net.eduard.curso.projeto.permissao.objetos;
 
 import java.util.HashMap;
 import java.util.HashSet;

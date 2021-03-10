@@ -1,7 +1,9 @@
-package net.eduard.curso.projeto.permissao;
+package net.eduard.curso.projeto.permissao.objetos;
 
 
 import net.eduard.curso.Armazenamento;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoGrupo;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +15,7 @@ public class PermissaoManager {
         gruposPadroes();
     }
 
-    private Armazenamento<PermissaoUsuario , ?> usuariosArmazenamento;
+    private Armazenamento<PermissaoUsuario, ?> usuariosArmazenamento;
 
     private Map<String, PermissaoGrupo> grupos = new HashMap<>();
 

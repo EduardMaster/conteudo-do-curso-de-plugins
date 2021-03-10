@@ -3,6 +3,9 @@ package net.eduard.curso.projeto.permissao;
 import net.eduard.api.lib.config.BukkitConfigs;
 import net.eduard.curso.Curso;
 import net.eduard.curso.Projeto;
+import net.eduard.curso.projeto.permissao.cmd.PermissaoComando;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoGrupo;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoManager;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
@@ -30,7 +33,7 @@ public class ProjetoPermissao extends Projeto {
         manager = new PermissaoManager();
         manager.setUsuariosArmazenamento(new ArmazenamentoPermissaoUsuario());
 
-        registerCommand("permissao" , new PermissaoComando());
+        //registerCommand("permissao" , new PermissaoComando());
         registerEvents(new PermissaoListener());
         config = new BukkitConfigs("grupos.yml");
         reload();

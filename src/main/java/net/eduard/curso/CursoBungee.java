@@ -2,7 +2,7 @@ package net.eduard.curso;
 
 import net.eduard.curso.projeto.permissao.ArmazenamentoPermissaoUsuarioBungee;
 import net.eduard.curso.projeto.permissao.PermissaoBungeeListener;
-import net.eduard.curso.projeto.permissao.PermissaoManager;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoManager;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 

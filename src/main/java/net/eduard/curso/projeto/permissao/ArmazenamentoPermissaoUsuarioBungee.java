@@ -4,6 +4,7 @@ import net.eduard.api.lib.config.BungeeConfigs;
 import net.eduard.curso.Armazenamento;
 import net.eduard.curso.Curso;
 import net.eduard.curso.CursoBungee;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
 
 import java.io.File;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArmazenamentoPermissaoUsuarioBungee implements
-        Armazenamento<PermissaoUsuario , BungeeConfigs> {
+        Armazenamento<PermissaoUsuario, BungeeConfigs> {
     private HashMap<String, PermissaoUsuario> cacheamento = new HashMap<>();
 
 

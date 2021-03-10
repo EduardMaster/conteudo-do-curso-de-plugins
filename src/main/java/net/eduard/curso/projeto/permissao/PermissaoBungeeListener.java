@@ -1,6 +1,7 @@
 package net.eduard.curso.projeto.permissao;
 
 import net.eduard.curso.CursoBungee;
+import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
 import net.md_5.bungee.api.event.PermissionCheckEvent;
 import net.md_5.bungee.api.event.ServerConnectedEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -28,8 +29,6 @@ public class PermissaoBungeeListener implements Listener {
     public void checkPermission(PermissionCheckEvent e){
         String key = e.getSender().getName();
         PermissaoUsuario usuario = ProjetoPermissao.getManager().getUsuario(key);
-
-
         e.setHasPermission(usuario.hasPermission(e.getPermission()));
     }
 }
