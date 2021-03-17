@@ -1,10 +1,9 @@
 package net.eduard.curso.java;
 
-import net.eduard.curso.java.objetos.FakeLocation;
-import net.eduard.curso.java.objetos.FakeMaquina;
 
 import java.util.HashMap;
 import java.util.Random;
+import net.eduard.curso.java.TutorialDadosHashMap.*;
 
 public class TesteVelocidadeHashMap {
 
@@ -13,9 +12,9 @@ public class TesteVelocidadeHashMap {
         int maximo = 150000;
         Random r = new Random();
         FakeMaquina ultimaMaquina = null;
-        System.out.println("Iniciando inserção de dados "+maximo);
+        System.out.println("Iniciando inserção de dados " + maximo);
         long tempoInicial = System.currentTimeMillis();
-        for (int id = 0;id<maximo;id++){
+        for (int id = 0; id < maximo; id++) {
             FakeLocation local = new FakeLocation();
             local.setWorld("world");
             local.setX(r.nextInt(maximo));
@@ -23,9 +22,9 @@ public class TesteVelocidadeHashMap {
             local.setZ(r.nextInt(maximo));
 
             FakeMaquina maquina = new FakeMaquina();
-            maquina.setDono("DonoAleatorio"+r.nextInt(maximo));
+            maquina.setDono("DonoAleatorio" + r.nextInt(maximo));
             maquina.setLocal(local);
-            mapa.put(local,maquina);
+            mapa.put(local, maquina);
 
             if (r.nextDouble() < 0.05) {
                 ultimaMaquina = maquina;
@@ -37,30 +36,28 @@ public class TesteVelocidadeHashMap {
         long tempoFinal = System.currentTimeMillis();
         long dif = tempoFinal - tempoInicial;
 
-        System.out.println("Inserção terminada diferença em millis: "+dif);
+        System.out.println("Inserção terminada diferença em millis: " + dif);
         tempoInicial = System.currentTimeMillis();
         FakeMaquina encontrado = mapa.get(ultimaMaquina.getLocal());
-        System.out.println("Maquina é igual? "+(encontrado == ultimaMaquina));
+        System.out.println("Maquina é igual? " + (encontrado == ultimaMaquina));
         tempoFinal = System.currentTimeMillis();
         dif = tempoFinal - tempoInicial;
-        System.out.println("Tempo pesquisando ultimo dado da mapa usando HashCode "+dif);
+        System.out.println("Tempo pesquisando ultimo dado da mapa usando HashCode " + dif);
 
         tempoInicial = System.currentTimeMillis();
-       int  vezesPassado = 0;
+        int vezesPassado = 0;
 
-        for (FakeMaquina maquina  : mapa.values()){
+        for (FakeMaquina maquina : mapa.values()) {
             vezesPassado++;
-            if (maquina.getLocal().equals( ultimaMaquina.getLocal())){
-                System.out.println("Maquina encontrada em "+vezesPassado);
+            if (maquina.getLocal().equals(ultimaMaquina.getLocal())) {
+                System.out.println("Maquina encontrada em " + vezesPassado);
                 tempoFinal = System.currentTimeMillis();
                 dif = tempoFinal - tempoInicial;
-                System.out.println("Tempo pesquisando ultimo dado da mapa usando equals "+dif);
+                System.out.println("Tempo pesquisando ultimo dado da mapa usando equals " + dif);
                 break;
             }
         }
     }
-
-
 
 
 }

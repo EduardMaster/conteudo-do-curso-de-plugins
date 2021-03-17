@@ -1,5 +1,6 @@
 package net.eduard.curso.projeto.maquina;
 
+import net.eduard.api.lib.storage.annotations.StorageAttributes;
 import org.bukkit.Location;
 
 import net.eduard.api.lib.storage.Storable;

@@ -8,8 +8,6 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-import org.bukkit.configuration.file.YamlConfiguration;
-
 public class TutorialUserArquivos {
 
 	public static void main(String[] args) throws Exception {
@@ -27,12 +25,10 @@ public class TutorialUserArquivos {
 		System.out.println(new String(byteArray,"UTF-8"));
 		File file = new File("E:/arquivo2.yml");
 		File file2 = new File("E:/arquivo3.yml");
-		YamlConfiguration config = new YamlConfiguration();
-		config.set("Edu", "§2Boládo");
+
 
 		FileOutputStream escrever = new FileOutputStream(file);
 		
-		escrever.write(config.saveToString().getBytes(StandardCharsets.ISO_8859_1));
 		escrever.close();
 		
 		FileInputStream lendo3 = new FileInputStream(file);

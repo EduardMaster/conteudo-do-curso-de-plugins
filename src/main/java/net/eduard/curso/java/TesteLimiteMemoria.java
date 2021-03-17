@@ -78,14 +78,12 @@ public class TesteLimiteMemoria {
 			System.out.println("maxMemory KB: " + df.format(Runtime.getRuntime().maxMemory() / 1024));
 			System.out.println("totalMemory KB: " + df.format(Runtime.getRuntime().totalMemory() / 1024));
 			System.out.println("usedMemory KB: " + df.format(getUsedMemory() / 1024));
-
 			for (int i = 0; i < 100000; i++) {
 				listinha.add("novo numero: " + i);
 			}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -95,11 +93,9 @@ public class TesteLimiteMemoria {
 		DecimalFormat dec = new DecimalFormat("#,###.0");
 		Runtime r = Runtime.getRuntime();
 		while (true) {
-
 			long freeMemory = r.freeMemory();
 			long totalMemory = r.totalMemory();
 			long maxMemory = r.maxMemory();
-
 			for (int i = 0; i < 1_000_000; i++) {
 				dados.add(" numero " + contagematual);
 				contagematual++;
@@ -108,11 +104,9 @@ public class TesteLimiteMemoria {
 			System.out.println("Total " + dec.format(totalMemory));
 			System.out.println("Max " + dec.format(maxMemory));
 			try {
-
 				System.out.println(" ");
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

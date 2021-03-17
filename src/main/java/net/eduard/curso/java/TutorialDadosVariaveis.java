@@ -1,9 +1,28 @@
 package net.eduard.curso.java;
 
-import net.eduard.curso.java.objetos.Pessoa;
 
 public class TutorialDadosVariaveis {
+	public static class Pessoa {
 
+		public String nome = "Sem nome";
+		public int idade = 1;
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public int getIdade() {
+			return idade;
+		}
+
+		public void setIdade(int idade) {
+			this.idade = idade;
+		}
+	}
 	public static void forInfinito1() {
 		for (;;) {
 			System.out.println("For que nunca acaba");

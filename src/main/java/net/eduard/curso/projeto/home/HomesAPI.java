@@ -3,6 +3,7 @@ package net.eduard.curso.projeto.home;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import net.eduard.api.lib.config.BukkitConfigs;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -10,7 +11,7 @@ import net.eduard.api.lib.config.BukkitConfig;
 
 public class HomesAPI {
 
-	public static BukkitConfig homeConfig = new BukkitConfig("armazenamento.yml");
+	public static BukkitConfigs homeConfig = new BukkitConfigs("armazenamento.yml");
 
 	public static void setHome(Player player, String home) {
 		homeConfig.set("armazenamento." + player.getName() + "." + home, player.getLocation());

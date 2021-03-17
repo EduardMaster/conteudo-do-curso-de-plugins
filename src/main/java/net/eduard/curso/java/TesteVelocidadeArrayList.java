@@ -1,7 +1,7 @@
 package net.eduard.curso.java;
 
-import net.eduard.curso.java.objetos.FakeLocation;
-import net.eduard.curso.java.objetos.FakeMaquina;
+
+import net.eduard.curso.java.TutorialDadosHashMap.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,7 +30,6 @@ public class TesteVelocidadeArrayList {
         }
         long tempoFinal = System.currentTimeMillis();
         long dif = tempoFinal - tempoInicial;
-
         System.out.println("Inserção terminada diferença em millis: " + dif);
         tempoInicial = System.currentTimeMillis();
         int vezesPassado = 0;
@@ -47,7 +46,6 @@ public class TesteVelocidadeArrayList {
         }
         tempoInicial = System.currentTimeMillis();
         vezesPassado = 0;
-
         for (FakeMaquina maquina : lista) {
             vezesPassado++;
             if (maquina.getLocal().equals(ultimaMaquina.getLocal())) {
@@ -60,7 +58,6 @@ public class TesteVelocidadeArrayList {
         }
         tempoInicial = System.currentTimeMillis();
         vezesPassado = 0;
-
         for (int id = 0; id < lista.size(); id++) {
             FakeMaquina maquina = lista.get(id);
             vezesPassado++;

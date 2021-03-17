@@ -4,13 +4,14 @@ package net.eduard.curso.java;
  * Aumentou o Uso da CPU de 75% depois se mantem no 25%
  */
 public class TesteLimiteCPU {
-    public static void a( ){
+    public static void a() {
 
     }
+
     public static void main(String[] args) {
-        while(true){
+        while (true) {
             for (long i = 0; i < Long.MAX_VALUE; i++) {
-                    a();
+                a();
 
             }
             try {

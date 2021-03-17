@@ -1,6 +1,5 @@
 package net.eduard.curso.projeto.report;
 
-import net.eduard.curso.ConfigData;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
@@ -10,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Report implements ConfigData {
+public class Report  {
 
     private static SimpleDateFormat formatador =
             new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
