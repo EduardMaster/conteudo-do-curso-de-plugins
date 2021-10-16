@@ -1,9 +1,7 @@
 package net.eduard.curso.projeto.permissao.objetos;
 
 
-import net.eduard.curso.Armazenamento;
-import net.eduard.curso.projeto.permissao.objetos.PermissaoGrupo;
-import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
+import net.eduard.curso.api.Armazenamento;
 
 import java.util.HashMap;
 import java.util.Map;

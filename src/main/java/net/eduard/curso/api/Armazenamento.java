@@ -1,4 +1,4 @@
-package net.eduard.curso;
+package net.eduard.curso.api;
 
 import java.util.Collection;
 import java.util.Map;

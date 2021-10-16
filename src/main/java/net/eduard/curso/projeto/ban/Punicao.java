@@ -3,12 +3,10 @@ package net.eduard.curso.projeto.ban;
 
 public class Punicao {
 
-
 	private String autor, punido, motivo,prova;
 	private PunicaoTipo tipo;
 	private long duracao;
 	private long data;
-	
 
 	public String getAutor() {
 		return autor;

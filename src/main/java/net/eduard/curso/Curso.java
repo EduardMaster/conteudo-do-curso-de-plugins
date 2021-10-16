@@ -11,6 +11,8 @@ import net.eduard.curso.projeto.tag.ProjetoTags;
 import net.eduard.curso.sistemas.SistemaScoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -50,7 +52,6 @@ public class Curso extends JavaPlugin {
         instance = this;
         getDataFolder().mkdirs();
         config = new BukkitConfigs("config.yml");
-
         
         new SistemaScoreboard();
 

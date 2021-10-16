@@ -1,7 +1,7 @@
 package net.eduard.curso.projeto.permissao;
 
 import net.eduard.api.lib.config.BukkitConfigs;
-import net.eduard.curso.Armazenamento;
+import net.eduard.curso.api.Armazenamento;
 import net.eduard.curso.Curso;
 import net.eduard.curso.projeto.permissao.objetos.PermissaoUsuario;
 
