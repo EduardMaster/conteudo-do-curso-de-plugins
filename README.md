@@ -1,2 +1,2 @@
 # Conteúdo do Curso de Plugins do Eduard
-Este repositório contem  quase todo o conteúdo do curso em um Projeto
+Este repositório contem exemplos de sistemas de Plugins colocados todos em um projeto só
